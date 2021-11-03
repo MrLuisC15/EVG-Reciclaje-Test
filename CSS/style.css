@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
 *{
     padding: 0;
     margin: 0;
@@ -6,19 +7,42 @@
 body{
     display: flex;
     align-items: center;
-    justify-content: center;
+    /* justify-content: center; */
     flex-direction: column;
     min-height: 100vh;
+    font-family: 'Righteous', cursive;
+    background: #FF1934;
+    background: -webkit-linear-gradient(right, #FF1934, #EA8A78);
+    background: -moz-linear-gradient(right, #FF1934, #EA8A78);
+    background: linear-gradient(to left, #FF1934, #EA8A78);
 }
-#div1 {
-    width: 350px;
-    height: 70px;
-    padding: 10px;
-    border: 1px solid #aaaaaa;
-    clear: left;
-    }
+h1{
+    font-size: 1.8em;
+    margin-top: 10px;
+    padding: 15px;
+    background-color: white;
+    border-radius: 10px;
+}
+#maincontainer{
+    background-color: white;
+    border-radius: 20px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+div{
+    float: left;
+    margin-top: 20px;
+    padding: 20px;
+}
+#contenedorimg {
+    border: 15px solid red;
+    border-radius: 20px;
+    background-color: rgb(255, 170, 184);
+}
+.items{
+    height: 50px;
+}
 #papeleras{
-    bottom: 0;
     border: 15px solid red;
     border-radius: 20px;
     background-color: rgb(255, 170, 184);
@@ -27,19 +51,4 @@ body{
 }    
 #papeleras img {
     height: 250px;
-}
-
-div
-{
-    float: left;
-}
-
-.items
-{
-    height: 50px;
-}
-
-#contenedorimg {
-    min-height: 600px;
-    border: 2px solid red;
 }

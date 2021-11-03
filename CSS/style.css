@@ -7,13 +7,14 @@
     }
 
 #papeleras img {
-    height: 150px;
+    height: 500px;
 }
 div
 {
     float: left;
 }
-div img
+
+.items
 {
     height: 50px;
 }

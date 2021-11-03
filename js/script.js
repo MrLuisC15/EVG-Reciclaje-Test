@@ -2,9 +2,9 @@
 let verde=document.getElementById("pverde");
 let azul=document.getElementById("pazul");
 let amarillo=document.getElementById("pamarillo");
-verde.ondrop=drop(event)
-azul.ondrop=drop(event)
-amarillo.ondrop=drop(event)
+verde.ondrop=drop
+azul.ondrop=drop
+amarillo.ondrop=drop
 
 verde.ondragover=allowDrop(event)
 azul.ondragover=allowDrop(event)

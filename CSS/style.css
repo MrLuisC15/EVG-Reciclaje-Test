@@ -6,9 +6,11 @@
     clear: left;
     }
 #papeleras{
-    border: 30px solid red;
+    border: 15px solid red;
+    border-radius: 20px;
     background-color: rgb(255, 170, 184);
     clear: left;
+    width: auto;
 }    
 #papeleras img {
     height: 250px;

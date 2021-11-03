@@ -3,6 +3,7 @@
     height: 70px;
     padding: 10px;
     border: 1px solid #aaaaaa;
+    clear: left;
     }
 
 #papeleras img {
@@ -12,7 +13,8 @@ div
 {
     float: left;
 }
-img
+div img
 {
-    
+    height: 400px;
+    width: 400px;
 }

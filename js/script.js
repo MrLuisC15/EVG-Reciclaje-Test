@@ -2,16 +2,15 @@
 let verde=document.getElementById("pverde");
 let azul=document.getElementById("pazul");
 let amarillo=document.getElementById("pamarilla");
-/*verde.addEventListener('drop',drop)
-azul.addEventListener('drop',drop)
-amarillo.addEventListener('drop',drop)*/
-/*verde.ondrop=drop.bind()
-azul.ondrop=drop
-amarillo.ondrop=drop*/
 
-/*verde.ondragover=allowDrop(event)
-azul.ondragover=allowDrop(event)
-amarillo.ondragover=allowDrop(event)*/
+verde.setAttribute("ondrop", "drop(event)")
+azul.setAttribute("ondrop", "drop(event)")
+amarillo.setAttribute("ondrop", "drop(event)")
+
+verde.setAttribute("ondragover", "allowDrop(event)")
+azul.setAttribute("ondragover", "allowDrop(event)")
+amarillo.setAttribute("ondragover", "allowDrop(event)")
+
 function allowDrop(ev) {
     ev.preventDefault();
   }

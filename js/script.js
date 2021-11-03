@@ -1,7 +1,7 @@
 'use strict'
-verde=document.getElementById("pverde");
-azul=document.getElementById("pazul");
-amarillo=document.getElementById("pamarillo");
+let verde=document.getElementById("pverde");
+let azul=document.getElementById("pazul");
+let amarillo=document.getElementById("pamarillo");
 verde.ondrop=drop(event)
 azul.ondrop=drop(event)
 amarillo.ondrop=drop(event)

@@ -1,10 +1,13 @@
 'use strict'
 let verde=document.getElementById("pverde");
 let azul=document.getElementById("pazul");
-let amarillo=document.getElementById("pamarillo");
-verde.ondrop=drop
+let amarillo=document.getElementById("pamarilla");
+verde.addEventListener('drop',drop)
+azul.addEventListener('drop',drop)
+amarillo.addEventListener('drop',drop)
+/*verde.ondrop=drop
 azul.ondrop=drop
-amarillo.ondrop=drop
+amarillo.ondrop=drop*/
 
 verde.ondragover=allowDrop(event)
 azul.ondragover=allowDrop(event)

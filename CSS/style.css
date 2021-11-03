@@ -9,6 +9,9 @@ body{
     justify-content: center;
     min-height: 100vh;
 }
+#maincontainer{
+    position: relative;
+}
 #div1 {
     width: 350px;
     height: 70px;
@@ -17,6 +20,8 @@ body{
     clear: left;
     }
 #papeleras{
+    position: absolute;
+    bottom: 0;
     border: 15px solid red;
     border-radius: 20px;
     background-color: rgb(255, 170, 184);

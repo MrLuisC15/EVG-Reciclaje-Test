@@ -9,9 +9,9 @@ amarillo.addEventListener('drop',drop)*/
 azul.ondrop=drop
 amarillo.ondrop=drop*/
 
-verde.ondragover=allowDrop(event)
+/*verde.ondragover=allowDrop(event)
 azul.ondragover=allowDrop(event)
-amarillo.ondragover=allowDrop(event)
+amarillo.ondragover=allowDrop(event)*/
 function allowDrop(ev) {
     ev.preventDefault();
   }

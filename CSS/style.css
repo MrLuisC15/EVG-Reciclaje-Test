@@ -51,6 +51,7 @@ div{
     background-color: rgb(255, 170, 184);
     clear: left;
     width: 100%;
+    text-align: center;
 }    
 #papeleras img {
     height: 200px;

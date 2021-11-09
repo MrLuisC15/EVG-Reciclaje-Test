@@ -28,16 +28,18 @@ h1{
     border-radius: 20px;
     padding: 20px;
     margin-bottom: 20px;
+    width: 80%;
 }
 div{
     float: left;
     margin-top: 20px;
     padding: 20px;
 }
-#contenedorimg {
+#divPrincipal {
     border: 15px solid red;
     border-radius: 20px;
     background-color: rgb(255, 170, 184);
+    width: 80%;
 }
 .items{
     height: 50px;

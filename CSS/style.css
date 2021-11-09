@@ -40,7 +40,7 @@ div{
     border: 15px solid red;
     border-radius: 20px;
     background-color: rgb(255, 170, 184);
-    width: 80%;
+    width: 100%;
 }
 .items{
     height: 50px;
@@ -50,7 +50,7 @@ div{
     border-radius: 20px;
     background-color: rgb(255, 170, 184);
     clear: left;
-    width: auto;
+    width: 100%;
 }    
 #papeleras img {
     height: 200px;

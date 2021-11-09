@@ -29,6 +29,7 @@ h1{
     padding: 20px;
     margin-bottom: 20px;
     width: 80%;
+    text-align: center;
 }
 div{
     float: left;
@@ -40,7 +41,6 @@ div{
     border-radius: 20px;
     background-color: rgb(255, 170, 184);
     width: 80%;
-    margin: auto;
 }
 .items{
     height: 50px;
@@ -51,7 +51,6 @@ div{
     background-color: rgb(255, 170, 184);
     clear: left;
     width: auto;
-    margin: auto;
 }    
 #papeleras img {
     height: 200px;

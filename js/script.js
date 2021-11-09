@@ -77,7 +77,7 @@ class Vista{
       img.setAttribute("draggable","true")
       img.setAttribute("ondragstart","drag(event)")
       //this.contadorTop=this.contadorTop+20
-      this.contadorItems++
+      this.contadorItems=+this.contadorItems+1
       console.log(contadorItems);
       
    }

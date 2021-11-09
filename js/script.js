@@ -24,7 +24,7 @@ function drop(ev) {
 
 class Juego{
    constructor(){
-      this.vista = new Vista()
+      this.vista = new Vista(0)
       this.modelo = new Modelo()
       this.animador = null
       this.divPrincipal = null
@@ -54,9 +54,9 @@ class Juego{
  * Clase vista que muestra el juego
  */
 class Vista{
-   constructor(){
+   constructor(contador){
       //this.contadorTop = 10
-      this.contadorItems=0
+      this.contadorItems=contador
    }
 
    /**
@@ -73,12 +73,12 @@ class Vista{
       img.classList.add('items')
       //img.style.top = 10+'px'
       //img.style.left = Math.floor(Math.random() *85)+'%'
-      img.setAttribute("id", contadorItems)
+      img.setAttribute("id", this.contadorItems)
       img.setAttribute("draggable","true")
       img.setAttribute("ondragstart","drag(event)")
       //this.contadorTop=this.contadorTop+20
       this.contadorItems=+this.contadorItems+1
-      console.log(contadorItems);
+      console.log(this.contadorItems);
       
    }
 }

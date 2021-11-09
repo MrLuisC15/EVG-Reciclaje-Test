@@ -56,6 +56,7 @@ class Juego{
 class Vista{
    constructor(){
       //this.contadorTop = 10
+      this.contadorItems=0
    }
 
    /**
@@ -76,7 +77,7 @@ class Vista{
       img.setAttribute("draggable","true")
       img.setAttribute("ondragstart","drag(event)")
       //this.contadorTop=this.contadorTop+20
-      contadorItems++
+      this.contadorItems++
       console.log(contadorItems);
       
    }

@@ -103,17 +103,20 @@ let draggable3=document.getElementById("drag3")
 verde.setAttribute("ondrop", "drop(event)")
 azul.setAttribute("ondrop", "drop(event)")
 amarillo.setAttribute("ondrop", "drop(event)")
-draggable.setAttribute("draggable","true")
-draggable2.setAttribute("draggable","true")
-draggable3.setAttribute("draggable","true")
+
 
 verde.setAttribute("ondragover", "allowDrop(event)")
 azul.setAttribute("ondragover", "allowDrop(event)")
 amarillo.setAttribute("ondragover", "allowDrop(event)")
+
+/*
+draggable.setAttribute("draggable","true")
+draggable2.setAttribute("draggable","true")
+draggable3.setAttribute("draggable","true")
 draggable.setAttribute("ondragstart","drag(event)")
 draggable2.setAttribute("ondragstart","drag(event)")
 draggable3.setAttribute("ondragstart","drag(event)")
-
+*/
   
 
 var app = new Juego()

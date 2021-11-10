@@ -32,7 +32,7 @@ function dropAmarillo(ev) {
 
    setTimeout(() => {
       papelera.style.background = "#ffffff"
-   }, 500);
+   }, 750);
 
 }
 
@@ -52,7 +52,7 @@ function dropAzul(ev) {
 
    setTimeout(() => {
       papelera.style.background = "#ffffff"
-   }, 500);
+   }, 750);
 
  }
 
@@ -72,7 +72,7 @@ function dropAzul(ev) {
 
    setTimeout(() => {
       papelera.style.background = "#ffffff"
-   }, 500);
+   }, 750);
 
  }
 

@@ -56,7 +56,7 @@ class Juego{
    iniciar(){
       console.log('Iniciando...');
       this.divPrincipal = document.getElementById('divPrincipal')
-      this.generadorItems= window.setInterval(this.generarItem.bind(this), 3000)
+      this.generadorItems= window.setInterval(this.generarItem.bind(this), 1000)
       this.animador = window.setInterval
    }
 
@@ -96,7 +96,7 @@ class Vista{
       img.classList.add(clase)
 
       img.style.top = Math.floor(Math.random() *300)+'px'
-      img.style.left = Math.floor(Math.random() *85)+'%'
+      img.style.left = Math.floor(Math.random() *95)+'%'
       img.setAttribute("id", this.contadorItems)
       img.setAttribute("draggable","true")
       img.setAttribute("ondragstart","drag(event)")

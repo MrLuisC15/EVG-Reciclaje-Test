@@ -34,7 +34,7 @@ h1{
 div{
     float: left;
     margin-top: 20px;
-    padding: 20px;
+    padding: 10px;
 }
 #divPrincipal {
     border: 15px solid red;
@@ -65,9 +65,9 @@ div{
         width: 95%;
     }
     #papeleras img {
-        height: 80px;
+        height: 60px;
     }
     .items{
-        height: 40px;
+        height: 30px;
     }
 }

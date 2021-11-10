@@ -31,7 +31,7 @@ function dropAmarillo(ev) {
    }
 
    setTimeout(() => {
-      papelera.style.backgroundColor = 'white'
+      papelera.style.backgroundColor = "white"
    }, 1000);
 }
 

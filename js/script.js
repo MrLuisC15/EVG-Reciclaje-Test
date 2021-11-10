@@ -98,12 +98,12 @@ class Vista{
       //img.style.top = 10+'px'
       //img.style.left = Math.floor(Math.random() *85)+'%'
       img.setAttribute("id", this.contadorItems)
-      img.setAttribute("onclick","drag(event)")
+      
       img.setAttribute("draggable","true")
+      img.setAttribute("onclick","drag(event)")
       img.setAttribute("ondragstart","drag(event)")
       //this.contadorTop=this.contadorTop+20
       this.contadorItems=+this.contadorItems+1
-      console.log(this.contadorItems);
       
    }
 

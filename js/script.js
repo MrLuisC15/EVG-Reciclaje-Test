@@ -19,24 +19,30 @@ function drag(ev) {
 function dropAmarillo(ev) {
    ev.preventDefault();
    var data = ev.dataTransfer.getData("text");
-   if(document.getElementById(data).classList.value=='items itemAmarillo')
+   if(document.getElementById(data).classList.value=='items itemAmarillo'){
       ev.target.appendChild(document.getElementById(data));
+      Juego.masPunto
+   }
+
 
 }
 
 function dropAzul(ev) {
    ev.preventDefault();
    var data = ev.dataTransfer.getData("text");
-   if(document.getElementById(data).classList.value=='items itemAzul')
+   if(document.getElementById(data).classList.value=='items itemAzul'){
       ev.target.appendChild(document.getElementById(data));
-
+      Juego.masPunto
+   }
  }
 
  function dropVerde(ev) {
    ev.preventDefault();
    var data = ev.dataTransfer.getData("text");
-   if(document.getElementById(data).classList.value=='items itemVerde')
+   if(document.getElementById(data).classList.value=='items itemVerde'){
       ev.target.appendChild(document.getElementById(data));
+      Juego.masPunto
+   }
 
  }
 
@@ -46,6 +52,7 @@ class Juego{
       this.modelo = new Modelo()
       this.animador = null
       this.divPrincipal = null
+      this.puntos = 0
       window.onload = this.iniciar.bind(this)
    }
 
@@ -67,6 +74,11 @@ class Juego{
       contadorItems++
    }
 
+   masPunto(){
+      this.puntos=this.puntos+1
+      let divPuntos=document.getElementById('puntos')
+      divPuntos.innerHTML = this.puntos
+   }
 }
 /**
  * Clase vista que muestra el juego

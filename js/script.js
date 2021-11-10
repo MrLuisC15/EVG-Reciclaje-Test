@@ -6,7 +6,7 @@
 **/
 'use strict'
 
-let puntos
+let puntos = 0
 
 function allowDrop(ev) {
    ev.preventDefault();

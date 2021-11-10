@@ -1,6 +1,6 @@
 /**
-   mecatron3k.js
-   Controlador principal del juego Mecatron-3000
+   script.js
+   Minijuego de reciclaje
    @author Luis C Marzal
    @license GLP v3 2021 
 **/
@@ -9,18 +9,36 @@
 
 
 function allowDrop(ev) {
-  ev.preventDefault();
+   ev.preventDefault();
 }
 
 function drag(ev) {
-  ev.dataTransfer.setData("text", ev.target.id);
+   ev.dataTransfer.setData("text", ev.target.id);
 }
 
-function drop(ev) {
-  ev.preventDefault();
-  var data = ev.dataTransfer.getData("text");
-  ev.target.appendChild(document.getElementById(data));
+function dropAmarillo(ev) {
+   ev.preventDefault();
+   var data = ev.dataTransfer.getData("text");
+   if(document.getElementById(data).classList.value[1]=='itemAmarillo')
+      ev.target.appendChild(document.getElementById(data));
+
 }
+
+function dropAzul(ev) {
+   ev.preventDefault();
+   var data = ev.dataTransfer.getData("text");
+   if(document.getElementById(data).classList.value[1]=='itemAzul')
+      ev.target.appendChild(document.getElementById(data));
+
+ }
+
+ function dropVerde(ev) {
+   ev.preventDefault();
+   var data = ev.dataTransfer.getData("text");
+   if(document.getElementById(data).classList.value[1]=='itemVerde')
+      ev.target.appendChild(document.getElementById(data));
+
+ }
 
 class Juego{
    constructor(){
@@ -145,9 +163,9 @@ let azul=document.getElementById("pazul");
 let amarillo=document.getElementById("pamarilla");
 
 
-verde.setAttribute("ondrop", "drop(event)")
-azul.setAttribute("ondrop", "drop(event)")
-amarillo.setAttribute("ondrop", "drop(event)")
+verde.setAttribute("ondrop", "dropVerde(event)")
+azul.setAttribute("ondrop", "dropAzul(event)")
+amarillo.setAttribute("ondrop", "dropAmarillo(event)")
 
 
 verde.setAttribute("ondragover", "allowDrop(event)")

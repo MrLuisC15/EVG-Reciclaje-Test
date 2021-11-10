@@ -71,7 +71,7 @@ class Vista{
         img.insertBefore(img, document.getElementsByClassName('items'))
       img.setAttribute('src', nuevoItem)
       img.classList.add('items')
-      img.classList.add(preguntaTipo.bind(nuevoItem))
+      img.classList.add(this.preguntaTipo.bind(nuevoItem))
 
       //img.style.top = 10+'px'
       //img.style.left = Math.floor(Math.random() *85)+'%'

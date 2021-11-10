@@ -19,30 +19,55 @@ function drag(ev) {
 function dropAmarillo(ev) {
    ev.preventDefault();
    var data = ev.dataTransfer.getData("text");
+   let papelera = document.getElementById('pamarilla')
    if(document.getElementById(data).classList.value=='items itemAmarillo'){
       ev.target.appendChild(document.getElementById(data));
       masPunto()
+      papelera.style.backgroundColor = 'green'
+      
+   }
+   else {
+      papelera.style.backgroundColor = 'red'
    }
 
+   setTimeout(papelera.style.backgroundColor = 'white', 1000)
 
 }
 
 function dropAzul(ev) {
    ev.preventDefault();
    var data = ev.dataTransfer.getData("text");
+   let papelera = document.getElementById('pazul')
    if(document.getElementById(data).classList.value=='items itemAzul'){
       ev.target.appendChild(document.getElementById(data));
       masPunto()
+      papelera.style.backgroundColor = 'green'
+      
    }
+   else {
+      papelera.style.backgroundColor = 'red'
+   }
+
+   setTimeout(papelera.style.backgroundColor = 'white', 1000)
+
  }
 
  function dropVerde(ev) {
    ev.preventDefault();
    var data = ev.dataTransfer.getData("text");
+   let papelera = document.getElementById('pverde')
    if(document.getElementById(data).classList.value=='items itemVerde'){
       ev.target.appendChild(document.getElementById(data));
       masPunto()
+      papelera.style.backgroundColor = 'green'
+      
    }
+   else {
+      papelera.style.backgroundColor = 'red'
+   }
+
+   setTimeout(papelera.style.backgroundColor = 'white', 1000)
+
 
  }
 

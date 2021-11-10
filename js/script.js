@@ -103,6 +103,7 @@ class Vista{
             return 'itemVerde'
          }
       }
+      return 'juan'
    }
 }
 

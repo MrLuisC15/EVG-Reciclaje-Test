@@ -27,6 +27,8 @@ function dropAmarillo(ev) {
 function dropAzul(ev) {
    ev.preventDefault();
    var data = ev.dataTransfer.getData("text");
+   console.log(document.getElementById(data).classList.value[1]);
+   console.log(document.getElementById(data).classList.value);
    if(document.getElementById(data).classList.value[1]=='itemAzul')
       ev.target.appendChild(document.getElementById(data));
 

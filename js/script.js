@@ -92,7 +92,7 @@ class Vista{
       
       for(let i=0; i<this.itemsAmarillo.length;i++) {
          console.log(nuevoItem);
-         console.log(this.itemsAmarillo);
+         console.log(this.itemsAmarillo[i]);
          if(nuevoItem==this.itemsAmarillo[i]){
             
             return "itemAmarillo"

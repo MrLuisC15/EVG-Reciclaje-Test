@@ -72,7 +72,7 @@ class Vista{
       divPrincipal.appendChild(img)
       if(contadorItems<0)
         img.insertBefore(img, document.getElementsByClassName('items'))
-      img.setAttribute('src', nuevoItem)
+      img.setAttribute('src', 'img/'+nuevoItem)
       img.classList.add('items')
       let clase = this.preguntaTipo(nuevoItem);
       img.classList.add(clase)
@@ -126,15 +126,15 @@ class Modelo{
 
       switch (random) {
          case 0:
-            return 'img/'+this.itemsAmarillo[Math.floor(Math.random() *this.itemsAmarillo.length)]
+            return this.itemsAmarillo[Math.floor(Math.random() *this.itemsAmarillo.length)]
             break;
       
          case 1:
-            return 'img/'+this.itemsAzul[Math.floor(Math.random() *this.itemsAzul.length)]
+            return this.itemsAzul[Math.floor(Math.random() *this.itemsAzul.length)]
             break;
       
          case 2:
-            return 'img/'+this.itemsVerde[Math.floor(Math.random() *this.itemsVerde.length)]
+            return this.itemsVerde[Math.floor(Math.random() *this.itemsVerde.length)]
             break;
       
       }

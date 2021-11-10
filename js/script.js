@@ -57,6 +57,9 @@ class Vista{
    constructor(contador){
       //this.contadorTop = 10
       this.contadorItems=contador
+      this.itemsAmarillo = ['lata.png']
+      this.itemsAzul = ['carton.png','pelota.png']
+      this.itemsVerde = [ 'mansana.png']
    }
 
    /**
@@ -69,9 +72,10 @@ class Vista{
       divPrincipal.appendChild(img)
       if(contadorItems<0)
         img.insertBefore(img, document.getElementsByClassName('items'))
-      img.setAttribute('src', nuevoItem)
+      img.setAttribute('src', 'img/'+nuevoItem)
       img.classList.add('items')
-      img.classList.add(this.preguntaTipo.bind(nuevoItem))
+      let clase = this.preguntaTipo(nuevoItem);
+      img.classList.add(clase)
 
       //img.style.top = 10+'px'
       //img.style.left = Math.floor(Math.random() *85)+'%'
@@ -85,23 +89,28 @@ class Vista{
    }
 
    preguntaTipo(nuevoItem){
-      for(let i=0; i<Modelo.itemsAmarillo.length;i++) {
-         if(nuevoItem==Modelo.itemsAmarillo[i]){
-            return 'itemAmarillo'
+      
+      for(let i=0; i<this.itemsAmarillo.length;i++) {
+         console.log(nuevoItem);
+         console.log(this.itemsAmarillo);
+         if(nuevoItem==this.itemsAmarillo[i]){
+            
+            return "itemAmarillo"
          }
       }
 
-      for(let i=0; i<Modelo.itemsAzul.length;i++) {
-         if(nuevoItem==Modelo.itemsAzul[i]){
-            return 'itemAzul'
+      for(let i=0; i<this.itemsAzul.length;i++) {
+         if(nuevoItem==this.itemsAzul[i]){
+            return "itemAzul"
          }
       }
 
-      for(let i=0; i<Modelo.itemsVerde.length;i++) {
-         if(nuevoItem==Modelo.itemsVerde[i]){
-            return 'itemVerde'
+      for(let i=0; i<this.itemsVerde.length;i++) {
+         if(nuevoItem==this.itemsVerde[i]){
+            return "itemVerde"
          }
       }
+      
    }
 }
 
@@ -117,15 +126,15 @@ class Modelo{
 
       switch (random) {
          case 0:
-            return 'img/'+this.itemsAmarillo[Math.floor(Math.random() *this.itemsAmarillo.length)]
+            return this.itemsAmarillo[Math.floor(Math.random() *this.itemsAmarillo.length)]
             break;
       
          case 1:
-            return 'img/'+this.itemsAzul[Math.floor(Math.random() *this.itemsAzul.length)]
+            return this.itemsAzul[Math.floor(Math.random() *this.itemsAzul.length)]
             break;
       
          case 2:
-            return 'img/'+this.itemsVerde[Math.floor(Math.random() *this.itemsVerde.length)]
+            return this.itemsVerde[Math.floor(Math.random() *this.itemsVerde.length)]
             break;
       
       }

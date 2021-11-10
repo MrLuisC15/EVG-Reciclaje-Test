@@ -31,7 +31,7 @@ function dropAmarillo(ev) {
    }
 
    setTimeout(() => {
-      papelera.style.backgroundColor = "white"
+      papelera.style.background = "#ffffff"
    }, 1000);
 
 }
@@ -51,7 +51,7 @@ function dropAzul(ev) {
    }
 
    setTimeout(() => {
-      papelera.style.backgroundColor = "white"
+      papelera.style.background = "#ffffff"
    }, 1000);
 
  }
@@ -71,7 +71,7 @@ function dropAzul(ev) {
    }
 
    setTimeout(() => {
-      papelera.style.backgroundColor = "white"
+      papelera.style.background = "#ffffff"
    }, 1000);
 
  }

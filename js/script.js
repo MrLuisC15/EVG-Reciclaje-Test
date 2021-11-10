@@ -71,7 +71,7 @@ class Vista{
         img.insertBefore(img, document.getElementsByClassName('items'))
       img.setAttribute('src', nuevoItem)
       img.classList.add('items')
-      let juan = this.preguntaTipo.bind(nuevoItem);
+      let juan = this.preguntaTipo(nuevoItem);
       console.log(juan);
       img.classList.add(juan)
 
@@ -87,6 +87,7 @@ class Vista{
    }
 
    preguntaTipo(nuevoItem){
+      return "juan"
       for(let i=0; i<Modelo.itemsAmarillo.length;i++) {
          if(nuevoItem==Modelo.itemsAmarillo[i]){
             return "itemAmarillo"
@@ -104,7 +105,7 @@ class Vista{
             return "itemVerde"
          }
       }
-      return "juan"
+      
    }
 }
 

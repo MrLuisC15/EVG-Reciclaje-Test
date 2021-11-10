@@ -168,6 +168,10 @@ verde.setAttribute("ondrop", "dropVerde(event)")
 azul.setAttribute("ondrop", "dropAzul(event)")
 amarillo.setAttribute("ondrop", "dropAmarillo(event)")
 
+verde.setAttribute("onclick", "dropVerde(event)")
+azul.setAttribute("onclick", "dropAzul(event)")
+amarillo.setAttribute("onclick", "dropAmarillo(event)")
+
 
 verde.setAttribute("ondragover", "allowDrop(event)")
 azul.setAttribute("ondragover", "allowDrop(event)")

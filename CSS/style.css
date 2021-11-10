@@ -41,7 +41,8 @@ div{
     border-radius: 20px;
     background-color: rgb(255, 170, 184);
     width: 100%;
-    min-height: 500px;
+    height: 200px;
+    overflow: hidden;
 }
 .items{
     height: 50px;
@@ -52,8 +53,21 @@ div{
     background-color: rgb(255, 170, 184);
     clear: left;
     width: 100%;
-    text-align: center;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
 }    
 #papeleras img {
-    height: 200px;
+    height: 100px;
+}
+@media (max-width: 800px){
+    #maincontainer{
+        width: 95%;
+    }
+    #papeleras img {
+        height: 80px;
+    }
+    .items{
+        height: 40px;
+    }
 }

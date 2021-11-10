@@ -43,6 +43,7 @@ div{
 }
 .items{
     height: 50px;
+    margin: 15px;
 }
 #papeleras{
     border: 15px solid rgb(60, 189, 0);

@@ -23,7 +23,7 @@ function dropAmarillo(ev) {
    if(document.getElementById(data).classList.value=='items itemAmarillo'){
       ev.target.appendChild(document.getElementById(data));
       masPunto()
-      papelera.style.backgroundColor = "green"
+      papelera.style.backgroundColor = "greenyellow"
       
    }
    else {
@@ -43,7 +43,7 @@ function dropAzul(ev) {
    if(document.getElementById(data).classList.value=='items itemAzul'){
       ev.target.appendChild(document.getElementById(data));
       masPunto()
-      papelera.style.backgroundColor = "green"
+      papelera.style.backgroundColor = "greenyellow"
       
    }
    else {
@@ -63,7 +63,7 @@ function dropAzul(ev) {
    if(document.getElementById(data).classList.value=='items itemVerde'){
       ev.target.appendChild(document.getElementById(data));
       masPunto()
-      papelera.style.backgroundColor = "green"
+      papelera.style.backgroundColor = "greenyellow"
       
    }
    else {

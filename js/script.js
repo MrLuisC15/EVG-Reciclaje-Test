@@ -72,6 +72,7 @@ class Vista{
       img.setAttribute('src', nuevoItem)
       img.classList.add('items')
       let juan = this.preguntaTipo.bind(nuevoItem);
+      console.log(juan);
       img.classList.add(juan)
 
       //img.style.top = 10+'px'

@@ -95,7 +95,7 @@ class Vista{
       let clase = this.preguntaTipo(nuevoItem);
       img.classList.add(clase)
 
-      img.style.top = Math.floor(Math.random() *300)+'px'
+      img.style.top = Math.floor(Math.random() *290)+'px'
       img.style.left = Math.floor(Math.random() *95)+'%'
       img.setAttribute("id", this.contadorItems)
       img.setAttribute("draggable","true")

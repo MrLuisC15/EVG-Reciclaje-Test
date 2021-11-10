@@ -19,7 +19,7 @@ function drag(ev) {
 function dropAmarillo(ev) {
    ev.preventDefault();
    var data = ev.dataTransfer.getData("text");
-   let papelera = document.getElementById('pamarilla')
+   let papelera = document.getElementById('imgamarilla')
    if(document.getElementById(data).classList.value=='items itemAmarillo'){
       ev.target.appendChild(document.getElementById(data));
       masPunto()
@@ -37,7 +37,7 @@ function dropAmarillo(ev) {
 function dropAzul(ev) {
    ev.preventDefault();
    var data = ev.dataTransfer.getData("text");
-   let papelera = document.getElementById('pazul')
+   let papelera = document.getElementById('imgazul')
    if(document.getElementById(data).classList.value=='items itemAzul'){
       ev.target.appendChild(document.getElementById(data));
       masPunto()
@@ -55,7 +55,7 @@ function dropAzul(ev) {
  function dropVerde(ev) {
    ev.preventDefault();
    var data = ev.dataTransfer.getData("text");
-   let papelera = document.getElementById('pverde')
+   let papelera = document.getElementById('imgverde')
    if(document.getElementById(data).classList.value=='items itemVerde'){
       ev.target.appendChild(document.getElementById(data));
       masPunto()

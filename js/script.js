@@ -98,9 +98,7 @@ class Vista{
       //img.style.top = 10+'px'
       //img.style.left = Math.floor(Math.random() *85)+'%'
       img.setAttribute("id", this.contadorItems)
-      
       img.setAttribute("draggable","true")
-      img.setAttribute("onclick","drag(event)")
       img.setAttribute("ondragstart","drag(event)")
       //this.contadorTop=this.contadorTop+20
       this.contadorItems=+this.contadorItems+1
@@ -167,10 +165,6 @@ let amarillo=document.getElementById("pamarilla");
 verde.setAttribute("ondrop", "dropVerde(event)")
 azul.setAttribute("ondrop", "dropAzul(event)")
 amarillo.setAttribute("ondrop", "dropAmarillo(event)")
-
-verde.setAttribute("onclick", "dropVerde(event)")
-azul.setAttribute("onclick", "dropAzul(event)")
-amarillo.setAttribute("onclick", "dropAmarillo(event)")
 
 
 verde.setAttribute("ondragover", "allowDrop(event)")

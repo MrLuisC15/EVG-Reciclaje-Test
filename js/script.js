@@ -78,6 +78,7 @@ class Juego{
       this.puntos=this.puntos+1
       let divPuntos=document.getElementById('puntos')
       divPuntos.innerHTML = this.puntos
+      console.log(this.puntos);
    }
 }
 /**

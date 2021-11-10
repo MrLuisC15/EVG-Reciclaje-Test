@@ -33,6 +33,12 @@ div{
     margin-top: 20px;
     padding: 10px;
 }
+
+#pPuntos {
+    font-size: large;
+
+}
+
 #divPrincipal {
     border: 15px solid rgb(60, 189, 0);
     border-radius: 20px;

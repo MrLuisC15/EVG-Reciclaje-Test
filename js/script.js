@@ -71,8 +71,8 @@ class Vista{
         img.insertBefore(img, document.getElementsByClassName('items'))
       img.setAttribute('src', nuevoItem)
       img.classList.add('items')
-      console.log(this.preguntaTipo.bind(nuevoItem));
-      img.classList.add(this.preguntaTipo.bind(nuevoItem))
+      let juan = this.preguntaTipo.bind(nuevoItem);
+      img.classList.add(juan)
 
       //img.style.top = 10+'px'
       //img.style.left = Math.floor(Math.random() *85)+'%'
@@ -88,22 +88,22 @@ class Vista{
    preguntaTipo(nuevoItem){
       for(let i=0; i<Modelo.itemsAmarillo.length;i++) {
          if(nuevoItem==Modelo.itemsAmarillo[i]){
-            return 'itemAmarillo'
+            return "itemAmarillo"
          }
       }
 
       for(let i=0; i<Modelo.itemsAzul.length;i++) {
          if(nuevoItem==Modelo.itemsAzul[i]){
-            return 'itemAzul'
+            return "itemAzul"
          }
       }
 
       for(let i=0; i<Modelo.itemsVerde.length;i++) {
          if(nuevoItem==Modelo.itemsVerde[i]){
-            return 'itemVerde'
+            return "itemVerde"
          }
       }
-      return 'juan'
+      return "juan"
    }
 }
 

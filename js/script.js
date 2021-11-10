@@ -91,7 +91,10 @@ class Vista{
    preguntaTipo(nuevoItem){
       
       for(let i=0; i<this.itemsAmarillo.length;i++) {
+         console.log(nuevoItem);
+         console.log(this.itemsAmarillo);
          if(nuevoItem==this.itemsAmarillo[i]){
+            
             return "itemAmarillo"
          }
       }

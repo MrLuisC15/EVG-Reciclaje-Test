@@ -71,9 +71,8 @@ class Vista{
         img.insertBefore(img, document.getElementsByClassName('items'))
       img.setAttribute('src', nuevoItem)
       img.classList.add('items')
-      let juan = this.preguntaTipo(nuevoItem);
-      console.log(juan);
-      img.classList.add(juan)
+      let clase = this.preguntaTipo(nuevoItem);
+      img.classList.add(clase)
 
       //img.style.top = 10+'px'
       //img.style.left = Math.floor(Math.random() *85)+'%'
@@ -87,7 +86,7 @@ class Vista{
    }
 
    preguntaTipo(nuevoItem){
-      return "juan"
+      
       for(let i=0; i<Modelo.itemsAmarillo.length;i++) {
          if(nuevoItem==Modelo.itemsAmarillo[i]){
             return "itemAmarillo"

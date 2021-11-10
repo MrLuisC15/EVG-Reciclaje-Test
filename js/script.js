@@ -23,16 +23,17 @@ function dropAmarillo(ev) {
    if(document.getElementById(data).classList.value=='items itemAmarillo'){
       ev.target.appendChild(document.getElementById(data));
       masPunto()
-      papelera.style.backgroundColor = 'green'
+      papelera.style.backgroundColor = "green"
       
    }
    else {
-      papelera.style.backgroundColor = 'red'
+      papelera.style.backgroundColor = "red"
    }
 
    setTimeout(() => {
       papelera.style.backgroundColor = "white"
    }, 1000);
+
 }
 
 function dropAzul(ev) {
@@ -42,14 +43,16 @@ function dropAzul(ev) {
    if(document.getElementById(data).classList.value=='items itemAzul'){
       ev.target.appendChild(document.getElementById(data));
       masPunto()
-      papelera.style.backgroundColor = 'green'
+      papelera.style.backgroundColor = "green"
       
    }
    else {
-      papelera.style.backgroundColor = 'red'
+      papelera.style.backgroundColor = "red"
    }
 
-   setTimeout(papelera.style.backgroundColor = 'white', 1000)
+   setTimeout(() => {
+      papelera.style.backgroundColor = "white"
+   }, 1000);
 
  }
 
@@ -60,15 +63,16 @@ function dropAzul(ev) {
    if(document.getElementById(data).classList.value=='items itemVerde'){
       ev.target.appendChild(document.getElementById(data));
       masPunto()
-      papelera.style.backgroundColor = 'green'
+      papelera.style.backgroundColor = "green"
       
    }
    else {
-      papelera.style.backgroundColor = 'red'
+      papelera.style.backgroundColor = "red"
    }
 
-   setTimeout(papelera.style.backgroundColor = 'white', 1000)
-
+   setTimeout(() => {
+      papelera.style.backgroundColor = "white"
+   }, 1000);
 
  }
 

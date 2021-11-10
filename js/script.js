@@ -57,6 +57,9 @@ class Vista{
    constructor(contador){
       //this.contadorTop = 10
       this.contadorItems=contador
+      this.itemsAmarillo = ['lata.png']
+      this.itemsAzul = ['carton.png','pelota.png']
+      this.itemsVerde = [ 'mansana.png']
    }
 
    /**
@@ -87,20 +90,20 @@ class Vista{
 
    preguntaTipo(nuevoItem){
       
-      for(let i=0; i<Modelo.itemsAmarillo.length;i++) {
-         if(nuevoItem==Modelo.itemsAmarillo[i]){
+      for(let i=0; i<this.itemsAmarillo.length;i++) {
+         if(nuevoItem==this.itemsAmarillo[i]){
             return "itemAmarillo"
          }
       }
 
-      for(let i=0; i<Modelo.itemsAzul.length;i++) {
-         if(nuevoItem==Modelo.itemsAzul[i]){
+      for(let i=0; i<this.itemsAzul.length;i++) {
+         if(nuevoItem==this.itemsAzul[i]){
             return "itemAzul"
          }
       }
 
-      for(let i=0; i<Modelo.itemsVerde.length;i++) {
-         if(nuevoItem==Modelo.itemsVerde[i]){
+      for(let i=0; i<this.itemsVerde.length;i++) {
+         if(nuevoItem==this.itemsVerde[i]){
             return "itemVerde"
          }
       }

@@ -6,7 +6,7 @@
 **/
 'use strict'
 
-
+let puntos
 
 function allowDrop(ev) {
    ev.preventDefault();
@@ -21,7 +21,7 @@ function dropAmarillo(ev) {
    var data = ev.dataTransfer.getData("text");
    if(document.getElementById(data).classList.value=='items itemAmarillo'){
       ev.target.appendChild(document.getElementById(data));
-      Juego.masPunto
+      masPunto
    }
 
 
@@ -32,7 +32,7 @@ function dropAzul(ev) {
    var data = ev.dataTransfer.getData("text");
    if(document.getElementById(data).classList.value=='items itemAzul'){
       ev.target.appendChild(document.getElementById(data));
-      Juego.masPunto
+      masPunto
    }
  }
 
@@ -41,10 +41,17 @@ function dropAzul(ev) {
    var data = ev.dataTransfer.getData("text");
    if(document.getElementById(data).classList.value=='items itemVerde'){
       ev.target.appendChild(document.getElementById(data));
-      Juego.masPunto
+      masPunto
    }
 
  }
+
+ function masPunto(){
+   puntos=puntos+1
+   let divPuntos=document.getElementById('puntos')
+   divPuntos.innerHTML = puntos
+   console.log(puntos);
+}
 
 class Juego{
    constructor(){
@@ -74,12 +81,7 @@ class Juego{
       contadorItems++
    }
 
-   masPunto(){
-      this.puntos=this.puntos+1
-      let divPuntos=document.getElementById('puntos')
-      divPuntos.innerHTML = this.puntos
-      console.log(this.puntos);
-   }
+  
 }
 /**
  * Clase vista que muestra el juego

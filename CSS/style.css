@@ -41,7 +41,7 @@ div{
     border-radius: 20px;
     background-color: rgb(255, 170, 184);
     width: 100%;
-    min-height: 100px;
+    min-height: 500px;
 }
 .items{
     height: 50px;

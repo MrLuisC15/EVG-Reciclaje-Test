@@ -21,7 +21,7 @@ function dropAmarillo(ev) {
    var data = ev.dataTransfer.getData("text");
    if(document.getElementById(data).classList.value=='items itemAmarillo'){
       ev.target.appendChild(document.getElementById(data));
-      masPunto
+      masPunto()
    }
 
 
@@ -32,7 +32,7 @@ function dropAzul(ev) {
    var data = ev.dataTransfer.getData("text");
    if(document.getElementById(data).classList.value=='items itemAzul'){
       ev.target.appendChild(document.getElementById(data));
-      masPunto
+      masPunto()
    }
  }
 
@@ -41,7 +41,7 @@ function dropAzul(ev) {
    var data = ev.dataTransfer.getData("text");
    if(document.getElementById(data).classList.value=='items itemVerde'){
       ev.target.appendChild(document.getElementById(data));
-      masPunto
+      masPunto()
    }
 
  }

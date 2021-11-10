@@ -11,10 +11,7 @@ body{
     flex-direction: column;
     min-height: 100vh;
     font-family: 'Righteous', cursive;
-    background: #FF1934;
-    background: -webkit-linear-gradient(right, #FF1934, #EA8A78);
-    background: -moz-linear-gradient(right, #FF1934, #EA8A78);
-    background: linear-gradient(to left, #FF1934, #EA8A78);
+    background-image: url(/img/fondo.png);
 }
 h1{
     font-size: 1.8em;

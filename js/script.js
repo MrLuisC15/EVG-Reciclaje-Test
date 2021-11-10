@@ -30,8 +30,9 @@ function dropAmarillo(ev) {
       papelera.style.backgroundColor = 'red'
    }
 
-   setTimeout(papelera.style.backgroundColor = 'white', 1000)
-
+   setTimeout(() => {
+      papelera.style.backgroundColor = 'white'
+   }, 1000);
 }
 
 function dropAzul(ev) {

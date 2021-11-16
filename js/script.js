@@ -116,7 +116,7 @@ class Juego{
    iniciar(){
       console.log('Iniciando...');
       this.divPrincipal = document.getElementById('divPrincipal')
-      this.generadorItems= window.setInterval(this.generarItem.bind(this), 2000)
+      this.generadorItems= window.setInterval(this.generarItem.bind(this), 1000)
       this.animador = window.setInterval
    }
 

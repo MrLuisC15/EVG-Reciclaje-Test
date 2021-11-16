@@ -83,7 +83,7 @@ function dropAzul(ev) {
    puntos=puntos+1
    let divPuntos=document.getElementById('puntos')
    divPuntos.innerHTML = puntos
-   console.log(puntos);
+   //console.log(puntos);
 }
 
 class Juego{

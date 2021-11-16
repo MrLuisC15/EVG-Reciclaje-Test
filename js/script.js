@@ -87,6 +87,9 @@ function dropAzul(ev) {
    let divPuntos=document.getElementById('puntos')
    divPuntos.innerHTML = puntos
    //console.log(puntos);
+   if(puntos==10) {
+      document.getElementById('divPrincipal').style.borderColor = 'red'
+   }
 }
 
 class Juego{

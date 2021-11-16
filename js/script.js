@@ -118,13 +118,13 @@ class Juego{
    iniciar(){
       console.log('Iniciando...');
       this.divPrincipal = document.getElementById('divPrincipal')
-      while(nivel==1){
-         //this.generadorItems= window.setInterval(this.generarItem.bind(this), 1000)
-         this.generadorItems= window.setTimeout(this.generarItem.bind(this), 1000)
+      if(nivel==1){
+         this.generadorItems= window.setInterval(this.generarItem.bind(this), 1000)
+         //this.generadorItems= window.setTimeout(this.generarItem.bind(this), 1000)
       }
-      while(nivel==2){
-         //this.generadorItems= window.setInterval(this.generarItem.bind(this), 50)
-         this.generadorItems= window.setTimeout(this.generarItem.bind(this), 50)
+      if(nivel==2){
+         this.generadorItems= window.setInterval(this.generarItem.bind(this), 50)
+         //this.generadorItems= window.setTimeout(this.generarItem.bind(this), 50)
       }
       this.animador = window.setInterval
    }

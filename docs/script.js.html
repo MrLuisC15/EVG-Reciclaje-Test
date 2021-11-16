@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: script.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: script.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/** 
+ * @file Script para el minijuego de reciclaje
+ * @author Luis Carlos Marzal de la Concepción
+ * @author Diego Carrión Rodríguez
+ * @author Kilian Benavente Ortega
+ * @author Mario Pérez Pizarro
+ * @license GPL-3.0
+*/
+'use strict'
+
+/**
+ * Instanciamos la puntación, el nivel y la velocidad de juego
+ */
+let puntos = 0
+let nivel = 1
+let velocidad = 1000
+
+/**
+ *Función que permitirá arrastar un objeto
+ *
+ * @param {*} ev Evento de la función
+ */
+function allowDrop(ev) {
+   ev.preventDefault();
+}
+/**
+ *Función que gestionará el objeto mientras lo arrastremos
+ *
+ * @param {*} ev Evento de la función
+ */
+function drag(ev) {
+   ev.dataTransfer.setData("text", ev.target.id);
+}
+/**
+ *Función que gestiona cuando soltamos un objeto en el contenedor amarillo
+ *
+ * @param {*} ev Basura que introducimos en el contenedor. Si está en el contendor correcto será borrada, si no, expulsada
+ */
+function dropAmarillo(ev) {
+   ev.preventDefault();
+   var data = ev.dataTransfer.getData("text");
+   let papelera = document.getElementById('imgamarilla')
+   if(document.getElementById(data).classList.value=='items itemAmarillo'){
+      ev.target.appendChild(document.getElementById(data));
+      ev.target.removeChild(document.getElementById(data));
+      masPunto()
+      papelera.style.backgroundColor = "greenyellow"
+      
+   }
+   else {
+      papelera.style.backgroundColor = "red"
+   }
+
+   setTimeout(() => {
+      papelera.style.background = "#ffffff"
+   }, 750);
+
+}
+/**
+ *Función que gestiona cuando soltamos un objeto en el contenedor azul
+ *
+ * @param {*} ev Basura que introducimos en el contenedor. Si está en el contendor correcto será borrada, si no, expulsada
+ */
+function dropAzul(ev) {
+   ev.preventDefault();
+   var data = ev.dataTransfer.getData("text");
+   let papelera = document.getElementById('imgazul')
+   if(document.getElementById(data).classList.value=='items itemAzul'){
+      ev.target.appendChild(document.getElementById(data));
+      ev.target.removeChild(document.getElementById(data));
+      masPunto()
+      papelera.style.backgroundColor = "greenyellow"
+      
+   }
+   else {
+      papelera.style.backgroundColor = "red"
+   }
+
+   setTimeout(() => {
+      papelera.style.background = "#ffffff"
+   }, 750);
+
+ }
+/**
+ *Función que gestiona cuando soltamos un objeto en el contenedor verde
+ *
+ * @param {*} ev Basura que introducimos en el contenedor. Si está en el contendor correcto será borrada, si no, expulsada
+ */
+ function dropVerde(ev) {
+   ev.preventDefault();
+   var data = ev.dataTransfer.getData("text");
+   let papelera = document.getElementById('imgverde')
+   if(document.getElementById(data).classList.value=='items itemVerde'){
+      ev.target.appendChild(document.getElementById(data));
+      ev.target.removeChild(document.getElementById(data));
+      masPunto()
+      papelera.style.backgroundColor = "greenyellow"
+      
+   }
+   else {
+      papelera.style.backgroundColor = "red"
+   }
+
+   setTimeout(() => {
+      papelera.style.background = "#ffffff"
+   }, 750);
+
+ }
+
+   
+
+/**
+ *Suma un punto extra a la puntuación total
+ */
+function masPunto(){
+   puntos=puntos+1
+   let divPuntos=document.getElementById('puntos')
+   divPuntos.innerHTML = puntos
+
+   let divNivel=document.getElementById('nivel')
+   divNivel.innerHTML = nivel
+   //console.log(puntos);
+   if(puntos==5 &amp;&amp; nivel==1) {
+      puntos=1
+      nivel=2
+      velocidad=150
+      document.getElementById('divPrincipal').style.borderColor = 'red'
+      document.getElementById('papeleras').style.borderColor = 'red'
+   }
+}
+
+/**
+ *Clase controlador. Se encarga de llamar a los métodos de Vista y Modelo.
+ *
+ * @class Juego
+ */
+class Juego{
+   constructor(){
+      this.vista = new Vista(0)
+      this.modelo = new Modelo()
+      this.animador = null
+      this.divPrincipal = null
+      this.puntos = 0
+      window.onload = this.iniciar.bind(this)
+   }
+
+
+   /**
+    * Pone en marcha el juego
+    */
+   iniciar(){
+      console.log('Iniciando...');
+      this.divPrincipal = document.getElementById('divPrincipal')
+      if(nivel==1){
+         this.generadorItems= window.setInterval(this.generarItem.bind(this), 1000)
+         //this.generadorItems= window.setTimeout(this.generarItem.bind(this), 1000)
+      }
+      if(nivel==2){
+         this.generadorItems= window.setInterval(this.generarItem.bind(this), 50)
+         //this.generadorItems= window.setTimeout(this.generarItem.bind(this), 50)
+      }
+      this.animador = window.setInterval
+   }
+   /**
+    *Crea un nuevo objeto basura
+    *
+    * @memberof Juego
+    */
+   generarItem(){
+      let nuevoItem = this.modelo.crearItem()
+      let contadorItems = 0
+      this.vista.dibujar(divPrincipal, nuevoItem, contadorItems)
+      contadorItems++
+   }
+
+  
+}
+/**
+ *Clase vista que muestra el juego
+ *
+ * @class Vista
+ */
+class Vista{
+   constructor(contador){
+      //this.contadorTop = 10
+      this.contadorItems=contador
+      this.itemsAmarillo = ['lata.png']
+      this.itemsAzul = ['carton.png','pelota.png']
+      this.itemsVerde = [ 'mansana.png']
+   }
+
+   /**
+    *Dibuja los elementos del juego
+    *
+    * @param {*} divPrincipal Contenedor donde aperecerá la basura
+    * @param {*} nuevoItem Objeto basura que se introducirá en el contenedor
+    * @param {*} contadorItems Variable que llevará la cuenta de toda la basura que hay
+    * @memberof Vista
+    */
+   dibujar(divPrincipal, nuevoItem, contadorItems){
+      let img = document.createElement('img')
+      
+      divPrincipal.appendChild(img)
+      if(contadorItems&lt;0)
+        img.insertBefore(img, document.getElementsByClassName('items'))
+      img.setAttribute('src', 'img/'+nuevoItem)
+      img.classList.add('items')
+      let clase = this.preguntaTipo(nuevoItem);
+      img.classList.add(clase)
+
+      img.style.top = Math.floor(Math.random() *290)+'px'
+      img.style.left = Math.floor(Math.random() *94)+'%'
+      img.setAttribute("id", this.contadorItems)
+      img.setAttribute("draggable","true")
+      img.setAttribute("ondragstart","drag(event)")
+      //this.contadorTop=this.contadorTop+20
+      this.contadorItems=+this.contadorItems+1
+      
+   }
+   /**
+    *Valida a qué contenedor debe ir cada objeto basura
+    *
+    * @param {*} nuevoItem Objeto basura creado
+    * @return {*} Contenedor al que debe ir
+    * @memberof Vista
+    */
+   preguntaTipo(nuevoItem){
+      
+      for(let i=0; i&lt;this.itemsAmarillo.length;i++) {
+         if(nuevoItem==this.itemsAmarillo[i]){
+            
+            return "itemAmarillo"
+         }
+      }
+
+      for(let i=0; i&lt;this.itemsAzul.length;i++) {
+         if(nuevoItem==this.itemsAzul[i]){
+            return "itemAzul"
+         }
+      }
+
+      for(let i=0; i&lt;this.itemsVerde.length;i++) {
+         if(nuevoItem==this.itemsVerde[i]){
+            return "itemVerde"
+         }
+      }
+      
+   }
+}
+/**
+ *Clase Modelo encargada de la parte lógica del programa
+ *
+ * @class Modelo
+ */
+class Modelo{
+   constructor(){
+      this.itemsAmarillo = ['lata.png']
+      this.itemsAzul = ['carton.png','pelota.png']
+      this.itemsVerde = [ 'mansana.png']
+   }
+   /**
+    *Crea un nuevo objeto basura
+    *
+    * @return {*} Objeto basura
+    * @memberof Modelo
+    */
+   crearItem(){
+      let random = Math.floor(Math.random() *3)
+
+      switch (random) {
+         case 0:
+            return this.itemsAmarillo[Math.floor(Math.random() *this.itemsAmarillo.length)]
+            break;
+      
+         case 1:
+            return this.itemsAzul[Math.floor(Math.random() *this.itemsAzul.length)]
+            break;
+      
+         case 2:
+            return this.itemsVerde[Math.floor(Math.random() *this.itemsVerde.length)]
+            break;
+      
+      }
+      
+   }
+}
+
+let verde=document.getElementById("pverde");
+let azul=document.getElementById("pazul");
+let amarillo=document.getElementById("pamarilla");
+
+verde.setAttribute("ondrop", "dropVerde(event)")
+azul.setAttribute("ondrop", "dropAzul(event)")
+amarillo.setAttribute("ondrop", "dropAmarillo(event)")
+
+
+verde.setAttribute("ondragover", "allowDrop(event)")
+azul.setAttribute("ondragover", "allowDrop(event)")
+amarillo.setAttribute("ondragover", "allowDrop(event)")
+
+/*
+draggable.setAttribute("draggable","true")
+draggable2.setAttribute("draggable","true")
+draggable3.setAttribute("draggable","true")
+draggable.setAttribute("ondragstart","drag(event)")
+draggable2.setAttribute("ondragstart","drag(event)")
+draggable3.setAttribute("ondragstart","drag(event)")
+*/
+  
+
+var app = new Juego()
+
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Juego.html">Juego</a></li><li><a href="Modelo.html">Modelo</a></li><li><a href="Vista.html">Vista</a></li></ul><h3>Global</h3><ul><li><a href="global.html#allowDrop">allowDrop</a></li><li><a href="global.html#drag">drag</a></li><li><a href="global.html#dropAmarillo">dropAmarillo</a></li><li><a href="global.html#dropAzul">dropAzul</a></li><li><a href="global.html#dropVerde">dropVerde</a></li><li><a href="global.html#masPunto">masPunto</a></li><li><a href="global.html#puntos">puntos</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.7</a> on Tue Nov 16 2021 17:28:40 GMT+0100 (hora estándar de Europa central)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

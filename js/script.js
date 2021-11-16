@@ -76,6 +76,21 @@ function dropAzul(ev) {
 
  }
 
+   $('.items').on('click',function(e){
+      e.preventDefault();
+      if ( $(this).parent().prop('class') != 'targetArea' ){
+         $(this).toggleClass('selected');
+      }
+   });
+   $('.targetArea').on('click',function(e){
+      e.preventDefault();
+      if( $('.selected').lenght !== 0 ) {
+      $(this).append($('.selected'));
+      $('.selected').removeClass('selected');
+      }
+   });
+
+
  function masPunto(){
    puntos=puntos+1
    let divPuntos=document.getElementById('puntos')

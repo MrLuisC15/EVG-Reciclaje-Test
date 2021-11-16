@@ -92,7 +92,7 @@ function dropAzul(ev) {
    let divNivel=document.getElementById('nivel')
    divNivel.innerHTML = nivel
    //console.log(puntos);
-   if(puntos==15 && nivel==1) {
+   if(puntos==5 && nivel==1) {
       puntos=1
       nivel=2
       velocidad=150

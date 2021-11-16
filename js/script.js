@@ -91,7 +91,7 @@ function dropAzul(ev) {
    let divNivel=document.getElementById('nivel')
    divNivel.innerHTML = nivel
    //console.log(puntos);
-   if(puntos==15 && nivel==0) {
+   if(puntos==15 && nivel==1) {
       puntos=1
       nivel=2
       document.getElementById('divPrincipal').style.borderColor = 'red'

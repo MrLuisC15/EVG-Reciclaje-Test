@@ -21,8 +21,8 @@ function dropAmarillo(ev) {
    var data = ev.dataTransfer.getData("text");
    let papelera = document.getElementById('imgamarilla')
    if(document.getElementById(data).classList.value=='items itemAmarillo'){
-      //ev.target.appendChild(document.getElementById(data));
-      document.getElementById(data).remove
+      ev.target.appendChild(document.getElementById(data));
+      ev.target.removeChild(document.getElementById(data));
       masPunto()
       papelera.style.backgroundColor = "greenyellow"
       
@@ -43,6 +43,7 @@ function dropAzul(ev) {
    let papelera = document.getElementById('imgazul')
    if(document.getElementById(data).classList.value=='items itemAzul'){
       ev.target.appendChild(document.getElementById(data));
+      ev.target.removeChild(document.getElementById(data));
       masPunto()
       papelera.style.backgroundColor = "greenyellow"
       
@@ -63,6 +64,7 @@ function dropAzul(ev) {
    let papelera = document.getElementById('imgverde')
    if(document.getElementById(data).classList.value=='items itemVerde'){
       ev.target.appendChild(document.getElementById(data));
+      ev.target.removeChild(document.getElementById(data));
       masPunto()
       papelera.style.backgroundColor = "greenyellow"
       

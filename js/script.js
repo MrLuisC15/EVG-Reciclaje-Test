@@ -95,7 +95,7 @@ function dropAzul(ev) {
    if(puntos==15 && nivel==1) {
       puntos=1
       nivel=2
-      velocidad=50
+      velocidad=150
       document.getElementById('divPrincipal').style.borderColor = 'red'
       document.getElementById('papeleras').style.borderColor = 'red'
    }

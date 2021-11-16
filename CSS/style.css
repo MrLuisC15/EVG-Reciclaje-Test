@@ -63,7 +63,11 @@ div{
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
-}    
+}   
+#papeleras div{
+    width: fit-content;
+}
+
 #papeleras img {
     height: 100px;
     background-color: white;

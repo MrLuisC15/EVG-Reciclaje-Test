@@ -8,6 +8,7 @@
 
 let puntos = 0
 let nivel = 1
+let velocidad = 1000
 
 function allowDrop(ev) {
    ev.preventDefault();
@@ -94,6 +95,7 @@ function dropAzul(ev) {
    if(puntos==15 && nivel==1) {
       puntos=1
       nivel=2
+      velocidad=750
       document.getElementById('divPrincipal').style.borderColor = 'red'
       document.getElementById('papeleras').style.borderColor = 'red'
    }
@@ -116,7 +118,7 @@ class Juego{
    iniciar(){
       console.log('Iniciando...');
       this.divPrincipal = document.getElementById('divPrincipal')
-      this.generadorItems= window.setInterval(this.generarItem.bind(this), 1000)
+      this.generadorItems= window.setInterval(this.generarItem.bind(this), velocidad)
       this.animador = window.setInterval
    }
 

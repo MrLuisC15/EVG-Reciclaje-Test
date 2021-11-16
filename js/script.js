@@ -21,10 +21,10 @@ function dropAmarillo(ev) {
    var data = ev.dataTransfer.getData("text");
    let papelera = document.getElementById('imgamarilla')
    if(document.getElementById(data).classList.value=='items itemAmarillo'){
-      ev.target.appendChild(document.getElementById(data));
+      //ev.target.appendChild(document.getElementById(data));
+      ev.target.remove
       masPunto()
       papelera.style.backgroundColor = "greenyellow"
-      ev.target.removeChild(document.getElementById(data))
       
    }
    else {

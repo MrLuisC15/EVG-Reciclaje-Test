@@ -24,7 +24,7 @@ function dropAmarillo(ev) {
       ev.target.appendChild(document.getElementById(data));
       masPunto()
       papelera.style.backgroundColor = "greenyellow"
-      ev.target.remove(document.getElementById(data))
+      ev.target.removeChild(document.getElementById(data))
       
    }
    else {

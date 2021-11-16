@@ -209,23 +209,6 @@ let verde=document.getElementById("pverde");
 let azul=document.getElementById("pazul");
 let amarillo=document.getElementById("pamarilla");
 
-let items = document.getElementsByClassName("items");
-
-items.setAttribute("onclick", function(e){
-   e.preventDefault();
-   if ( this.parent().prop('class') != 'targetArea' ){
-      this.toggleClass('selected');
-   }
-})
-
-document.getElementsByClassName('targetArea').setAttribute("onclick", function(e){
-   e.preventDefault();
-   if( document.querySelector('.selected').lenght !== 0 ) {
-      document.getElementsByClassName('targetArea')(this).append(document.querySelector('.selected'));
-      document.querySelector('.selected').removeClass('selected');
-   }
-});
-
 verde.setAttribute("ondrop", "dropVerde(event)")
 azul.setAttribute("ondrop", "dropAzul(event)")
 amarillo.setAttribute("ondrop", "dropAmarillo(event)")

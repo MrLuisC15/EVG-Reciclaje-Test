@@ -22,7 +22,7 @@ function dropAmarillo(ev) {
    let papelera = document.getElementById('imgamarilla')
    if(document.getElementById(data).classList.value=='items itemAmarillo'){
       //ev.target.appendChild(document.getElementById(data));
-      ev.target.remove
+      document.getElementById(data).remove
       masPunto()
       papelera.style.backgroundColor = "greenyellow"
       

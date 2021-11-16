@@ -7,6 +7,7 @@
 'use strict'
 
 let puntos = 0
+let nivel = 1
 
 function allowDrop(ev) {
    ev.preventDefault();
@@ -86,9 +87,15 @@ function dropAzul(ev) {
    puntos=puntos+1
    let divPuntos=document.getElementById('puntos')
    divPuntos.innerHTML = puntos
+
+   let divNivel=document.getElementById('nivel')
+   divNivel.innerHTML = nivel
    //console.log(puntos);
-   if(puntos==10) {
+   if(puntos==15 && nivel==0) {
+      puntos=1
+      nivel=2
       document.getElementById('divPrincipal').style.borderColor = 'red'
+      document.getElementById('papeleras').style.borderColor = 'red'
    }
 }
 

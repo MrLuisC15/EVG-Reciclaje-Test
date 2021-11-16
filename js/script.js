@@ -76,17 +76,17 @@ function dropAzul(ev) {
 
  }
 
-   $('.items').on('click',function(e){
+   document.querySelector('.items').on('click',function(e){
       e.preventDefault();
-      if ( $(this).parent().prop('class') != 'targetArea' ){
-         $(this).toggleClass('selected');
+      if ( document.querySelector(this).parent().prop('class') != 'targetArea' ){
+         document.querySelector(this).toggleClass('selected');
       }
    });
-   $('.targetArea').on('click',function(e){
+   document.querySelector('.targetArea').on('click',function(e){
       e.preventDefault();
-      if( $('.selected').lenght !== 0 ) {
-      $(this).append($('.selected'));
-      $('.selected').removeClass('selected');
+      if( document.querySelector('.selected').lenght !== 0 ) {
+         document.querySelector(this).append(document.querySelector('.selected'));
+         document.querySelector('.selected').removeClass('selected');
       }
    });
 

@@ -1,23 +1,41 @@
-/**
-   script.js
-   Minijuego de reciclaje
-   @author Luis C Marzal
-   @license GLP v3 2021 
-**/
+/** 
+ * @file Script para el minijuego de reciclaje
+ * @author Luis Carlos Marzal de la Concepción
+ * @author Diego Carrión Rodríguez
+ * @author Kilian Benavente Ortega
+ * @author Mario Pérez Pizarro
+ * @license GPL-3.0
+*/
 'use strict'
 
+/**
+ * Instanciamos la puntación, el nivel y la velocidad de juego
+ */
 let puntos = 0
 let nivel = 1
 let velocidad = 1000
 
+/**
+ *Función que permitirá arrastar un objeto
+ *
+ * @param {*} ev Evento de la función
+ */
 function allowDrop(ev) {
    ev.preventDefault();
 }
-
+/**
+ *Función que gestionará el objeto mientras lo arrastremos
+ *
+ * @param {*} ev Evento de la función
+ */
 function drag(ev) {
    ev.dataTransfer.setData("text", ev.target.id);
 }
-
+/**
+ *Función que gestiona cuando soltamos un objeto en el contenedor amarillo
+ *
+ * @param {*} ev Basura que introducimos en el contenedor. Si está en el contendor correcto será borrada, si no, expulsada
+ */
 function dropAmarillo(ev) {
    ev.preventDefault();
    var data = ev.dataTransfer.getData("text");
@@ -38,7 +56,11 @@ function dropAmarillo(ev) {
    }, 750);
 
 }
-
+/**
+ *Función que gestiona cuando soltamos un objeto en el contenedor azul
+ *
+ * @param {*} ev Basura que introducimos en el contenedor. Si está en el contendor correcto será borrada, si no, expulsada
+ */
 function dropAzul(ev) {
    ev.preventDefault();
    var data = ev.dataTransfer.getData("text");
@@ -59,7 +81,11 @@ function dropAzul(ev) {
    }, 750);
 
  }
-
+/**
+ *Función que gestiona cuando soltamos un objeto en el contenedor verde
+ *
+ * @param {*} ev Basura que introducimos en el contenedor. Si está en el contendor correcto será borrada, si no, expulsada
+ */
  function dropVerde(ev) {
    ev.preventDefault();
    var data = ev.dataTransfer.getData("text");
@@ -83,8 +109,10 @@ function dropAzul(ev) {
 
    
 
-
- function masPunto(){
+/**
+ *Suma un punto extra a la puntuación total
+ */
+function masPunto(){
    puntos=puntos+1
    let divPuntos=document.getElementById('puntos')
    divPuntos.innerHTML = puntos
@@ -101,6 +129,11 @@ function dropAzul(ev) {
    }
 }
 
+/**
+ *Clase controlador. Se encarga de llamar a los métodos de Vista y Modelo.
+ *
+ * @class Juego
+ */
 class Juego{
    constructor(){
       this.vista = new Vista(0)
@@ -128,7 +161,11 @@ class Juego{
       }
       this.animador = window.setInterval
    }
-
+   /**
+    *Crea un nuevo objeto basura
+    *
+    * @memberof Juego
+    */
    generarItem(){
       let nuevoItem = this.modelo.crearItem()
       let contadorItems = 0
@@ -139,7 +176,9 @@ class Juego{
   
 }
 /**
- * Clase vista que muestra el juego
+ *Clase vista que muestra el juego
+ *
+ * @class Vista
  */
 class Vista{
    constructor(contador){
@@ -151,8 +190,12 @@ class Vista{
    }
 
    /**
-    * Dibuja el área dl juego
-    * @param divPrincipal (HTMLDivElement) Div en el que dibujar el juego
+    *Dibuja los elementos del juego
+    *
+    * @param {*} divPrincipal Contenedor donde aperecerá la basura
+    * @param {*} nuevoItem Objeto basura que se introducirá en el contenedor
+    * @param {*} contadorItems Variable que llevará la cuenta de toda la basura que hay
+    * @memberof Vista
     */
    dibujar(divPrincipal, nuevoItem, contadorItems){
       let img = document.createElement('img')
@@ -174,7 +217,13 @@ class Vista{
       this.contadorItems=+this.contadorItems+1
       
    }
-
+   /**
+    *Valida a qué contenedor debe ir cada objeto basura
+    *
+    * @param {*} nuevoItem Objeto basura creado
+    * @return {*} Contenedor al que debe ir
+    * @memberof Vista
+    */
    preguntaTipo(nuevoItem){
       
       for(let i=0; i<this.itemsAmarillo.length;i++) {
@@ -198,14 +247,23 @@ class Vista{
       
    }
 }
-
+/**
+ *Clase Modelo encargada de la parte lógica del programa
+ *
+ * @class Modelo
+ */
 class Modelo{
    constructor(){
       this.itemsAmarillo = ['lata.png']
       this.itemsAzul = ['carton.png','pelota.png']
       this.itemsVerde = [ 'mansana.png']
    }
-
+   /**
+    *Crea un nuevo objeto basura
+    *
+    * @return {*} Objeto basura
+    * @memberof Modelo
+    */
    crearItem(){
       let random = Math.floor(Math.random() *3)
 

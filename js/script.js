@@ -54,7 +54,13 @@ function drag(ev) {
  */
 function dropAmarillo(ev) {
    ev.preventDefault();
-   var data = ev.dataTransfer.getData("text");
+   if(document.getElementsByClassName('marcado')[0]) {
+      var data = document.getElementsByClassName('marcado')[0].id
+   }
+   else {
+      var data = ev.dataTransfer.getData("text");
+   }
+
    let papelera = document.getElementById('imgamarilla')
    if(document.getElementById(data).classList.value=='items itemAmarillo'){
       ev.target.appendChild(document.getElementById(data));
@@ -338,6 +344,10 @@ let amarillo=document.getElementById("pamarilla");
 verde.setAttribute("ondrop", "dropVerde(event)")
 azul.setAttribute("ondrop", "dropAzul(event)")
 amarillo.setAttribute("ondrop", "dropAmarillo(event)")
+
+verde.setAttribute("onclick", "dropVerde(event)")
+azul.setAttribute("onclick", "dropAzul(event)")
+amarillo.setAttribute("onclick", "dropAmarillo(event)")
 
 
 verde.setAttribute("ondragover", "allowDrop(event)")

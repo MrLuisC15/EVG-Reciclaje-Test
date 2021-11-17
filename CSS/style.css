@@ -11,7 +11,8 @@ body{
     flex-direction: column;
     min-height: 100vh;
     font-family: 'Righteous', cursive;
-    background-image: url(../img/fondo.png);
+    background-image: url(../img/fondo2.jpg);
+
 }
 h1{
     font-size: 1.8em;
@@ -27,6 +28,13 @@ h1{
     margin-bottom: 20px;
     width: 80%;
     text-align: center;
+}
+#puntosniveles{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
 }
 div{
     float: left;
@@ -89,4 +97,7 @@ div{
         height: 30px;
     }
     
+}
+.marcado{
+    border: solid 1px #1086af;
 }

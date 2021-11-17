@@ -14,7 +14,7 @@
 let puntos = 0
 let nivel = 1
 let velocidad=2000
-let that = null
+let generadorItems = null
 
 /**
  *Función que permitirá arrastar un objeto
@@ -131,6 +131,8 @@ function masPunto(){
       velocidad=150
       document.getElementById('divPrincipal').style.borderColor = 'red'
       document.getElementById('papeleras').style.borderColor = 'red'
+
+      window.clearInterval(generadorItems)
    }
 }
 
@@ -157,17 +159,8 @@ class Juego{
       console.log('Iniciando...');
       that=this
       this.divPrincipal = document.getElementById('divPrincipal')
-      this.generadorItems= window.setInterval(this.generarItem.bind(this), velocidad)
+      generadorItems= window.setInterval(this.generarItem.bind(this), velocidad)
       //console.log(this);
-      this.juan= window.setInterval(function () {
-         //that.generarItem.bind(that)
-         //console.log(that);
-         if(nivel==2)
-            window.clearInterval(that.generadorItems)
-            window.clearInterval(that.juan)
-            return false
-      }, velocidad)
-
 
    }
    /**

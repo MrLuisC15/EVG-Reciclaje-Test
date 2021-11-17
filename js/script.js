@@ -32,6 +32,17 @@ function allowDrop(ev) {
 function drag(ev) {
    ev.dataTransfer.setData("text", ev.target.id);
 }
+
+/**
+ *Función que gestionará el objeto mientras lo arrastremos
+ *
+ * @param {*} ev Evento de la función
+ */
+ function clickItem(ev) {
+   ev.dataTransfer.setData("text", ev.target.id);
+   ev.target.classList.add('marcado')
+}
+
 /**
  *Función que gestiona cuando soltamos un objeto en el contenedor amarillo
  *
@@ -242,6 +253,8 @@ class Vista{
       img.setAttribute("id", this.contadorItems)
       img.setAttribute("draggable","true")
       img.setAttribute("ondragstart","drag(event)")
+      img.setAttribute("onclick","clickItem(event)")
+
       //this.contadorTop=this.contadorTop+20
       this.contadorItems=+this.contadorItems+1
       

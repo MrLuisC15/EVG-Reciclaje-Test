@@ -156,7 +156,7 @@ class Juego{
       //this.generadorItems= window.setInterval(this.generarItem.bind(this), velocidad)
       console.log(this);
       this.generadorItems= window.setInterval(() => {
-         that.generarItem.bind(that)
+         that.generarItem.bind(this)
          console.log(that);
          if(nivel==2)
             clearInterval(that.generadorItems)
@@ -169,7 +169,6 @@ class Juego{
     * @memberof Juego
     */
    generarItem(){
-      console.log('Genera supuestamente');
       let nuevoItem = this.modelo.crearItem()
       let contadorItems = 0
       this.vista.dibujar(divPrincipal, nuevoItem, contadorItems)

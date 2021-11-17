@@ -31,6 +31,9 @@ function allowDrop(ev) {
  */
 function drag(ev) {
    ev.dataTransfer.setData("text", ev.target.id);
+   while(document.getElementsByClassName('marcado')[0]){
+      document.getElementsByClassName('marcado')[0].classList.remove('marcado')
+   }
 }
 
 /**

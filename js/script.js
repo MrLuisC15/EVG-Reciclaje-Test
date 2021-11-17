@@ -13,7 +13,7 @@
  */
 let puntos = 0
 let nivel = 1
-let velocidad=2000
+let velocidad=1000
 let generadorItems = null
 
 /**
@@ -122,17 +122,31 @@ function masPunto(){
    divNivel.innerHTML = nivel
    //console.log(puntos);
    if(puntos==5 && nivel==1) {
-      
-
       puntos=1
       nivel=2
       divPuntos.innerHTML = puntos
       divNivel.innerHTML = nivel
-      velocidad=150
+      document.body.style.backgroundImage= '../img/fondoN2.jpg'
       document.getElementById('divPrincipal').style.borderColor = 'red'
       document.getElementById('papeleras').style.borderColor = 'red'
-
-      window.clearInterval(generadorItems)
+   }
+   if(puntos==15 && nivel==2) {
+      puntos=1
+      nivel=3
+      divPuntos.innerHTML = puntos
+      divNivel.innerHTML = nivel
+      document.body.style.backgroundImage= '../img/fondoN3.jpg'
+      document.getElementById('divPrincipal').style.borderColor = 'blue'
+      document.getElementById('papeleras').style.borderColor = 'blue'
+   }
+   if(puntos==35 && nivel==3) {
+      puntos=1
+      nivel=4
+      divPuntos.innerHTML = puntos
+      divNivel.innerHTML = nivel
+      document.body.style.backgroundImage= '../img/fondoN4.jpg'
+      document.getElementById('divPrincipal').style.borderColor = 'purple'
+      document.getElementById('papeleras').style.borderColor = 'purple'
    }
 }
 
@@ -158,15 +172,14 @@ class Juego{
    iniciar(){
       console.log('Iniciando...');
       this.divPrincipal = document.getElementById('divPrincipal')
-      this.generadoItem = window.setInterval(this.intervaloItem(), 1000)
-      //this.intervaloItem()
+      this.intervaloItem()
 
       //console.log(this);
 
    }
 
    intervaloItem(){
-      generadorItems= window.setTimeout(this.generarItem.bind(this), velocidad)
+      generadorItems= window.setInterval(this.generarItem.bind(this), velocidad)
    }
 
    /**

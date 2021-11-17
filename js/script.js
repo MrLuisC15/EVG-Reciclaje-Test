@@ -122,9 +122,12 @@ function masPunto(){
    divNivel.innerHTML = nivel
    //console.log(puntos);
    if(puntos==5 && nivel==1) {
+      
 
       puntos=1
       nivel=2
+      divPuntos.innerHTML = puntos
+      divNivel.innerHTML = nivel
       velocidad=150
       document.getElementById('divPrincipal').style.borderColor = 'red'
       document.getElementById('papeleras').style.borderColor = 'red'
@@ -154,23 +157,17 @@ class Juego{
       console.log('Iniciando...');
       that=this
       this.divPrincipal = document.getElementById('divPrincipal')
-      //this.generadorItems= window.setInterval(this.generarItem.bind(this), velocidad)
+      this.generadorItems= window.setInterval(this.generarItem.bind(this), velocidad)
       //console.log(this);
-      this.generadorItems= window.setInterval(function () {
-         that.generarItem.bind(that)
-         console.log(that);
+      this.juan= window.setInterval(function () {
+         //that.generarItem.bind(that)
+         //console.log(that);
          if(nivel==2)
             window.clearInterval(that.generadorItems)
+            window.clearInterval(that.juan)
             return false
       }, velocidad)
 
-
-      /*this.generadorItems= window.setInterval(() => {
-         that.generarItem.bind(that)
-         console.log(that);
-         if(nivel==2)
-            clearInterval(that.generadorItems)
-      }, velocidad);*/
 
    }
    /**

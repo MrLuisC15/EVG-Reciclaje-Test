@@ -133,7 +133,7 @@ function masPunto(){
       document.getElementById('papeleras').style.borderColor = 'red'
 
       window.clearInterval(generadorItems)
-      Juego.intervaloItem
+      Juego.intervaloItem()
    }
 }
 

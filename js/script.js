@@ -122,17 +122,28 @@ function masPunto(){
    divNivel.innerHTML = nivel
    //console.log(puntos);
    if(puntos==5 && nivel==1) {
-      
-
       puntos=1
       nivel=2
       divPuntos.innerHTML = puntos
       divNivel.innerHTML = nivel
-      velocidad=150
       document.getElementById('divPrincipal').style.borderColor = 'red'
       document.getElementById('papeleras').style.borderColor = 'red'
-
-      window.clearInterval(generadorItems)
+   }
+   if(puntos==15 && nivel==2) {
+      puntos=1
+      nivel=3
+      divPuntos.innerHTML = puntos
+      divNivel.innerHTML = nivel
+      document.getElementById('divPrincipal').style.borderColor = 'blue'
+      document.getElementById('papeleras').style.borderColor = 'blue'
+   }
+   if(puntos==35 && nivel==3) {
+      puntos=1
+      nivel=4
+      divPuntos.innerHTML = puntos
+      divNivel.innerHTML = nivel
+      document.getElementById('divPrincipal').style.borderColor = 'purple'
+      document.getElementById('papeleras').style.borderColor = 'purple'
    }
 }
 

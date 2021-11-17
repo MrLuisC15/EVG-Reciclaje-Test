@@ -96,7 +96,7 @@ function dropAzul(ev) {
       var data = ev.dataTransfer.getData("text");
    }
    let papelera = document.getElementById('imgazul')
-   if(document.getElementById(data).classList.value=='items itemAzul'){
+   if(document.getElementById(data).classList.value=='items itemAzul' || document.getElementById(data).classList.value=='items itemAzul marcado'){
       ev.target.appendChild(document.getElementById(data));
       ev.target.removeChild(document.getElementById(data));
       masPunto()
@@ -126,7 +126,7 @@ function dropAzul(ev) {
       var data = ev.dataTransfer.getData("text");
    }
    let papelera = document.getElementById('imgverde')
-   if(document.getElementById(data).classList.value=='items itemVerde'){
+   if(document.getElementById(data).classList.value=='items itemVerde' || document.getElementById(data).classList.value=='items itemVerde'){
       ev.target.appendChild(document.getElementById(data));
       ev.target.removeChild(document.getElementById(data));
       masPunto()

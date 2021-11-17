@@ -127,7 +127,7 @@ function masPunto(){
       velocidad=1000
       divPuntos.innerHTML = puntos
       divNivel.innerHTML = nivel
-      document.body.style.backgroundImage= 'url(../img/fondoN2.jpg)'
+      document.body.style.backgroundImage= 'url(img/fondoN2.jpg)'
       document.getElementById('divPrincipal').style.borderColor = 'red'
       document.getElementById('papeleras').style.borderColor = 'red'
    }
@@ -137,7 +137,7 @@ function masPunto(){
       velocidad=750
       divPuntos.innerHTML = puntos
       divNivel.innerHTML = nivel
-      document.body.style.backgroundImage= 'url(../img/fondoN3.jpg)'
+      document.body.style.backgroundImage= 'url(img/fondoN3.jpg)'
       document.getElementById('divPrincipal').style.borderColor = 'blue'
       document.getElementById('papeleras').style.borderColor = 'blue'
    }
@@ -147,7 +147,7 @@ function masPunto(){
       velocidad=500
       divPuntos.innerHTML = puntos
       divNivel.innerHTML = nivel
-      document.body.style.backgroundImage= 'url(../img/fondoN4.jpg)'
+      document.body.style.backgroundImage= 'url(img/fondoN4.jpg)'
       document.getElementById('divPrincipal').style.borderColor = 'purple'
       document.getElementById('papeleras').style.borderColor = 'purple'
    }

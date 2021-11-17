@@ -13,7 +13,7 @@
  */
 let puntos = 0
 let nivel = 1
-let velocidad=2000
+let velocidad=1000
 let generadorItems = null
 
 /**

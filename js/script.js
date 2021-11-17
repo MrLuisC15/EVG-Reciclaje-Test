@@ -161,6 +161,7 @@ class Juego{
          console.log(that);
          if(nivel==2)
             clearInterval(that.generadorItems)
+            return false
       }, velocidad)
 
 

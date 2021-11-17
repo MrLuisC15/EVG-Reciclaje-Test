@@ -152,12 +152,12 @@ class Juego{
    iniciar(){
       console.log('Iniciando...');
       this.divPrincipal = document.getElementById('divPrincipal')
-      this.generadorItems= window.setInterval(this.generarItem.bind(this), velocidad)
+      //this.generadorItems= window.setInterval(this.generarItem.bind(this), velocidad)
       this.generadorItems= window.setInterval(() => {
          this.generarItem.bind(this)
 
          if(nivel==2)
-            return false
+            clearInterval(this.generadorItems)
       }, velocidad);
 
    }

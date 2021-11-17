@@ -63,7 +63,7 @@ function dropAmarillo(ev) {
    }
 
    let papelera = document.getElementById('imgamarilla')
-   if(document.getElementById(data).classList.value=='items itemAmarillo'){
+   if(document.getElementById(data).classList.value=='items itemAmarillo' || document.getElementById(data).classList.value=='items itemAmarillo marcado'){
       ev.target.appendChild(document.getElementById(data));
       ev.target.removeChild(document.getElementById(data));
       masPunto()

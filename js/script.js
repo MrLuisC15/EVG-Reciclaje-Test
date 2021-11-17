@@ -166,6 +166,7 @@ class Juego{
    }
 
    intervaloItem(){
+      console.log('JUAN');
       generadorItems= window.setInterval(this.generarItem.bind(this), velocidad)
    }
 

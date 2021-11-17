@@ -13,7 +13,7 @@
  */
 let puntos = 0
 let nivel = 1
-let velocidad=1000
+let velocidad=1500
 let generadorItems = null
 
 /**
@@ -124,6 +124,7 @@ function masPunto(){
    if(puntos==5 && nivel==1) {
       puntos=1
       nivel=2
+      velocidad=1000
       divPuntos.innerHTML = puntos
       divNivel.innerHTML = nivel
       document.body.style.backgroundImage= '../img/fondoN2.jpg'
@@ -133,6 +134,7 @@ function masPunto(){
    if(puntos==15 && nivel==2) {
       puntos=1
       nivel=3
+      velocidad=750
       divPuntos.innerHTML = puntos
       divNivel.innerHTML = nivel
       document.body.style.backgroundImage= '../img/fondoN3.jpg'
@@ -142,6 +144,7 @@ function masPunto(){
    if(puntos==35 && nivel==3) {
       puntos=1
       nivel=4
+      velocidad=500
       divPuntos.innerHTML = puntos
       divNivel.innerHTML = nivel
       document.body.style.backgroundImage= '../img/fondoN4.jpg'
@@ -180,6 +183,7 @@ class Juego{
 
    intervaloItem(){
       generadorItems= window.setInterval(this.generarItem.bind(this), velocidad)
+     
    }
 
    /**
@@ -192,6 +196,10 @@ class Juego{
       let contadorItems = 0
       this.vista.dibujar(divPrincipal, nuevoItem, contadorItems)
       contadorItems++
+      if(nivel==2){
+         window.clearInterval(generadorItems)
+         this.intervaloItem()
+      }
    }
 
   

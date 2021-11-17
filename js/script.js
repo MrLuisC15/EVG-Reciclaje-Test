@@ -166,7 +166,7 @@ class Juego{
    }
 
    intervaloItem(){
-      generadorItems= window.setTimeout(this.generarItem.bind(this), velocidad)
+      generadorItems= window.setTimeout(this.generarItem.bind(this), 0)
    }
 
    /**

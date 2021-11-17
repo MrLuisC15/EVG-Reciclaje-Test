@@ -155,7 +155,6 @@ class Juego{
       this.divPrincipal = document.getElementById('divPrincipal')
       generadorItems= window.setInterval(this.generarItem.bind(this), velocidad)
 
-      this.animador = window.setInterval
    }
    /**
     *Crea un nuevo objeto basura

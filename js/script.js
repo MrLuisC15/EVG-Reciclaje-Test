@@ -135,6 +135,7 @@ function masPunto(){
       nivel=3
       divPuntos.innerHTML = puntos
       divNivel.innerHTML = nivel
+      document.body.style.backgroundImage= '../img/fondo4.jpg'
       document.getElementById('divPrincipal').style.borderColor = 'blue'
       document.getElementById('papeleras').style.borderColor = 'blue'
    }
@@ -143,6 +144,7 @@ function masPunto(){
       nivel=4
       divPuntos.innerHTML = puntos
       divNivel.innerHTML = nivel
+      document.body.style.backgroundImage= '../img/fondo5.jpg'
       document.getElementById('divPrincipal').style.borderColor = 'purple'
       document.getElementById('papeleras').style.borderColor = 'purple'
    }

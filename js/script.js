@@ -159,7 +159,7 @@ class Juego{
    iniciar(){
       console.log('Iniciando...');
       this.divPrincipal = document.getElementById('divPrincipal')
-      this.intervaloItem
+      this.intervaloItem()
 
       //console.log(this);
 

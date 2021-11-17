@@ -158,8 +158,8 @@ class Juego{
    iniciar(){
       console.log('Iniciando...');
       this.divPrincipal = document.getElementById('divPrincipal')
-      this.generadoItem = window.setInterval(this.intervaloItem, 1000)
-      this.intervaloItem()
+      this.generadoItem = window.setInterval(this.intervaloItem(), 1000)
+      //this.intervaloItem()
 
       //console.log(this);
 

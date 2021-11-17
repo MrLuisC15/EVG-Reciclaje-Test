@@ -126,6 +126,7 @@ function masPunto(){
       nivel=2
       divPuntos.innerHTML = puntos
       divNivel.innerHTML = nivel
+      document.body.style.backgroundImage= '../img/fondo3.jpg'
       document.getElementById('divPrincipal').style.borderColor = 'red'
       document.getElementById('papeleras').style.borderColor = 'red'
    }

@@ -133,7 +133,6 @@ function masPunto(){
       document.getElementById('papeleras').style.borderColor = 'red'
 
       window.clearInterval(generadorItems)
-      Juego.intervaloItem()
    }
 }
 
@@ -159,13 +158,13 @@ class Juego{
    iniciar(){
       console.log('Iniciando...');
       this.divPrincipal = document.getElementById('divPrincipal')
-      Juego.intervaloItem()
+      this.intervaloItem()
 
       //console.log(this);
 
    }
 
-   static intervaloItem(){
+   intervaloItem(){
       generadorItems= window.setInterval(this.generarItem.bind(this), velocidad)
    }
 

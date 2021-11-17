@@ -57,29 +57,30 @@ function drag(ev) {
  */
 function dropAmarillo(ev) {
    ev.preventDefault();
-   if(document.getElementsByClassName('marcado')[0]) {
-      var data = document.getElementsByClassName('marcado')[0].id
-   }
-   else {
-      var data = ev.dataTransfer.getData("text");
-   }
+   if(ev.dataTransfer || document.getElementsByClassName('marcado')[0]) {
+      if(document.getElementsByClassName('marcado')[0]) {
+         var data = document.getElementsByClassName('marcado')[0].id
+      }
+      else {
+         var data = ev.dataTransfer.getData("text");
+      }
 
-   let papelera = document.getElementById('imgamarilla')
-   if(document.getElementById(data).classList.value=='items itemAmarillo' || document.getElementById(data).classList.value=='items itemAmarillo marcado'){
-      ev.target.appendChild(document.getElementById(data));
-      ev.target.removeChild(document.getElementById(data));
-      masPunto()
-      papelera.style.backgroundColor = "greenyellow"
-      
-   }
-   else {
-      papelera.style.backgroundColor = "red"
-   }
+      let papelera = document.getElementById('imgamarilla')
+      if(document.getElementById(data).classList.value=='items itemAmarillo' || document.getElementById(data).classList.value=='items itemAmarillo marcado'){
+         ev.target.appendChild(document.getElementById(data));
+         ev.target.removeChild(document.getElementById(data));
+         masPunto()
+         papelera.style.backgroundColor = "greenyellow"
+         
+      }
+      else {
+         papelera.style.backgroundColor = "red"
+      }
 
-   setTimeout(() => {
-      papelera.style.background = "#ffffff"
-   }, 750);
-
+      setTimeout(() => {
+         papelera.style.background = "#ffffff"
+      }, 750);
+   }
 }
 /**
  *Función que gestiona cuando soltamos un objeto en el contenedor azul
@@ -88,28 +89,29 @@ function dropAmarillo(ev) {
  */
 function dropAzul(ev) {
    ev.preventDefault();
-   if(document.getElementsByClassName('marcado')[0]) {
-      var data = document.getElementsByClassName('marcado')[0].id
-   }
-   else {
-      var data = ev.dataTransfer.getData("text");
-   }
-   let papelera = document.getElementById('imgazul')
-   if(document.getElementById(data).classList.value=='items itemAzul' || document.getElementById(data).classList.value=='items itemAzul marcado'){
-      ev.target.appendChild(document.getElementById(data));
-      ev.target.removeChild(document.getElementById(data));
-      masPunto()
-      papelera.style.backgroundColor = "greenyellow"
-      
-   }
-   else {
-      papelera.style.backgroundColor = "red"
-   }
+   if(ev.dataTransfer || document.getElementsByClassName('marcado')[0]) {
+      if(document.getElementsByClassName('marcado')[0]) {
+         var data = document.getElementsByClassName('marcado')[0].id
+      }
+      else {
+         var data = ev.dataTransfer.getData("text");
+      }
+      let papelera = document.getElementById('imgazul')
+      if(document.getElementById(data).classList.value=='items itemAzul' || document.getElementById(data).classList.value=='items itemAzul marcado'){
+         ev.target.appendChild(document.getElementById(data));
+         ev.target.removeChild(document.getElementById(data));
+         masPunto()
+         papelera.style.backgroundColor = "greenyellow"
+         
+      }
+      else {
+         papelera.style.backgroundColor = "red"
+      }
 
-   setTimeout(() => {
-      papelera.style.background = "#ffffff"
-   }, 750);
-
+      setTimeout(() => {
+         papelera.style.background = "#ffffff"
+      }, 750);
+   }
  }
 /**
  *Función que gestiona cuando soltamos un objeto en el contenedor verde
@@ -118,28 +120,30 @@ function dropAzul(ev) {
  */
  function dropVerde(ev) {
    ev.preventDefault();
-   if(document.getElementsByClassName('marcado')[0]) {
-      var data = document.getElementsByClassName('marcado')[0].id
-   }
-   else {
-      var data = ev.dataTransfer.getData("text");
-   }
-   let papelera = document.getElementById('imgverde')
-   if(document.getElementById(data).classList.value=='items itemVerde' || document.getElementById(data).classList.value=='items itemVerde'){
-      ev.target.appendChild(document.getElementById(data));
-      ev.target.removeChild(document.getElementById(data));
-      masPunto()
-      papelera.style.backgroundColor = "greenyellow"
+   if(ev.dataTransfer || document.getElementsByClassName('marcado')[0]) {
+      if(document.getElementsByClassName('marcado')[0]) {
+         var data = document.getElementsByClassName('marcado')[0].id
+      }
+      else {
+         var data = ev.dataTransfer.getData("text");
+      }
       
-   }
-   else {
-      papelera.style.backgroundColor = "red"
-   }
+      let papelera = document.getElementById('imgverde')
+      if(document.getElementById(data).classList.value=='items itemVerde' || document.getElementById(data).classList.value=='items itemVerde marcado'){
+         ev.target.appendChild(document.getElementById(data));
+         ev.target.removeChild(document.getElementById(data));
+         masPunto()
+         papelera.style.backgroundColor = "greenyellow"
+         
+      }
+      else {
+         papelera.style.backgroundColor = "red"
+      }
 
-   setTimeout(() => {
-      papelera.style.background = "#ffffff"
-   }, 750);
-
+      setTimeout(() => {
+         papelera.style.background = "#ffffff"
+      }, 750);
+   }
  }
 
    

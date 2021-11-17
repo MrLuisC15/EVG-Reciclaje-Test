@@ -39,7 +39,7 @@ function drag(ev) {
  * @param {*} ev Evento de la función
  */
  function clickItem(ev) {
-   ev.dataTransfer.setData("text", ev.target.id);
+   //ev.dataTransfer.setData("text", ev.target.id);
    ev.target.classList.add('marcado')
 }
 

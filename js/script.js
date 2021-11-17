@@ -13,7 +13,8 @@
  */
 let puntos = 0
 let nivel = 1
-let velocidad=1500
+let velocidad=2000
+let generadorItems = null
 
 /**
  *Función que permitirá arrastar un objeto
@@ -121,12 +122,17 @@ function masPunto(){
    divNivel.innerHTML = nivel
    //console.log(puntos);
    if(puntos==5 && nivel==1) {
+      
 
       puntos=1
       nivel=2
+      divPuntos.innerHTML = puntos
+      divNivel.innerHTML = nivel
       velocidad=150
       document.getElementById('divPrincipal').style.borderColor = 'red'
       document.getElementById('papeleras').style.borderColor = 'red'
+
+      window.clearInterval(generadorItems)
    }
 }
 
@@ -151,18 +157,18 @@ class Juego{
     */
    iniciar(){
       console.log('Iniciando...');
-      let that=this
       this.divPrincipal = document.getElementById('divPrincipal')
-      //this.generadorItems= window.setInterval(this.generarItem.bind(this), velocidad)
-      console.log(this);
-      this.generadorItems= window.setInterval(() => {
-         that.generarItem.bind(that)
-         console.log(that);
-         if(nivel==2)
-            clearInterval(that.generadorItems)
-      }, velocidad);
+      this.generadoItem = window.setInterval(this.intervaloItem(), 1000)
+      //this.intervaloItem()
+
+      //console.log(this);
 
    }
+
+   intervaloItem(){
+      generadorItems= window.setTimeout(this.generarItem.bind(this), velocidad)
+   }
+
    /**
     *Crea un nuevo objeto basura
     *

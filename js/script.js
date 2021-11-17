@@ -14,6 +14,7 @@
 let puntos = 0
 let nivel = 1
 let velocidad=1500
+let that = null
 
 /**
  *Función que permitirá arrastar un objeto
@@ -151,12 +152,12 @@ class Juego{
     */
    iniciar(){
       console.log('Iniciando...');
-      let that=this
+      that=this
       this.divPrincipal = document.getElementById('divPrincipal')
       //this.generadorItems= window.setInterval(this.generarItem.bind(this), velocidad)
       console.log(this);
       this.generadorItems= window.setInterval(() => {
-         this.generarItem.bind(that)
+         that.generarItem.bind(that)
          console.log(that);
          if(nivel==2)
             clearInterval(that.generadorItems)

@@ -160,7 +160,7 @@ class Juego{
          that.generarItem.bind(that)
          console.log(that);
          if(nivel==2)
-            clearInterval(that.generadorItems)
+            window.clearInterval(that.generadorItems)
             return false
       }, velocidad)
 

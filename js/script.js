@@ -9,11 +9,12 @@
 'use strict'
 
 /**
- * Instanciamos la puntación, el nivel y la velocidad de juego
+ * Instanciamos la puntación ,velocidad y nivel de juego
  */
 let puntos = 0
 let nivel = 1
-let velocidad = 1000
+let velocidad=1500
+let generadorItems=null
 
 /**
  *Función que permitirá arrastar un objeto
@@ -121,6 +122,7 @@ function masPunto(){
    divNivel.innerHTML = nivel
    //console.log(puntos);
    if(puntos==5 && nivel==1) {
+      clearInterval(generadorItems);
       puntos=1
       nivel=2
       velocidad=150
@@ -151,14 +153,8 @@ class Juego{
    iniciar(){
       console.log('Iniciando...');
       this.divPrincipal = document.getElementById('divPrincipal')
-      if(nivel==1){
-         this.generadorItems= window.setInterval(this.generarItem.bind(this), 1000)
-         //this.generadorItems= window.setTimeout(this.generarItem.bind(this), 1000)
-      }
-      if(nivel==2){
-         this.generadorItems= window.setInterval(this.generarItem.bind(this), 50)
-         //this.generadorItems= window.setTimeout(this.generarItem.bind(this), 50)
-      }
+      generadorItems= window.setInterval(this.generarItem.bind(this), velocidad)
+
       this.animador = window.setInterval
    }
    /**

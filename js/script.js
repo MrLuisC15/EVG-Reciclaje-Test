@@ -169,6 +169,7 @@ class Juego{
     * @memberof Juego
     */
    generarItem(){
+      console.log('Genera supuestamente');
       let nuevoItem = this.modelo.crearItem()
       let contadorItems = 0
       this.vista.dibujar(divPrincipal, nuevoItem, contadorItems)

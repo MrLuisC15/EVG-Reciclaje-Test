@@ -13,7 +13,7 @@
  */
 let puntos = 0
 let nivel = 1
-let velocidad=1500
+let velocidad=2000
 let that = null
 
 /**
@@ -156,6 +156,14 @@ class Juego{
       this.divPrincipal = document.getElementById('divPrincipal')
       this.generadorItems= window.setInterval(this.generarItem.bind(this), velocidad)
       //console.log(this);
+      this.generadorItems= window.setInterval(function () {
+         that.generarItem.bind(that)
+         console.log(that);
+         if(nivel==2)
+            clearInterval(that.generadorItems)
+      }, velocidad)
+
+
       /*this.generadorItems= window.setInterval(() => {
          that.generarItem.bind(that)
          console.log(that);

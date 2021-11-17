@@ -151,13 +151,14 @@ class Juego{
     */
    iniciar(){
       console.log('Iniciando...');
+      let that=this
       this.divPrincipal = document.getElementById('divPrincipal')
       //this.generadorItems= window.setInterval(this.generarItem.bind(this), velocidad)
       this.generadorItems= window.setInterval(() => {
-         this.generarItem.bind(this)
+         that.generarItem.bind(that)
          console.log('Pasa');
          if(nivel==2)
-            clearInterval(this.generadorItems)
+            clearInterval(that.generadorItems)
       }, velocidad);
 
    }

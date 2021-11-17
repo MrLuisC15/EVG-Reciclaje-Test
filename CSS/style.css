@@ -100,4 +100,5 @@ div{
 }
 .marcado{
     border: solid 1px #1086af;
+    border-radius: 5px;
 }

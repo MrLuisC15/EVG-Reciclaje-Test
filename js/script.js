@@ -58,8 +58,8 @@ function drag(ev) {
 function dropAmarillo(ev) {
    ev.preventDefault();
    if(document.getElementsByClassName('marcado')[0]) {
-      var data = document.getElementsByClassName('marcado')[0].id.value
-      console.log(document.getElementsByClassName('marcado')[0].id);
+      var data = document.getElementsByClassName('marcado')[0].id
+
    }
    else {
       var data = ev.dataTransfer.getData("text");

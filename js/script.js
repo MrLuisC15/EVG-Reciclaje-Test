@@ -157,7 +157,6 @@ class Juego{
     */
    iniciar(){
       console.log('Iniciando...');
-      that=this
       this.divPrincipal = document.getElementById('divPrincipal')
       generadorItems= window.setInterval(this.generarItem.bind(this), velocidad)
       //console.log(this);

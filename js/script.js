@@ -155,7 +155,7 @@ class Juego{
       //this.generadorItems= window.setInterval(this.generarItem.bind(this), velocidad)
       this.generadorItems= window.setInterval(() => {
          this.generarItem.bind(this)
-
+         console.log('Pasa');
          if(nivel==2)
             clearInterval(this.generadorItems)
       }, velocidad);

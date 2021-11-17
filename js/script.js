@@ -126,7 +126,7 @@ function masPunto(){
       nivel=2
       divPuntos.innerHTML = puntos
       divNivel.innerHTML = nivel
-      document.body.style.backgroundImage= '../img/fondo3.jpg'
+      document.body.style.backgroundImage= '../img/fondoN2.jpg'
       document.getElementById('divPrincipal').style.borderColor = 'red'
       document.getElementById('papeleras').style.borderColor = 'red'
    }
@@ -135,7 +135,7 @@ function masPunto(){
       nivel=3
       divPuntos.innerHTML = puntos
       divNivel.innerHTML = nivel
-      document.body.style.backgroundImage= '../img/fondo4.jpg'
+      document.body.style.backgroundImage= '../img/fondoN3.jpg'
       document.getElementById('divPrincipal').style.borderColor = 'blue'
       document.getElementById('papeleras').style.borderColor = 'blue'
    }
@@ -144,7 +144,7 @@ function masPunto(){
       nivel=4
       divPuntos.innerHTML = puntos
       divNivel.innerHTML = nivel
-      document.body.style.backgroundImage= '../img/fondo5.jpg'
+      document.body.style.backgroundImage= '../img/fondoN4.jpg'
       document.getElementById('divPrincipal').style.borderColor = 'purple'
       document.getElementById('papeleras').style.borderColor = 'purple'
    }

@@ -11,4 +11,4 @@ Habrá un tiempo límite (sin programar aún) en el cual habrá que intentar con
 Conforme se consigan más puntos, irá aumentando el nivel del juego (hay 4 niveles). La puntuación más alta del usuario
 irá siendo registrada.
 
-Puedes jugarlo [aquí](https://mrluisc15.github.io/EVG-Reciclaje/).
+Puedes jugarlo [aquí](https://mrluisc15.github.io/EVG-Reciclaje-Test/).

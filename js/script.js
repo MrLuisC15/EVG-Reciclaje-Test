@@ -305,7 +305,7 @@ class Vista{
          img.style.left = Math.floor(Math.random() *50)+'%'
       }
       else{
-         img.style.right = Math.floor(Math.random() *50)+5+'%'
+         img.style.right = Math.floor(Math.random() *50)+'%'
       }
 
       //img.style.marginRight = '100px'

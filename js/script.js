@@ -13,7 +13,7 @@
  */
 let puntos = 0
 let nivel = 1
-let velocidad=1000
+let velocidad=1500
 let generadorItems = null
 
 /**
@@ -31,7 +31,25 @@ function allowDrop(ev) {
  */
 function drag(ev) {
    ev.dataTransfer.setData("text", ev.target.id);
+   while(document.getElementsByClassName('marcado')[0]){
+      document.getElementsByClassName('marcado')[0].classList.remove('marcado')
+   }
 }
+
+/**
+ *Función que gestionará el objeto mientras lo arrastremos
+ *
+ * @param {*} ev Evento de la función
+ */
+ function clickItem(ev) {
+   //ev.dataTransfer.setData("text", ev.target.id);
+   while(document.getElementsByClassName('marcado')[0]){
+      document.getElementsByClassName('marcado')[0].classList.remove('marcado')
+   }
+   ev.target.classList.add('marcado')
+
+}
+
 /**
  *Función que gestiona cuando soltamos un objeto en el contenedor amarillo
  *
@@ -39,23 +57,30 @@ function drag(ev) {
  */
 function dropAmarillo(ev) {
    ev.preventDefault();
-   var data = ev.dataTransfer.getData("text");
-   let papelera = document.getElementById('imgamarilla')
-   if(document.getElementById(data).classList.value=='items itemAmarillo'){
-      ev.target.appendChild(document.getElementById(data));
-      ev.target.removeChild(document.getElementById(data));
-      masPunto()
-      papelera.style.backgroundColor = "greenyellow"
-      
-   }
-   else {
-      papelera.style.backgroundColor = "red"
-   }
+   if(ev.dataTransfer || document.getElementsByClassName('marcado')[0]) {
+      if(document.getElementsByClassName('marcado')[0]) {
+         var data = document.getElementsByClassName('marcado')[0].id
+      }
+      else {
+         var data = ev.dataTransfer.getData("text");
+      }
 
-   setTimeout(() => {
-      papelera.style.background = "#ffffff"
-   }, 750);
+      let papelera = document.getElementById('imgamarilla')
+      if(document.getElementById(data).classList.value=='items itemAmarillo' || document.getElementById(data).classList.value=='items itemAmarillo marcado'){
+         ev.target.appendChild(document.getElementById(data));
+         ev.target.removeChild(document.getElementById(data));
+         masPunto()
+         papelera.style.backgroundColor = "greenyellow"
+         
+      }
+      else {
+         papelera.style.backgroundColor = "red"
+      }
 
+      setTimeout(() => {
+         papelera.style.background = "#ffffff"
+      }, 750);
+   }
 }
 /**
  *Función que gestiona cuando soltamos un objeto en el contenedor azul
@@ -64,23 +89,29 @@ function dropAmarillo(ev) {
  */
 function dropAzul(ev) {
    ev.preventDefault();
-   var data = ev.dataTransfer.getData("text");
-   let papelera = document.getElementById('imgazul')
-   if(document.getElementById(data).classList.value=='items itemAzul'){
-      ev.target.appendChild(document.getElementById(data));
-      ev.target.removeChild(document.getElementById(data));
-      masPunto()
-      papelera.style.backgroundColor = "greenyellow"
-      
-   }
-   else {
-      papelera.style.backgroundColor = "red"
-   }
+   if(ev.dataTransfer || document.getElementsByClassName('marcado')[0]) {
+      if(document.getElementsByClassName('marcado')[0]) {
+         var data = document.getElementsByClassName('marcado')[0].id
+      }
+      else {
+         var data = ev.dataTransfer.getData("text");
+      }
+      let papelera = document.getElementById('imgazul')
+      if(document.getElementById(data).classList.value=='items itemAzul' || document.getElementById(data).classList.value=='items itemAzul marcado'){
+         ev.target.appendChild(document.getElementById(data));
+         ev.target.removeChild(document.getElementById(data));
+         masPunto()
+         papelera.style.backgroundColor = "greenyellow"
+         
+      }
+      else {
+         papelera.style.backgroundColor = "red"
+      }
 
-   setTimeout(() => {
-      papelera.style.background = "#ffffff"
-   }, 750);
-
+      setTimeout(() => {
+         papelera.style.background = "#ffffff"
+      }, 750);
+   }
  }
 /**
  *Función que gestiona cuando soltamos un objeto en el contenedor verde
@@ -89,23 +120,30 @@ function dropAzul(ev) {
  */
  function dropVerde(ev) {
    ev.preventDefault();
-   var data = ev.dataTransfer.getData("text");
-   let papelera = document.getElementById('imgverde')
-   if(document.getElementById(data).classList.value=='items itemVerde'){
-      ev.target.appendChild(document.getElementById(data));
-      ev.target.removeChild(document.getElementById(data));
-      masPunto()
-      papelera.style.backgroundColor = "greenyellow"
+   if(ev.dataTransfer || document.getElementsByClassName('marcado')[0]) {
+      if(document.getElementsByClassName('marcado')[0]) {
+         var data = document.getElementsByClassName('marcado')[0].id
+      }
+      else {
+         var data = ev.dataTransfer.getData("text");
+      }
       
-   }
-   else {
-      papelera.style.backgroundColor = "red"
-   }
+      let papelera = document.getElementById('imgverde')
+      if(document.getElementById(data).classList.value=='items itemVerde' || document.getElementById(data).classList.value=='items itemVerde marcado'){
+         ev.target.appendChild(document.getElementById(data));
+         ev.target.removeChild(document.getElementById(data));
+         masPunto()
+         papelera.style.backgroundColor = "greenyellow"
+         
+      }
+      else {
+         papelera.style.backgroundColor = "red"
+      }
 
-   setTimeout(() => {
-      papelera.style.background = "#ffffff"
-   }, 750);
-
+      setTimeout(() => {
+         papelera.style.background = "#ffffff"
+      }, 750);
+   }
  }
 
    
@@ -124,27 +162,30 @@ function masPunto(){
    if(puntos==5 && nivel==1) {
       puntos=1
       nivel=2
+      velocidad=1000
       divPuntos.innerHTML = puntos
       divNivel.innerHTML = nivel
-      document.body.style.backgroundImage= '../img/fondoN2.jpg'
+      document.body.style.backgroundImage= 'url(img/fondoN2.jpg)'
       document.getElementById('divPrincipal').style.borderColor = 'red'
       document.getElementById('papeleras').style.borderColor = 'red'
    }
    if(puntos==15 && nivel==2) {
       puntos=1
       nivel=3
+      velocidad=750
       divPuntos.innerHTML = puntos
       divNivel.innerHTML = nivel
-      document.body.style.backgroundImage= '../img/fondoN3.jpg'
+      document.body.style.backgroundImage= 'url(img/fondoN3.jpg)'
       document.getElementById('divPrincipal').style.borderColor = 'blue'
       document.getElementById('papeleras').style.borderColor = 'blue'
    }
    if(puntos==35 && nivel==3) {
       puntos=1
       nivel=4
+      velocidad=500
       divPuntos.innerHTML = puntos
       divNivel.innerHTML = nivel
-      document.body.style.backgroundImage= '../img/fondoN4.jpg'
+      document.body.style.backgroundImage= 'url(img/fondoN4.jpg)'
       document.getElementById('divPrincipal').style.borderColor = 'purple'
       document.getElementById('papeleras').style.borderColor = 'purple'
    }
@@ -180,6 +221,7 @@ class Juego{
 
    intervaloItem(){
       generadorItems= window.setInterval(this.generarItem.bind(this), velocidad)
+     
    }
 
    /**
@@ -192,6 +234,10 @@ class Juego{
       let contadorItems = 0
       this.vista.dibujar(divPrincipal, nuevoItem, contadorItems)
       contadorItems++
+      if((nivel==2 || nivel==3 || nivel==4)&& puntos==1){
+         window.clearInterval(generadorItems)
+         this.intervaloItem()
+      }
    }
 
   
@@ -234,6 +280,8 @@ class Vista{
       img.setAttribute("id", this.contadorItems)
       img.setAttribute("draggable","true")
       img.setAttribute("ondragstart","drag(event)")
+      img.setAttribute("onclick","clickItem(event)")
+
       //this.contadorTop=this.contadorTop+20
       this.contadorItems=+this.contadorItems+1
       
@@ -313,6 +361,10 @@ let amarillo=document.getElementById("pamarilla");
 verde.setAttribute("ondrop", "dropVerde(event)")
 azul.setAttribute("ondrop", "dropAzul(event)")
 amarillo.setAttribute("ondrop", "dropAmarillo(event)")
+
+verde.setAttribute("onclick", "dropVerde(event)")
+azul.setAttribute("onclick", "dropAzul(event)")
+amarillo.setAttribute("onclick", "dropAmarillo(event)")
 
 
 verde.setAttribute("ondragover", "allowDrop(event)")

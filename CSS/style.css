@@ -99,5 +99,7 @@ div{
     
 }
 .marcado{
-    border: solid 1px #1086af;
+    background-color: #1086af;
+    border: 2px solid #1086af;
+    border-radius: 5px;
 }

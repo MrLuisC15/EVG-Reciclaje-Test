@@ -18,11 +18,11 @@ let generadorItems = null
 let acierto = document.createElement("AUDIO");
 acierto.setAttribute("src","acierto.mp3");
 let fallo = document.createElement("AUDIO");
-acierto.setAttribute("src","fallo.mp3");
+fallo.setAttribute("src","fallo.mp3");
 let pasarNivel = document.createElement("AUDIO");
-acierto.setAttribute("src","pasarNivel.mp3");
+pasarNivel.setAttribute("src","pasarNivel.mp3");
 let perder = document.createElement("AUDIO");
-acierto.setAttribute("src","perder.mp3");
+perder.setAttribute("src","perder.mp3");
 /*
 let acierto = new Audio('../sonidos/acierto.wav')
 let fallo = new Audio('../sonidos/fallo.wav')

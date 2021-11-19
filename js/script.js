@@ -162,7 +162,7 @@ function masPunto(){
    if(puntos==5 && nivel==1) {
       puntos=1
       nivel=2
-      velocidad=1000
+      velocidad=100 //1000
       divPuntos.innerHTML = puntos
       divNivel.innerHTML = nivel
       document.body.style.backgroundImage= 'url(img/fondoN2.jpg)'
@@ -277,7 +277,7 @@ class Vista{
 
       img.style.top = Math.floor(Math.random() *290)+'px'
       img.style.left = Math.floor(Math.random() *94)+'%'
-      img.style.marginRight = '100px'
+      //img.style.marginRight = '100px'
       img.setAttribute("id", this.contadorItems)
       img.setAttribute("draggable","true")
       img.setAttribute("ondragstart","drag(event)")

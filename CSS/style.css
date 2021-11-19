@@ -59,6 +59,7 @@ div{
 .items{
     height: 50px;
     margin: 15px;
+    margin-right: 150px;
     clear: left;
     position: absolute;
 }
@@ -95,6 +96,7 @@ div{
     }
     .items{
         height: 30px;
+        margin-right: 200px;
     }
     
 }

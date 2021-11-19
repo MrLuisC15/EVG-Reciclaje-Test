@@ -43,6 +43,7 @@ function allowDrop(ev) {
  * @param {*} ev Evento de la función
  */
 function drag(ev) {
+   ev.preventDefault();
    ev.dataTransfer.setData("text", ev.target.id);
    while(document.getElementsByClassName('marcado')[0]){
       document.getElementsByClassName('marcado')[0].classList.remove('marcado')

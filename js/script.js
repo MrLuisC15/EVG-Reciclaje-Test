@@ -9,12 +9,16 @@
 'use strict'
 
 /**
- * Instanciamos la puntación ,velocidad y nivel de juego
+ * Instanciamos la puntación ,velocidad, nivel de juego y los sonidos
  */
 let puntos = 0
 let nivel = 1
 let velocidad=1500
 let generadorItems = null
+let acierto = new Audio('../sonidos/acierto.wav')
+let fallo = new Audio('../sonidos/fallo.wav')
+let pasarNivel = new Audio('../sonidos/pasarNivel.wav')
+let perder = new Audio('../sonidos/perder.wav')
 
 /**
  *Función que permitirá arrastar un objeto
@@ -69,12 +73,14 @@ function dropAmarillo(ev) {
       if(document.getElementById(data).classList.value=='items itemAmarillo' || document.getElementById(data).classList.value=='items itemAmarillo marcado'){
          ev.target.appendChild(document.getElementById(data));
          ev.target.removeChild(document.getElementById(data));
+         acierto.play()
          masPunto()
          papelera.style.backgroundColor = "greenyellow"
          
       }
       else {
          papelera.style.backgroundColor = "red"
+         fallo.play()
       }
 
       setTimeout(() => {
@@ -100,12 +106,14 @@ function dropAzul(ev) {
       if(document.getElementById(data).classList.value=='items itemAzul' || document.getElementById(data).classList.value=='items itemAzul marcado'){
          ev.target.appendChild(document.getElementById(data));
          ev.target.removeChild(document.getElementById(data));
+         acierto.play()
          masPunto()
          papelera.style.backgroundColor = "greenyellow"
          
       }
       else {
          papelera.style.backgroundColor = "red"
+         fallo.play()
       }
 
       setTimeout(() => {
@@ -132,12 +140,14 @@ function dropAzul(ev) {
       if(document.getElementById(data).classList.value=='items itemVerde' || document.getElementById(data).classList.value=='items itemVerde marcado'){
          ev.target.appendChild(document.getElementById(data));
          ev.target.removeChild(document.getElementById(data));
+         acierto.play()
          masPunto()
          papelera.style.backgroundColor = "greenyellow"
          
       }
       else {
          papelera.style.backgroundColor = "red"
+         fallo.play()
       }
 
       setTimeout(() => {
@@ -160,6 +170,7 @@ function masPunto(){
    divNivel.innerHTML = nivel
    //console.log(puntos);
    if(puntos==5 && nivel==1) {
+      pasarNivel.play()
       puntos=1
       nivel=2
       velocidad=100 //1000
@@ -170,6 +181,7 @@ function masPunto(){
       document.getElementById('papeleras').style.borderColor = 'red'
    }
    if(puntos==15 && nivel==2) {
+      pasarNivel.play()
       puntos=1
       nivel=3
       velocidad=750
@@ -180,6 +192,7 @@ function masPunto(){
       document.getElementById('papeleras').style.borderColor = 'blue'
    }
    if(puntos==35 && nivel==3) {
+      pasarNivel.play()
       puntos=1
       nivel=4
       velocidad=500
@@ -276,13 +289,7 @@ class Vista{
       img.classList.add(clase)
 
       img.style.top = Math.floor(Math.random() *290)+'px'
-      if(Math.floor(Math.random() *2)==1) {
-         img.style.left = Math.floor(Math.random() *50)+'%'
-      }
-      else{
-         img.style.right = Math.floor(Math.random() *50)+10+'%'
-      }
-      
+      img.style.left = Math.floor(Math.random() *94)+'%'
       //img.style.marginRight = '100px'
       img.setAttribute("id", this.contadorItems)
       img.setAttribute("draggable","true")

@@ -15,10 +15,10 @@ let puntos = 0
 let nivel = 1
 let velocidad=1500
 let generadorItems = null
-let acierto = new Audio('/sonidos/acierto.wav')
-let fallo = new Audio('/sonidos/fallo.wav')
-let pasarNivel = new Audio('/sonidos/pasarNivel.wav')
-let perder = new Audio('/sonidos/perder.wav')
+let acierto = new Audio('../sonidos/acierto.wav')
+let fallo = new Audio('../sonidos/fallo.wav')
+let pasarNivel = new Audio('../sonidos/pasarNivel.wav')
+let perder = new Audio('../sonidos/perder.wav')
 
 /**
  *Función que permitirá arrastar un objeto

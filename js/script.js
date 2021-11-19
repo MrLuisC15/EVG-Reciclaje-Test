@@ -185,7 +185,7 @@ function masPunto(){
       pasarNivel.play()
       puntos=1
       nivel=2
-      velocidad=100 //1000
+      velocidad=1000 //1000
       divPuntos.innerHTML = puntos
       divNivel.innerHTML = nivel
       document.body.style.backgroundImage= 'url(img/fondoN2.jpg)'

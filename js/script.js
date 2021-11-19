@@ -15,7 +15,14 @@ let puntos = 0
 let nivel = 1
 let velocidad=1500
 let generadorItems = null
-var x = document.createElement("AUDIO");
+let acierto = document.createElement("AUDIO");
+acierto.setAttribute("src","../sonidos/acierto.wav");
+let fallo = document.createElement("AUDIO");
+acierto.setAttribute("src","../sonidos/acierto.wav");
+let pasarNivel = document.createElement("AUDIO");
+acierto.setAttribute("src","../sonidos/pasarNivel.wav");
+let perder = document.createElement("AUDIO");
+acierto.setAttribute("src","../sonidos/perder.wav");
 /*
 let acierto = new Audio('../sonidos/acierto.wav')
 let fallo = new Audio('../sonidos/fallo.wav')
@@ -297,7 +304,7 @@ class Vista{
       else{
          img.style.right = Math.floor(Math.random() *50)+20+'%'
       }
-      
+
       //img.style.marginRight = '100px'
       img.setAttribute("id", this.contadorItems)
       img.setAttribute("draggable","true")

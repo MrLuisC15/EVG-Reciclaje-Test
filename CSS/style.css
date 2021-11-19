@@ -59,9 +59,9 @@ div{
 .items{
     height: 50px;
     margin: 15px;
-    margin-right: 150px;
     clear: left;
     position: absolute;
+    transition: 1s;
 }
 #papeleras{
     border: 15px solid rgb(60, 189, 0);
@@ -96,7 +96,6 @@ div{
     }
     .items{
         height: 30px;
-        margin-right: 200px;
     }
     
 }

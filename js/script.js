@@ -277,6 +277,7 @@ class Vista{
 
       img.style.top = Math.floor(Math.random() *290)+'px'
       img.style.left = Math.floor(Math.random() *94)+'%'
+      img.style.right = '10px'
       img.setAttribute("id", this.contadorItems)
       img.setAttribute("draggable","true")
       img.setAttribute("ondragstart","drag(event)")

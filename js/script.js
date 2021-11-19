@@ -16,13 +16,13 @@ let nivel = 1
 let velocidad=1500
 let generadorItems = null
 let acierto = document.createElement("AUDIO");
-acierto.setAttribute("src","../sonidos/acierto.wav");
+acierto.setAttribute("src","../sonidos/acierto.mp3");
 let fallo = document.createElement("AUDIO");
-acierto.setAttribute("src","../sonidos/acierto.wav");
+acierto.setAttribute("src","../sonidos/fallo.mp3");
 let pasarNivel = document.createElement("AUDIO");
-acierto.setAttribute("src","../sonidos/pasarNivel.wav");
+acierto.setAttribute("src","../sonidos/pasarNivel.mp3");
 let perder = document.createElement("AUDIO");
-acierto.setAttribute("src","../sonidos/perder.wav");
+acierto.setAttribute("src","../sonidos/perder.mp3");
 /*
 let acierto = new Audio('../sonidos/acierto.wav')
 let fallo = new Audio('../sonidos/fallo.wav')

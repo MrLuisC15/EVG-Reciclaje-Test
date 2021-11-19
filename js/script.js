@@ -88,8 +88,9 @@ function dropAmarillo(ev) {
          
       }
       else {
-         papelera.style.backgroundColor = "red"
          fallo.play()
+         papelera.style.backgroundColor = "red"
+         
       }
 
       setTimeout(() => {
@@ -121,8 +122,9 @@ function dropAzul(ev) {
          
       }
       else {
-         papelera.style.backgroundColor = "red"
          fallo.play()
+         papelera.style.backgroundColor = "red"
+         
       }
 
       setTimeout(() => {
@@ -155,8 +157,9 @@ function dropAzul(ev) {
          
       }
       else {
-         papelera.style.backgroundColor = "red"
          fallo.play()
+         papelera.style.backgroundColor = "red"
+         
       }
 
       setTimeout(() => {

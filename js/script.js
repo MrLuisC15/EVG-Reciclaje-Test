@@ -82,7 +82,7 @@ function dropAmarillo(ev) {
       if(document.getElementById(data).classList.value=='items itemAmarillo' || document.getElementById(data).classList.value=='items itemAmarillo marcado'){
          ev.target.appendChild(document.getElementById(data));
          ev.target.removeChild(document.getElementById(data));
-         fallo.play()
+         acierto.play()
          masPunto()
          papelera.style.backgroundColor = "greenyellow"
          

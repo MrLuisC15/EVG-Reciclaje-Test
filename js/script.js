@@ -15,6 +15,7 @@ let puntos = 0
 let nivel = 1
 let velocidad=2000
 let generadorItems = null
+let contadorPerder= 0
 let acierto = document.createElement("AUDIO");
 acierto.setAttribute("src","sonidos/acierto.mp3");
 let fallo = document.createElement("AUDIO");
@@ -22,9 +23,7 @@ fallo.setAttribute("src","sonidos/perder.mp3");
 let pasarNivel = document.createElement("AUDIO");
 pasarNivel.setAttribute("src","sonidos/pasarNivel.mp3");
 let perder = document.createElement("AUDIO");
-perder.setAttribute("src","sonidos/perder.mp3");
-const MUSICAFONDO=document.querySelector("#musica-fondo");
-MUSICAFONDO.loop=true;
+perder.setAttribute("src","sonidos/lose.mp3");
 /*
 let acierto = new Audio('../sonidos/acierto.wav')
 let fallo = new Audio('../sonidos/fallo.wav')
@@ -86,6 +85,7 @@ function dropAmarillo(ev) {
          ev.target.removeChild(document.getElementById(data));
          acierto.play()
          masPunto()
+         contadorPerder--
          papelera.style.backgroundColor = "greenyellow"
          
       }
@@ -120,6 +120,7 @@ function dropAzul(ev) {
          ev.target.removeChild(document.getElementById(data));
          acierto.play()
          masPunto()
+         contadorPerder--
          papelera.style.backgroundColor = "greenyellow"
          
       }
@@ -155,6 +156,7 @@ function dropAzul(ev) {
          ev.target.removeChild(document.getElementById(data));
          acierto.play()
          masPunto()
+         contadorPerder--
          papelera.style.backgroundColor = "greenyellow"
          
       }
@@ -260,6 +262,8 @@ class Juego{
    generarItem(){
       let nuevoItem = this.modelo.crearItem()
       let contadorItems = 0
+      contadorPerder++
+      this.comprobarPerder()
       this.vista.dibujar(divPrincipal, nuevoItem, contadorItems)
       contadorItems++
       if((nivel==2 || nivel==3 || nivel==4)&& puntos==0){
@@ -267,7 +271,28 @@ class Juego{
          this.intervaloItem()
       }
    }
-
+   comprobarPerder(){
+      console.log(contadorPerder);
+      if(contadorPerder>=20 && nivel==1) {
+         this.perder()
+      }
+      if(contadorPerder>=40 && nivel==2) {
+         this.perder()
+      }
+      if(contadorPerder>=60 && nivel==3) {
+         this.perder()
+      }
+      if(contadorPerder>=100 && nivel==4) {
+         this.perder()
+      }
+   }  
+   perder(){
+      window.clearInterval(generadorItems)
+      perder.play()
+      let divPerder= document.createElement('div')
+      this.divPrincipal.appendChild(divPerder)
+      divPerder.textContent=`Has perdido en el nivel ${nivel}`
+   }
   
 }
 /**

@@ -301,7 +301,7 @@ class Juego{
       let divPerder= document.createElement('div')
       let img = document.createElement('img')
       img.setAttribute('src', 'img/GameOver.png');
-      this.divPrincipal.appendChild(divPerder)
+      //this.divPrincipal.appendChild(divPerder)
       divPerder.classList.add('gameOver');
       divPerder.appendChild(img);
 

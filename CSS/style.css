@@ -116,3 +116,8 @@ div{
     position: absolute;
     top: 40%;
 }
+#maincontainer a{
+    display: inline-block;
+    text-decoration: none;
+    margin-top: 10px;
+}

@@ -305,7 +305,7 @@ class Juego{
       divPerder.classList.add('gameOver');
 
       imagen.setAttribute('src', 'img/GameOver.png');
-      divPerder.insertBefore(imagen);
+      divPerder.insertBefore(img);
 
       divPerder.textContent=`Has perdido en el nivel ${nivel}`
       pausa=0

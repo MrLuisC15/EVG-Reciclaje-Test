@@ -24,7 +24,7 @@ fallo.setAttribute("src","sonidos/perder.mp3");
 let pasarNivel = document.createElement("AUDIO");
 pasarNivel.setAttribute("src","sonidos/pasarNivel.mp3");
 let perder = document.createElement("AUDIO");
-perder.setAttribute("src","sonidos/perder.mp3");
+perder.setAttribute("src","sonidos/lose.mp3");
 /*
 let acierto = new Audio('../sonidos/acierto.wav')
 let fallo = new Audio('../sonidos/fallo.wav')
@@ -34,7 +34,7 @@ let perder = new Audio('../sonidos/perder.wav')
 /**
  *Función que permitirá arrastar un objeto
  *
- * @param {*} ev Evento de la función
+ * @param {Event} ev Evento de la función
  */
 function allowDrop(ev) {
    ev.preventDefault();
@@ -42,7 +42,7 @@ function allowDrop(ev) {
 /**
  *Función que gestionará el objeto mientras lo arrastremos
  *
- * @param {*} ev Evento de la función
+ * @param {Event} ev Evento de la función
  */
 function drag(ev) {
    ev.dataTransfer.setData("text", ev.target.id);
@@ -54,7 +54,7 @@ function drag(ev) {
 /**
  *Función que gestionará el objeto mientras lo arrastremos
  *
- * @param {*} ev Evento de la función
+ * @param {Event} ev Evento de la función
  */
  function clickItem(ev) {
    //ev.dataTransfer.setData("text", ev.target.id);
@@ -68,7 +68,7 @@ function drag(ev) {
 /**
  *Función que gestiona cuando soltamos un objeto en el contenedor amarillo
  *
- * @param {*} ev Basura que introducimos en el contenedor. Si está en el contendor correcto será borrada, si no, expulsada
+ * @param {Event} ev Basura que introducimos en el contenedor. Si está en el contendor correcto será borrada, si no, expulsada
  */
 function dropAmarillo(ev) {
    ev.preventDefault();
@@ -86,6 +86,7 @@ function dropAmarillo(ev) {
          ev.target.removeChild(document.getElementById(data));
          acierto.play()
          masPunto()
+         contadorPerder--
          papelera.style.backgroundColor = "greenyellow"
          
       }
@@ -103,7 +104,7 @@ function dropAmarillo(ev) {
 /**
  *Función que gestiona cuando soltamos un objeto en el contenedor azul
  *
- * @param {*} ev Basura que introducimos en el contenedor. Si está en el contendor correcto será borrada, si no, expulsada
+ * @param {Event} ev Basura que introducimos en el contenedor. Si está en el contendor correcto será borrada, si no, expulsada
  */
 function dropAzul(ev) {
    ev.preventDefault();
@@ -120,6 +121,7 @@ function dropAzul(ev) {
          ev.target.removeChild(document.getElementById(data));
          acierto.play()
          masPunto()
+         contadorPerder--
          papelera.style.backgroundColor = "greenyellow"
          
       }
@@ -137,7 +139,7 @@ function dropAzul(ev) {
 /**
  *Función que gestiona cuando soltamos un objeto en el contenedor verde
  *
- * @param {*} ev Basura que introducimos en el contenedor. Si está en el contendor correcto será borrada, si no, expulsada
+ * @param {Event} ev Basura que introducimos en el contenedor. Si está en el contendor correcto será borrada, si no, expulsada
  */
  function dropVerde(ev) {
    ev.preventDefault();
@@ -155,6 +157,7 @@ function dropAzul(ev) {
          ev.target.removeChild(document.getElementById(data));
          acierto.play()
          masPunto()
+         contadorPerder--
          papelera.style.backgroundColor = "greenyellow"
          
       }
@@ -295,7 +298,6 @@ class Juego{
       this.divPrincipal.appendChild(divPerder)
       divPerder.textContent=`Has perdido en el nivel ${nivel}`
    }
-
   
 }
 /**

@@ -223,6 +223,7 @@ function masPunto(){
  */
 class Juego{
    constructor(){
+      console.log('Entra juego');
       this.vista = new Vista(0)
       this.modelo = new Modelo()
       this.animador = null
@@ -416,7 +417,7 @@ let boton = document.getElementById('bIniciar')
 boton.setAttribute("onclick", "clickIniciar()")
 
 function clickIniciar() {
-   Juego()
+   new Juego()
    let boton = document.getElementById('bIniciar')
    boton.style.display = 'none'
 }

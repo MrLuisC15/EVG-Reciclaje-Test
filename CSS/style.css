@@ -106,8 +106,12 @@ div{
 }
 
 #bIniciar{
-    background-color: gray;
     color: green;
+    background-color: white;
+    border: 5px solid green;
     border-radius: 20px;
+    font-size: xx-large;
     margin: auto;
+    position: absolute;
+    top: 40%;
 }

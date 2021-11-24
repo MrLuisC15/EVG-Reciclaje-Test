@@ -259,7 +259,7 @@ class Juego{
       let contadorItems = 0
       this.vista.dibujar(divPrincipal, nuevoItem, contadorItems)
       contadorItems++
-      if((nivel==2 || nivel==3 || nivel==4)&& puntos==1){
+      if((nivel==2 || nivel==3 || nivel==4)&& puntos==0){
          window.clearInterval(generadorItems)
          this.intervaloItem()
       }

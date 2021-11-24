@@ -108,6 +108,7 @@ div{
 #bIniciar{
     background-color: gray;
     color: green;
+    cursor: pointer;
     border-radius: 20px;
     margin: auto;
 }

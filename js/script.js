@@ -301,7 +301,7 @@ class Juego{
       let divPerder= document.createElement('div')
       let img = document.createElement('img')
       this.divPrincipal.appendChild(divPerder)
-      divPerder.classList('gameOver')
+      divPerder.classList.add('gameOver');
       divPerder.appendChild(img)
       img.setAttribute('src', 'img/GameOver.png')
       divPerder.textContent=`Has perdido en el nivel ${nivel}`

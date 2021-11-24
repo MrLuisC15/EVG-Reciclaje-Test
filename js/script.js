@@ -24,6 +24,9 @@ let pasarNivel = document.createElement("AUDIO");
 pasarNivel.setAttribute("src","sonidos/pasarNivel.mp3");
 let perder = document.createElement("AUDIO");
 perder.setAttribute("src","sonidos/lose.mp3");
+const MUSICAFONDO=document.querySelector("#musica-fondo");
+MUSICAFONDO.loop=true;
+document.querySelector("#bIniciar").onclick=function(){MUSICAFONDO.play();}
 /*
 let acierto = new Audio('../sonidos/acierto.wav')
 let fallo = new Audio('../sonidos/fallo.wav')

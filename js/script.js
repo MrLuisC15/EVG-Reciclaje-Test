@@ -411,7 +411,14 @@ draggable.setAttribute("ondragstart","drag(event)")
 draggable2.setAttribute("ondragstart","drag(event)")
 draggable3.setAttribute("ondragstart","drag(event)")
 */
-  
 
-var app = new Juego()
+let boton = document.getElementById('bIniciar')
+boton.setAttribute("onclick", "clickIniciar()")
+
+function clickIniciar() {
+   var app = new Juego()
+   let boton = document.getElementById('bIniciar')
+   boton.style.display = 'none'
+}
+
 

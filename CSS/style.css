@@ -104,3 +104,10 @@ div{
     border: 2px solid #1086af;
     border-radius: 5px;
 }
+
+#bIniciar{
+    background-color: gray;
+    color: green;
+    border-radius: 20px;
+    margin: auto;
+}

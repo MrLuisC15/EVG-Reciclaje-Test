@@ -121,3 +121,9 @@ div{
     text-decoration: none;
     margin-top: 10px;
 }
+
+.gameover{
+    margin: auto;
+    position: absolute;
+    top: 40%;
+}

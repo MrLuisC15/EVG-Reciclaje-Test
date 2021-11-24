@@ -393,9 +393,9 @@ class Vista{
  */
 class Modelo{
    constructor(){
-      this.itemsAmarillo = ['lata.png', 'actimel.png', 'pajita.png', 'boyicao.png']
-      this.itemsAzul = ['carton.png','pelota.png']
-      this.itemsVerde = [ 'mansana.png']
+      this.itemsAmarillo = ['lata.png','actimel.png','plasticoPajita.png','bebidoMora.png','bollicao.png','zumito.png','zumotropical.png']
+      this.itemsAzul = ['carton.png','pelota.png','pajita.png','bolaPapel.png']
+      this.itemsVerde = [ 'manzana.png','platano.png','naranja.png','melocoton.png','kiwi.png']
    }
    /**
     *Crea un nuevo objeto basura

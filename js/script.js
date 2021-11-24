@@ -13,7 +13,8 @@
  */
 let puntos = 0
 let nivel = 1
-let velocidad=2000
+let velocidad = 2000
+let pausa = 0
 let generadorItems = null
 let contadorPerder= 0
 let acierto = document.createElement("AUDIO");
@@ -230,7 +231,6 @@ function masPunto(){
  */
 class Juego{
    constructor(){
-      console.log('Entra juego');
       this.vista = new Vista(0)
       this.modelo = new Modelo()
       this.animador = null
@@ -265,13 +265,18 @@ class Juego{
    generarItem(){
       let nuevoItem = this.modelo.crearItem()
       let contadorItems = 0
-      contadorPerder++
-      this.comprobarPerder()
-      this.vista.dibujar(divPrincipal, nuevoItem, contadorItems)
-      contadorItems++
-      if((nivel==2 || nivel==3 || nivel==4)&& puntos==0){
+
+      if(pausa==1) {
+         contadorPerder++
+         this.comprobarPerder()
+         this.vista.dibujar(divPrincipal, nuevoItem, contadorItems)
+         contadorItems++
+         
+      }
+      if(((nivel==2 || nivel==3 || nivel==4)&& puntos==0) || pausa==1){
          window.clearInterval(generadorItems)
          this.intervaloItem()
+         pausa==2
       }
    }
    comprobarPerder(){
@@ -447,9 +452,12 @@ let boton = document.getElementById('bIniciar')
 boton.setAttribute("onclick", "clickIniciar()")
 
 function clickIniciar() {
-   new Juego()
+   
    let boton = document.getElementById('bIniciar')
    boton.style.display = 'none'
+   pausa=1
 }
+
+var app = new Juego()
 
 

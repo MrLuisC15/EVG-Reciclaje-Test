@@ -314,7 +314,7 @@ class Vista{
    constructor(contador){
       //this.contadorTop = 10
       this.contadorItems=contador
-      this.itemsAmarillo = ['lata.png', 'actimel.png']
+      this.itemsAmarillo = ['lata.png', 'actimel.png', 'pajita.png', 'boyicao.png']
       this.itemsAzul = ['carton.png','pelota.png']
       this.itemsVerde = [ 'mansana.png']
    }
@@ -393,7 +393,7 @@ class Vista{
  */
 class Modelo{
    constructor(){
-      this.itemsAmarillo = ['lata.png','actimel.png']
+      this.itemsAmarillo = ['lata.png', 'actimel.png', 'pajita.png', 'boyicao.png']
       this.itemsAzul = ['carton.png','pelota.png']
       this.itemsVerde = [ 'mansana.png']
    }

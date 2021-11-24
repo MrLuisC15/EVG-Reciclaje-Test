@@ -57,7 +57,7 @@ div{
     position: relative;
 }
 .items{
-    height: 50px;
+    height: 80px;
     margin: 15px;
     clear: left;
     position: absolute;
@@ -95,7 +95,7 @@ div{
         height: 60px;
     }
     .items{
-        height: 30px;
+        height: 50px;
     }
     
 }

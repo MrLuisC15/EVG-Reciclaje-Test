@@ -124,6 +124,6 @@ div{
 
 .gameOver{
     margin: auto;
-    position: absolute;
+    position: relative;
     top: 40%;
 }

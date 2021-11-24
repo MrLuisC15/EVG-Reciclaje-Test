@@ -263,7 +263,7 @@ class Juego{
       let nuevoItem = this.modelo.crearItem()
       let contadorItems = 0
 
-      if(pausa==1) {
+      if(pausa==2) {
          contadorPerder++
          this.comprobarPerder()
          this.vista.dibujar(divPrincipal, nuevoItem, contadorItems)
@@ -273,7 +273,7 @@ class Juego{
       if(((nivel==2 || nivel==3 || nivel==4)&& puntos==0) || pausa==1){
          window.clearInterval(generadorItems)
          this.intervaloItem()
-         pausa==2
+         pausa=2
       }
    }
    comprobarPerder(){
@@ -297,6 +297,7 @@ class Juego{
       let divPerder= document.createElement('div')
       this.divPrincipal.appendChild(divPerder)
       divPerder.textContent=`Has perdido en el nivel ${nivel}`
+      pausa=0
    }
   
 }

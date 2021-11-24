@@ -13,7 +13,7 @@
  */
 let puntos = 0
 let nivel = 1
-let velocidad=1500
+let velocidad=2000
 let generadorItems = null
 let acierto = document.createElement("AUDIO");
 acierto.setAttribute("src","sonidos/acierto.mp3");
@@ -174,14 +174,14 @@ function dropAzul(ev) {
  *Suma un punto extra a la puntuación total
  */
 function masPunto(){
-   puntos=puntos+1
+   puntos=puntos+1*nivel
    let divPuntos=document.getElementById('puntos')
    divPuntos.innerHTML = puntos
 
    let divNivel=document.getElementById('nivel')
    divNivel.innerHTML = nivel
    //console.log(puntos);
-   if(puntos==5 && nivel==1) {
+   if(puntos==15 && nivel==1) {
       pasarNivel.play()
       puntos=1
       nivel=2
@@ -192,22 +192,22 @@ function masPunto(){
       document.getElementById('divPrincipal').style.borderColor = 'red'
       document.getElementById('papeleras').style.borderColor = 'red'
    }
-   if(puntos==15 && nivel==2) {
+   if(puntos==30 && nivel==2) {
       pasarNivel.play()
       puntos=1
       nivel=3
-      velocidad=750
+      velocidad=500
       divPuntos.innerHTML = puntos
       divNivel.innerHTML = nivel
       document.body.style.backgroundImage= 'url(img/fondoN3.jpg)'
       document.getElementById('divPrincipal').style.borderColor = 'blue'
       document.getElementById('papeleras').style.borderColor = 'blue'
    }
-   if(puntos==35 && nivel==3) {
+   if(puntos==100 && nivel==3) {
       pasarNivel.play()
       puntos=1
       nivel=4
-      velocidad=500
+      velocidad=250
       divPuntos.innerHTML = puntos
       divNivel.innerHTML = nivel
       document.body.style.backgroundImage= 'url(img/fondoN4.jpg)'

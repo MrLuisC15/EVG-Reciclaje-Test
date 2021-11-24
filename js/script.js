@@ -27,7 +27,6 @@ let perder = document.createElement("AUDIO");
 perder.setAttribute("src","sonidos/lose.mp3");
 const MUSICAFONDO=document.querySelector("#musica-fondo");
 MUSICAFONDO.loop=true;
-document.querySelector("#bIniciar").onclick=function(){MUSICAFONDO.play();}
 /*
 let acierto = new Audio('../sonidos/acierto.wav')
 let fallo = new Audio('../sonidos/fallo.wav')
@@ -194,6 +193,7 @@ function masPunto(){
       puntos=0
       nivel=2
       velocidad=1500 //1000
+      MUSICAFONDO.playbackRate=1.1;
       divPuntos.innerHTML = puntos
       divNivel.innerHTML = nivel
       document.body.style.backgroundImage= 'url(img/fondoN2.jpg)'
@@ -205,6 +205,7 @@ function masPunto(){
       puntos=0
       nivel=3
       velocidad=1000
+      MUSICAFONDO.playbackRate=1.25;
       divPuntos.innerHTML = puntos
       divNivel.innerHTML = nivel
       document.body.style.backgroundImage= 'url(img/fondoN3.jpg)'
@@ -216,6 +217,7 @@ function masPunto(){
       puntos=0
       nivel=4
       velocidad=500
+      MUSICAFONDO.playbackRate=1.5;
       divPuntos.innerHTML = puntos
       divNivel.innerHTML = nivel
       document.body.style.backgroundImage= 'url(img/fondoN4.jpg)'
@@ -452,7 +454,7 @@ let boton = document.getElementById('bIniciar')
 boton.setAttribute("onclick", "clickIniciar()")
 
 function clickIniciar() {
-   
+   MUSICAFONDO.play();
    let boton = document.getElementById('bIniciar')
    boton.style.display = 'none'
    pausa=1

@@ -416,7 +416,7 @@ let boton = document.getElementById('bIniciar')
 boton.setAttribute("onclick", "clickIniciar()")
 
 function clickIniciar() {
-   let app = new Juego()
+   Juego()
    let boton = document.getElementById('bIniciar')
    boton.style.display = 'none'
 }

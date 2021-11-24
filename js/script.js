@@ -181,9 +181,9 @@ function masPunto(){
    let divNivel=document.getElementById('nivel')
    divNivel.innerHTML = nivel
    //console.log(puntos);
-   if(puntos==15 && nivel==1) {
+   if(puntos>=15 && nivel==1) {
       pasarNivel.play()
-      puntos=1
+      puntos=0
       nivel=2
       velocidad=1000 //1000
       divPuntos.innerHTML = puntos
@@ -192,9 +192,9 @@ function masPunto(){
       document.getElementById('divPrincipal').style.borderColor = 'red'
       document.getElementById('papeleras').style.borderColor = 'red'
    }
-   if(puntos==30 && nivel==2) {
+   if(puntos>=30 && nivel==2) {
       pasarNivel.play()
-      puntos=1
+      puntos=0
       nivel=3
       velocidad=500
       divPuntos.innerHTML = puntos
@@ -203,9 +203,9 @@ function masPunto(){
       document.getElementById('divPrincipal').style.borderColor = 'blue'
       document.getElementById('papeleras').style.borderColor = 'blue'
    }
-   if(puntos==100 && nivel==3) {
+   if(puntos>=100 && nivel==3) {
       pasarNivel.play()
-      puntos=1
+      puntos=0
       nivel=4
       velocidad=250
       divPuntos.innerHTML = puntos

@@ -294,14 +294,18 @@ class Juego{
       if(contadorPerder>=100 && nivel==4) {
          this.perder()
       }
-   }  
+   }
+
+   /**
+    * Aquie nos meuestra cuando hemos perdido la partida
+    */
    perder(){
       window.clearInterval(generadorItems)
       perder.play()
       let divPerder= document.createElement('div')
       let img = document.createElement('img')
       img.setAttribute('src', 'img/GameOver.png');
-      //this.divPrincipal.appendChild(divPerder)
+      this.divPrincipal.appendChild(divPerder)
       divPerder.classList.add('gameOver');
       divPerder.appendChild(img);
 

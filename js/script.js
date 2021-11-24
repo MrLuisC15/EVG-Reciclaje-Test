@@ -299,12 +299,13 @@ class Juego{
       window.clearInterval(generadorItems)
       perder.play()
       let divPerder= document.createElement('div')
-      let img = document.createElement('img')
+      let imagen = document.createElement('img')
       this.divPrincipal.appendChild(divPerder)
+      divPerder.appendChild(imagen)
       divPerder.classList.add('gameOver');
 
-      img.setAttribute('src', 'img/GameOver.png')
-      divPerder.appendChild(img)
+      imagen.setAttribute('src', 'img/GameOver.png');
+
       divPerder.textContent=`Has perdido en el nivel ${nivel}`
       pausa=0
    }

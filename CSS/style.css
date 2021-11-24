@@ -61,7 +61,7 @@ div{
     margin: 15px;
     clear: left;
     position: absolute;
-    transition: 1s;
+    transition: 250ms;
 }
 #papeleras{
     border: 15px solid rgb(60, 189, 0);

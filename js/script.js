@@ -277,7 +277,6 @@ class Juego{
       }
    }
    comprobarPerder(){
-      console.log(contadorPerder);
       if(contadorPerder>=20 && nivel==1) {
          this.perder()
       }

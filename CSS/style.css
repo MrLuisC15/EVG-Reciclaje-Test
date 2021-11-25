@@ -156,3 +156,12 @@ h2{
     list-style: none;
     margin-top: 10px;
 }
+#enlace-juego{
+    background-color: white;
+    margin-bottom: 10px;
+    border-radius: 16px;
+}
+
+#enlace-juego a{
+    text-decoration: none;
+}

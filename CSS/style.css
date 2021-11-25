@@ -95,7 +95,7 @@ div{
         height: 60px;
     }
     .items{
-        height: 50px;
+        height: 40px;
     }
     
 }
@@ -120,4 +120,10 @@ div{
     display: inline-block;
     text-decoration: none;
     margin-top: 10px;
+}
+
+.gameOver{
+    margin: auto;
+
+    top: 40%;
 }

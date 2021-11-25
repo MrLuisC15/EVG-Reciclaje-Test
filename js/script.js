@@ -294,13 +294,25 @@ class Juego{
       if(contadorPerder>=100 && nivel==4) {
          this.perder()
       }
-   }  
+   }
+
+   /**
+    * Aquie nos meuestra cuando hemos perdido la partida
+    */
    perder(){
       window.clearInterval(generadorItems)
       perder.play()
       let divPerder= document.createElement('div')
-      this.divPrincipal.appendChild(divPerder)
-      divPerder.textContent=`Has perdido en el nivel ${nivel}`
+      let img = document.createElement('img')
+      img.setAttribute('src', 'img/GameOver.png');
+      this.divPrincipal.appendChild(divPerder);
+      divPerder.classList.add('gameOver');
+      divPerder.appendChild(img);
+
+
+
+
+      //divPerder.textContent=`Has perdido en el nivel ${nivel}`
       pausa=0
    }
   
@@ -314,9 +326,9 @@ class Vista{
    constructor(contador){
       //this.contadorTop = 10
       this.contadorItems=contador
-      this.itemsAmarillo = ['lata.png', 'actimel.png', 'pajita.png', 'boyicao.png']
-      this.itemsAzul = ['carton.png','pelota.png']
-      this.itemsVerde = [ 'mansana.png']
+      this.itemsAmarillo = ['lata.png','actimel.png','plasticoPajita.png','bebidoMora.png','bollicao.png','zumito.png','zumotropical.png']
+      this.itemsAzul = ['carton.png','pelota.png','pajita.png','bolaPapel.png']
+      this.itemsVerde = [ 'manzana.png','platano.png','naranja.png','melocoton.png','kiwi.png']
    }
 
    /**
@@ -393,9 +405,9 @@ class Vista{
  */
 class Modelo{
    constructor(){
-      this.itemsAmarillo = ['lata.png', 'actimel.png', 'pajita.png', 'boyicao.png']
-      this.itemsAzul = ['carton.png','pelota.png']
-      this.itemsVerde = [ 'mansana.png']
+      this.itemsAmarillo = ['lata.png','actimel.png','plasticoPajita.png','bebidoMora.png','bollicao.png','zumito.png','zumotropical.png']
+      this.itemsAzul = ['carton.png','pelota.png','pajita.png','bolaPapel.png']
+      this.itemsVerde = [ 'manzana.png','platano.png','naranja.png','melocoton.png','kiwi.png']
    }
    /**
     *Crea un nuevo objeto basura

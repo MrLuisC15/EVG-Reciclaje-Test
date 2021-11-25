@@ -131,23 +131,25 @@ div{
 #contenedor-creditos{
     display: flex;
     align-items: center;
+    justify-content: center;
+    width: 100%;
     min-height: 100vh;
 }
 
+h2{
+    margin-bottom: 20px;
+}
+
 #creditos{
-    padding: 40px;
+    width: 95%;
+    text-align: center;
+    padding: 20px;
     background-color: white;
     border-radius: 12px;
-    font-size: 1.2em;
+    font-size: 3vw;
 }
 
 #creditos li{
     list-style: none;
-}
-
-@media (max-width: 430px){
-    #creditos{
-        font-size: 1em;
-        padding: 30px;
-    }
+    margin-top: 10px;
 }

@@ -82,7 +82,7 @@ div{
     background-color: white;
     border-radius: 10px;
 }
-#papeleras img, #maincontainer, h1{
+#papeleras img, #maincontainer, h1, #creditos{
     box-shadow: 6px 6px 5px 0px rgba(0,0,0,0.49);
     -webkit-box-shadow: 6px 6px 5px 0px rgba(0,0,0,0.49);
     -moz-box-shadow: 6px 6px 5px 0px rgba(0,0,0,0.49);
@@ -124,6 +124,30 @@ div{
 
 .gameOver{
     margin: auto;
-
+    z-index: 4;
     top: 40%;
+}
+
+#contenedor-creditos{
+    display: flex;
+    align-items: center;
+    min-height: 100vh;
+}
+
+#creditos{
+    padding: 40px;
+    background-color: white;
+    border-radius: 12px;
+    font-size: 1.2em;
+}
+
+#creditos li{
+    list-style: none;
+}
+
+@media (max-width: 430px){
+    #creditos{
+        font-size: 1em;
+        padding: 30px;
+    }
 }

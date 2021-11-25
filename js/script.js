@@ -312,7 +312,7 @@ class Juego{
 
 
 
-      divPerder.textContent=`Has perdido en el nivel ${nivel}`
+      //divPerder.textContent=`Has perdido en el nivel ${nivel}`
       pausa=0
    }
   

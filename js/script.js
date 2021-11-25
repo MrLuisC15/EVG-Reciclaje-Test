@@ -270,9 +270,10 @@ class Juego{
 
       if(pausa==2) {
          contadorPerder++
-         this.comprobarPerder()
+         
          this.vista.dibujar(divPrincipal, nuevoItem, contadorItems)
          contadorItems++
+         this.comprobarPerder()
          
       }
       if(((nivel==2 || nivel==3 || nivel==4)&& puntos==0) || pausa==1){
@@ -302,10 +303,14 @@ class Juego{
    perder(){
       window.clearInterval(generadorItems)
       perder.play()
+      while(this.divPrincipal.childElementCount>0) {
+         this.divPrincipal.removeChild(this.divPrincipal.children[0])
+      }
+      this.divPrincipal
       let divPerder= document.createElement('div')
       let img = document.createElement('img')
       img.setAttribute('src', 'img/GameOver.png');
-      this.divPrincipal.appendChild(divPerder);
+      document.body.appendChild(divPerder);
       divPerder.classList.add('gameOver');
       divPerder.appendChild(img);
 

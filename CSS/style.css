@@ -124,8 +124,11 @@ div{
 
 .gameOver{
     margin: auto;
-    z-index: 4;
-    top: 40%;
+    z-index: 10;
+    position: absolute;
+    top: 240px;
+    height: 60%;
+    
 }
 
 #contenedor-creditos{

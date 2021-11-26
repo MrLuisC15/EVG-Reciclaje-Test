@@ -355,7 +355,7 @@ class Vista{
       let clase = this.preguntaTipo(nuevoItem);
       img.classList.add(clase)
 
-      img.style.top = Math.floor(Math.random() *290)+'px'
+      img.style.top = Math.floor(Math.random() *210)+'px'
       if(Math.floor(Math.random() *2)==1) { //
          img.style.left = Math.floor(Math.random() *50)+'%'
       }

@@ -239,7 +239,7 @@ function masPunto(){
       MUSICAFONDO.playbackRate=2;
       divPuntos.innerHTML = puntos
       divNivel.innerHTML = nivel
-      document.body.style.backgroundImage= 'url(img/fondoN4.jpg)'
+      document.body.style.backgroundImage= 'url(img/fondoN5.jpg)'
       document.getElementById('divPrincipal').style.borderColor = 'yellow'
       document.getElementById('papeleras').style.borderColor = 'yellow'
    }
@@ -250,7 +250,7 @@ function masPunto(){
       MUSICAFONDO.playbackRate=2.25;
       divPuntos.innerHTML = puntos
       divNivel.innerHTML = nivel
-      document.body.style.backgroundImage= 'url(img/fondoN4.jpg)'
+      document.body.style.backgroundImage= 'url(img/fondoN6.jpg)'
       document.getElementById('divPrincipal').style.borderColor = 'brown'
       document.getElementById('papeleras').style.borderColor = 'brown'
    }
@@ -261,7 +261,7 @@ function masPunto(){
       MUSICAFONDO.playbackRate=2.5;
       divPuntos.innerHTML = puntos
       divNivel.innerHTML = nivel
-      document.body.style.backgroundImage= 'url(img/fondoN4.jpg)'
+      document.body.style.backgroundImage= 'url(img/fondoN7.jpg)'
       document.getElementById('divPrincipal').style.borderColor = 'cyan'
       document.getElementById('papeleras').style.borderColor = 'cyan'
    }
@@ -272,7 +272,7 @@ function masPunto(){
       MUSICAFONDO.playbackRate=2.75;
       divPuntos.innerHTML = puntos
       divNivel.innerHTML = nivel
-      document.body.style.backgroundImage= 'url(img/fondoN4.jpg)'
+      document.body.style.backgroundImage= 'url(img/fondoN8.jpg)'
       document.getElementById('divPrincipal').style.borderColor = 'pink'
       document.getElementById('papeleras').style.borderColor = 'pink'
    }
@@ -283,7 +283,7 @@ function masPunto(){
       MUSICAFONDO.playbackRate=3;
       divPuntos.innerHTML = puntos
       divNivel.innerHTML = nivel
-      document.body.style.backgroundImage= 'url(img/fondoN4.jpg)'
+      document.body.style.backgroundImage= 'url(img/fondoN9.jpg)'
       document.getElementById('divPrincipal').style.borderColor = 'black'
       document.getElementById('papeleras').style.borderColor = 'black'
    }

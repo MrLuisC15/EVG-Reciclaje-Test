@@ -100,7 +100,8 @@ function dropAmarillo(ev) {
          fallo.play()
          papelera.style.backgroundColor = "red"
          puntos=puntos-nivel
-         
+         let divPuntos=document.getElementById('puntos')
+         divPuntos.innerHTML = puntos
       }
 
       setTimeout(() => {
@@ -137,6 +138,8 @@ function dropAzul(ev) {
          fallo.play()
          papelera.style.backgroundColor = "red"
          puntos=puntos-nivel
+         let divPuntos=document.getElementById('puntos')
+         divPuntos.innerHTML = puntos
       }
 
       setTimeout(() => {
@@ -174,6 +177,8 @@ function dropAzul(ev) {
          fallo.play()
          papelera.style.backgroundColor = "red"
          puntos=puntos-nivel
+         let divPuntos=document.getElementById('puntos')
+         divPuntos.innerHTML = puntos
       }
 
       setTimeout(() => {

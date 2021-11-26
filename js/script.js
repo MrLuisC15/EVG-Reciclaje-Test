@@ -1,5 +1,5 @@
 /** 
- * @file Script para el minijuego de reciclaje
+ * @file Script para el minijuego de reciclaje.
  * @author Luis Carlos Marzal de la Concepción
  * @author Diego Carrión Rodríguez
  * @author Kilian Benavente Ortega
@@ -9,7 +9,7 @@
 'use strict'
 
 /**
- * Instanciamos la puntación ,velocidad, nivel de juego y los sonidos
+ * Instanciamos la puntación ,velocidad, nivel de juego y los sonidos.
  */
 let puntos = 0
 let nivel = 1
@@ -34,17 +34,19 @@ let pasarNivel = new Audio('../sonidos/pasarNivel.wav')
 let perder = new Audio('../sonidos/perder.wav')
 */
 /**
- *Función que permitirá arrastar un objeto
+ * @function allowDrop
+ * @description Función que permitirá arrastar un objeto.
  *
- * @param {Event} ev Evento de la función
+ * @param {Event} ev Evento de la función.
  */
 function allowDrop(ev) {
    ev.preventDefault();
 }
 /**
- *Función que gestionará el objeto mientras lo arrastremos
+ * @function drag
+ * @description Función que gestionará el objeto mientras lo arrastremos.
  *
- * @param {Event} ev Evento de la función
+ * @param {Event} ev Evento de la función.
  */
 function drag(ev) {
    ev.dataTransfer.setData("text", ev.target.id);
@@ -54,9 +56,10 @@ function drag(ev) {
 }
 
 /**
- *Función que gestionará el objeto mientras lo arrastremos
+ * @function clickItem
+ * @description Función que gestionará el objeto mientras lo cliquemos.
  *
- * @param {Event} ev Evento de la función
+ * @param {Event} ev Evento de la función.
  */
  function clickItem(ev) {
    //ev.dataTransfer.setData("text", ev.target.id);
@@ -68,9 +71,10 @@ function drag(ev) {
 }
 
 /**
- *Función que gestiona cuando soltamos un objeto en el contenedor amarillo
+ * @function dropAmarillo
+ * @description Función que gestiona cuando soltamos un objeto en el contenedor amarillo.
  *
- * @param {Event} ev Basura que introducimos en el contenedor. Si está en el contendor correcto será borrada, si no, expulsada
+ * @param {Event} ev Basura que introducimos en el contenedor. Si está en el contendor correcto será borrada, si no, expulsada.
  */
 function dropAmarillo(ev) {
    ev.preventDefault();
@@ -104,9 +108,10 @@ function dropAmarillo(ev) {
    }
 }
 /**
- *Función que gestiona cuando soltamos un objeto en el contenedor azul
+ * @function dropAzul
+ * @description Función que gestiona cuando soltamos un objeto en el contenedor azul.
  *
- * @param {Event} ev Basura que introducimos en el contenedor. Si está en el contendor correcto será borrada, si no, expulsada
+ * @param {Event} ev Basura que introducimos en el contenedor. Si está en el contendor correcto será borrada, si no, expulsada.
  */
 function dropAzul(ev) {
    ev.preventDefault();
@@ -139,9 +144,10 @@ function dropAzul(ev) {
    }
  }
 /**
- *Función que gestiona cuando soltamos un objeto en el contenedor verde
+ * @function dropVerde
+ * @description Función que gestiona cuando soltamos un objeto en el contenedor verde.
  *
- * @param {Event} ev Basura que introducimos en el contenedor. Si está en el contendor correcto será borrada, si no, expulsada
+ * @param {Event} ev Basura que introducimos en el contenedor. Si está en el contendor correcto será borrada, si no, expulsada.
  */
  function dropVerde(ev) {
    ev.preventDefault();
@@ -178,7 +184,8 @@ function dropAzul(ev) {
    
 
 /**
- *Suma un punto extra a la puntuación total
+ * @function masPunto
+ * @description Suma puntos extra a la puntuación total y comprueba si hay que subir de nivel.
  */
 function masPunto(){
    puntos=puntos+1*nivel
@@ -306,7 +313,9 @@ class Juego{
 
 
    /**
-    * Pone en marcha el juego
+    * @function iniciar
+    * @description Pone en marcha el juego.
+    * @memberof Juego
     */
    iniciar(){
       console.log('Iniciando...');
@@ -316,12 +325,16 @@ class Juego{
       //console.log(this);
 
    }
-
+   /**
+    * @function intervaloItem
+    * @description Establece la velocidad a la que aparecerán los objetos.
+    * @memberof Juego
+    */
    intervaloItem(){
       generadorItems= window.setInterval(this.generarItem.bind(this), velocidad)
      
    }
-
+/////////////////////////////////////////////////////////////Comentario pa borrar luego
    /**
     *Crea un nuevo objeto basura
     *

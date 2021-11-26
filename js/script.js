@@ -432,7 +432,6 @@ class Juego{
    }
    
    limpiarPantalla(){
-      console.log('Entra limpiar');
       while(this.divPrincipal.childElementCount>0) {
          this.divPrincipal.removeChild(this.divPrincipal.children[0])
       }

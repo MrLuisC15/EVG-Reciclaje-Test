@@ -191,7 +191,8 @@ function masPunto(){
    if(puntos>=15 && nivel==1) {
       pasarNivel.play()
       nivel=2
-      velocidad=1250 //1000
+      velocidad=1500
+      puntos=15
       MUSICAFONDO.playbackRate=1.1;
       divPuntos.innerHTML = puntos
       divNivel.innerHTML = nivel
@@ -199,10 +200,11 @@ function masPunto(){
       document.getElementById('divPrincipal').style.borderColor = 'red'
       document.getElementById('papeleras').style.borderColor = 'red'
    }
-   if(puntos>=75 && nivel==2) {
+   if(puntos>=50 && nivel==2) {
       pasarNivel.play()
       nivel=3
-      velocidad=1000
+      velocidad=1250
+      puntos=50
       MUSICAFONDO.playbackRate=1.25;
       divPuntos.innerHTML = puntos
       divNivel.innerHTML = nivel
@@ -210,10 +212,11 @@ function masPunto(){
       document.getElementById('divPrincipal').style.borderColor = 'blue'
       document.getElementById('papeleras').style.borderColor = 'blue'
    }
-   if(puntos>=150 && nivel==3) {
+   if(puntos>=100 && nivel==3) {
       pasarNivel.play()
       nivel=4
-      velocidad=850
+      velocidad=1100
+      puntos=100
       MUSICAFONDO.playbackRate=1.5;
       divPuntos.innerHTML = puntos
       divNivel.innerHTML = nivel
@@ -221,10 +224,11 @@ function masPunto(){
       document.getElementById('divPrincipal').style.borderColor = 'purple'
       document.getElementById('papeleras').style.borderColor = 'purple'
    }
-   if(puntos>=250 && nivel==4) {
+   if(puntos>=200 && nivel==4) {
       pasarNivel.play()
       nivel=5
-      velocidad=700
+      velocidad=1000
+      puntos=200
       MUSICAFONDO.playbackRate=1.75;
       divPuntos.innerHTML = puntos
       divNivel.innerHTML = nivel
@@ -232,10 +236,11 @@ function masPunto(){
       document.getElementById('divPrincipal').style.borderColor = 'magenta'
       document.getElementById('papeleras').style.borderColor = 'magenta'
    }
-   if(puntos>=500 && nivel==5) {
+   if(puntos>=350 && nivel==5) {
       pasarNivel.play()
       nivel=6
-      velocidad=550
+      velocidad=850
+      puntos=350
       MUSICAFONDO.playbackRate=2;
       divPuntos.innerHTML = puntos
       divNivel.innerHTML = nivel
@@ -243,10 +248,11 @@ function masPunto(){
       document.getElementById('divPrincipal').style.borderColor = 'yellow'
       document.getElementById('papeleras').style.borderColor = 'yellow'
    }
-   if(puntos>=1000 && nivel==6) {
+   if(puntos>=500 && nivel==6) {
       pasarNivel.play()
       nivel=7
-      velocidad=450
+      velocidad=700
+      puntos=500
       MUSICAFONDO.playbackRate=2.25;
       divPuntos.innerHTML = puntos
       divNivel.innerHTML = nivel
@@ -254,10 +260,11 @@ function masPunto(){
       document.getElementById('divPrincipal').style.borderColor = 'brown'
       document.getElementById('papeleras').style.borderColor = 'brown'
    }
-   if(puntos>=1500 && nivel==7) {
+   if(puntos>=1000 && nivel==7) {
       pasarNivel.play()
       nivel=8
-      velocidad=350
+      velocidad=550
+      puntos=1000
       MUSICAFONDO.playbackRate=2.5;
       divPuntos.innerHTML = puntos
       divNivel.innerHTML = nivel
@@ -268,7 +275,8 @@ function masPunto(){
    if(puntos>=2000 && nivel==8) {
       pasarNivel.play()
       nivel=9
-      velocidad=250
+      velocidad=400
+      puntos=2000
       MUSICAFONDO.playbackRate=2.75;
       divPuntos.innerHTML = puntos
       divNivel.innerHTML = nivel
@@ -279,7 +287,8 @@ function masPunto(){
    if(puntos>=5000 && nivel==9) {
       pasarNivel.play()
       nivel=10
-      velocidad=150
+      velocidad=250
+      puntos=5000
       MUSICAFONDO.playbackRate=3;
       divPuntos.innerHTML = puntos
       divNivel.innerHTML = nivel
@@ -330,6 +339,7 @@ class Juego{
    generarItem(){
       let nuevoItem = this.modelo.crearItem()
       let contadorItems = 0
+      let divPuntos=document.getElementById('puntos')
 
       if(pausa==2) {
          contadorPerder++
@@ -339,23 +349,43 @@ class Juego{
          this.comprobarPerder()
          
       }
-      if(((puntos>=15 && nivel==1) || (puntos>=75 && nivel==2) ||(puntos>=150 && nivel==3) || (puntos>=250 && nivel==4) || (puntos>=500 && nivel==5) || (puntos>=1000 && nivel==6) || (puntos>=1500 && nivel==7) || (puntos>=2000 && nivel==8) || (puntos>=5000 && nivel==9)) || pausa==1){
+      if(((puntos==15 && nivel==2) || (puntos==50 && nivel==3) ||(puntos==100 && nivel==4) || (puntos==200 && nivel==5) || (puntos==350 && nivel==6) || (puntos==500 && nivel==7) || (puntos==1000 && nivel==8) || (puntos==2000 && nivel==9) || (puntos==5000 && nivel==10) )|| pausa==1){
          window.clearInterval(generadorItems)
          this.intervaloItem()
+         puntos=puntos+nivel
+         divPuntos.innerHTML = puntos
          pausa=2
       }
    }
    comprobarPerder(){
-      if(contadorPerder>=20 && nivel==1) {
+      if(contadorPerder>=10 && nivel==1) {
          this.perder()
       }
-      if(contadorPerder>=40 && nivel==2) {
+      if(contadorPerder>=20 && nivel==2) {
          this.perder()
       }
-      if(contadorPerder>=60 && nivel==3) {
+      if(contadorPerder>=30 && nivel==3) {
          this.perder()
       }
-      if(contadorPerder>=100 && nivel==4) {
+      if(contadorPerder>=40 && nivel==4) {
+         this.perder()
+      }
+      if(contadorPerder>=50 && nivel==5) {
+         this.perder()
+      }
+      if(contadorPerder>=60 && nivel==6) {
+         this.perder()
+      }
+      if(contadorPerder>=80 && nivel==7) {
+         this.perder()
+      }
+      if(contadorPerder>=100 && nivel==8) {
+         this.perder()
+      }
+      if(contadorPerder>=120 && nivel==9) {
+         this.perder()
+      }
+      if(contadorPerder>=140 && nivel==10) {
          this.perder()
       }
    }
@@ -366,9 +396,7 @@ class Juego{
    perder(){
       window.clearInterval(generadorItems)
       perder.play()
-      while(this.divPrincipal.childElementCount>0) {
-         this.divPrincipal.removeChild(this.divPrincipal.children[0])
-      }
+      this.limpiarPantalla()
       this.divPrincipal
       let divPerder= document.createElement('div')
       let img = document.createElement('img')
@@ -382,6 +410,13 @@ class Juego{
 
       //divPerder.textContent=`Has perdido en el nivel ${nivel}`
       pausa=0
+   }
+   
+   limpiarPantalla(){
+      console.log('Entra limpiar');
+      while(this.divPrincipal.childElementCount>0) {
+         this.divPrincipal.removeChild(this.divPrincipal.children[0])
+      }
    }
   
 }

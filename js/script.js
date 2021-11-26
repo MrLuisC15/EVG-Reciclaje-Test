@@ -190,9 +190,8 @@ function masPunto(){
    //console.log(puntos);
    if(puntos>=15 && nivel==1) {
       pasarNivel.play()
-      puntos=0
       nivel=2
-      velocidad=1500 //1000
+      velocidad=1250 //1000
       MUSICAFONDO.playbackRate=1.1;
       divPuntos.innerHTML = puntos
       divNivel.innerHTML = nivel
@@ -200,9 +199,8 @@ function masPunto(){
       document.getElementById('divPrincipal').style.borderColor = 'red'
       document.getElementById('papeleras').style.borderColor = 'red'
    }
-   if(puntos>=50 && nivel==2) {
+   if(puntos>=75 && nivel==2) {
       pasarNivel.play()
-      puntos=0
       nivel=3
       velocidad=1000
       MUSICAFONDO.playbackRate=1.25;
@@ -212,17 +210,82 @@ function masPunto(){
       document.getElementById('divPrincipal').style.borderColor = 'blue'
       document.getElementById('papeleras').style.borderColor = 'blue'
    }
-   if(puntos>=200 && nivel==3) {
+   if(puntos>=150 && nivel==3) {
       pasarNivel.play()
-      puntos=0
       nivel=4
-      velocidad=500
+      velocidad=850
       MUSICAFONDO.playbackRate=1.5;
       divPuntos.innerHTML = puntos
       divNivel.innerHTML = nivel
       document.body.style.backgroundImage= 'url(img/fondoN4.jpg)'
       document.getElementById('divPrincipal').style.borderColor = 'purple'
       document.getElementById('papeleras').style.borderColor = 'purple'
+   }
+   if(puntos>=250 && nivel==4) {
+      pasarNivel.play()
+      nivel=5
+      velocidad=700
+      MUSICAFONDO.playbackRate=1.75;
+      divPuntos.innerHTML = puntos
+      divNivel.innerHTML = nivel
+      document.body.style.backgroundImage= 'url(img/fondoN4.jpg)'
+      document.getElementById('divPrincipal').style.borderColor = 'magenta'
+      document.getElementById('papeleras').style.borderColor = 'magenta'
+   }
+   if(puntos>=500 && nivel==5) {
+      pasarNivel.play()
+      nivel=6
+      velocidad=550
+      MUSICAFONDO.playbackRate=2;
+      divPuntos.innerHTML = puntos
+      divNivel.innerHTML = nivel
+      document.body.style.backgroundImage= 'url(img/fondoN4.jpg)'
+      document.getElementById('divPrincipal').style.borderColor = 'yellow'
+      document.getElementById('papeleras').style.borderColor = 'yellow'
+   }
+   if(puntos>=1000 && nivel==6) {
+      pasarNivel.play()
+      nivel=7
+      velocidad=450
+      MUSICAFONDO.playbackRate=2.25;
+      divPuntos.innerHTML = puntos
+      divNivel.innerHTML = nivel
+      document.body.style.backgroundImage= 'url(img/fondoN4.jpg)'
+      document.getElementById('divPrincipal').style.borderColor = 'brown'
+      document.getElementById('papeleras').style.borderColor = 'brown'
+   }
+   if(puntos>=1500 && nivel==7) {
+      pasarNivel.play()
+      nivel=8
+      velocidad=350
+      MUSICAFONDO.playbackRate=2.5;
+      divPuntos.innerHTML = puntos
+      divNivel.innerHTML = nivel
+      document.body.style.backgroundImage= 'url(img/fondoN4.jpg)'
+      document.getElementById('divPrincipal').style.borderColor = 'cyan'
+      document.getElementById('papeleras').style.borderColor = 'cyan'
+   }
+   if(puntos>=2000 && nivel==8) {
+      pasarNivel.play()
+      nivel=9
+      velocidad=250
+      MUSICAFONDO.playbackRate=2.75;
+      divPuntos.innerHTML = puntos
+      divNivel.innerHTML = nivel
+      document.body.style.backgroundImage= 'url(img/fondoN4.jpg)'
+      document.getElementById('divPrincipal').style.borderColor = 'pink'
+      document.getElementById('papeleras').style.borderColor = 'pink'
+   }
+   if(puntos>=5000 && nivel==9) {
+      pasarNivel.play()
+      nivel=10
+      velocidad=150
+      MUSICAFONDO.playbackRate=3;
+      divPuntos.innerHTML = puntos
+      divNivel.innerHTML = nivel
+      document.body.style.backgroundImage= 'url(img/fondoN4.jpg)'
+      document.getElementById('divPrincipal').style.borderColor = 'black'
+      document.getElementById('papeleras').style.borderColor = 'black'
    }
 }
 
@@ -276,7 +339,7 @@ class Juego{
          this.comprobarPerder()
          
       }
-      if(((nivel==2 || nivel==3 || nivel==4)&& puntos==0) || pausa==1){
+      if(((puntos>=15 && nivel==1) || (puntos>=75 && nivel==2) ||(puntos>=150 && nivel==3) || (puntos>=250 && nivel==4) || (puntos>=500 && nivel==5) || (puntos>=1000 && nivel==6) || (puntos>=1500 && nivel==7) || (puntos>=2000 && nivel==8) || (puntos>=5000 && nivel==9)) || pausa==1){
          window.clearInterval(generadorItems)
          this.intervaloItem()
          pausa=2
@@ -355,7 +418,14 @@ class Vista{
       let clase = this.preguntaTipo(nuevoItem);
       img.classList.add(clase)
 
-      img.style.top = Math.floor(Math.random() *290)+'px'
+      //img.style.top = Math.floor(Math.random() *290)+'px'
+      if(Math.floor(Math.random() *2)==1) { //
+         img.style.top = Math.floor(Math.random() *50)+'%'
+      }
+      else{
+         img.style.bottom = Math.floor(Math.random() *50)+'%'
+      }
+
       if(Math.floor(Math.random() *2)==1) { //
          img.style.left = Math.floor(Math.random() *50)+'%'
       }

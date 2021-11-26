@@ -1,5 +1,5 @@
 /** 
- * @file Script para el minijuego de reciclaje
+ * @file Script para el minijuego de reciclaje.
  * @author Luis Carlos Marzal de la Concepción
  * @author Diego Carrión Rodríguez
  * @author Kilian Benavente Ortega
@@ -9,7 +9,7 @@
 'use strict'
 
 /**
- * Instanciamos la puntación ,velocidad, nivel de juego y los sonidos
+ * Instanciamos la puntación ,velocidad, nivel de juego y los sonidos.
  */
 let puntos = 0
 let nivel = 1
@@ -34,17 +34,19 @@ let pasarNivel = new Audio('../sonidos/pasarNivel.wav')
 let perder = new Audio('../sonidos/perder.wav')
 */
 /**
- *Función que permitirá arrastar un objeto
+ * @function allowDrop
+ * @description Función que permitirá arrastar un objeto.
  *
- * @param {Event} ev Evento de la función
+ * @param {Event} ev Evento de la función.
  */
 function allowDrop(ev) {
    ev.preventDefault();
 }
 /**
- *Función que gestionará el objeto mientras lo arrastremos
+ * @function drag
+ * @description Función que gestionará el objeto mientras lo arrastremos.
  *
- * @param {Event} ev Evento de la función
+ * @param {Event} ev Evento de la función.
  */
 function drag(ev) {
    ev.dataTransfer.setData("text", ev.target.id);
@@ -54,9 +56,10 @@ function drag(ev) {
 }
 
 /**
- *Función que gestionará el objeto mientras lo arrastremos
+ * @function clickItem
+ * @description Función que gestionará el objeto mientras lo cliquemos.
  *
- * @param {Event} ev Evento de la función
+ * @param {Event} ev Evento de la función.
  */
  function clickItem(ev) {
    //ev.dataTransfer.setData("text", ev.target.id);
@@ -68,9 +71,10 @@ function drag(ev) {
 }
 
 /**
- *Función que gestiona cuando soltamos un objeto en el contenedor amarillo
+ * @function dropAmarillo
+ * @description Función que gestiona cuando soltamos un objeto en el contenedor amarillo.
  *
- * @param {Event} ev Basura que introducimos en el contenedor. Si está en el contendor correcto será borrada, si no, expulsada
+ * @param {Event} ev Basura que introducimos en el contenedor. Si está en el contendor correcto será borrada, si no, expulsada.
  */
 function dropAmarillo(ev) {
    ev.preventDefault();
@@ -104,9 +108,10 @@ function dropAmarillo(ev) {
    }
 }
 /**
- *Función que gestiona cuando soltamos un objeto en el contenedor azul
+ * @function dropAzul
+ * @description Función que gestiona cuando soltamos un objeto en el contenedor azul.
  *
- * @param {Event} ev Basura que introducimos en el contenedor. Si está en el contendor correcto será borrada, si no, expulsada
+ * @param {Event} ev Basura que introducimos en el contenedor. Si está en el contendor correcto será borrada, si no, expulsada.
  */
 function dropAzul(ev) {
    ev.preventDefault();
@@ -139,9 +144,10 @@ function dropAzul(ev) {
    }
  }
 /**
- *Función que gestiona cuando soltamos un objeto en el contenedor verde
+ * @function dropVerde
+ * @description Función que gestiona cuando soltamos un objeto en el contenedor verde.
  *
- * @param {Event} ev Basura que introducimos en el contenedor. Si está en el contendor correcto será borrada, si no, expulsada
+ * @param {Event} ev Basura que introducimos en el contenedor. Si está en el contendor correcto será borrada, si no, expulsada.
  */
  function dropVerde(ev) {
    ev.preventDefault();
@@ -178,7 +184,8 @@ function dropAzul(ev) {
    
 
 /**
- *Suma un punto extra a la puntuación total
+ * @function masPunto
+ * @description Suma puntos extra a la puntuación total y comprueba si hay que subir de nivel.
  */
 function masPunto(){
    puntos=puntos+1*nivel
@@ -232,7 +239,7 @@ function masPunto(){
       MUSICAFONDO.playbackRate=1.75;
       divPuntos.innerHTML = puntos
       divNivel.innerHTML = nivel
-      document.body.style.backgroundImage= 'url(img/fondoN4.jpg)'
+      document.body.style.backgroundImage= 'url(img/fondoN5.jpg)'
       document.getElementById('divPrincipal').style.borderColor = 'magenta'
       document.getElementById('papeleras').style.borderColor = 'magenta'
    }
@@ -244,7 +251,7 @@ function masPunto(){
       MUSICAFONDO.playbackRate=2;
       divPuntos.innerHTML = puntos
       divNivel.innerHTML = nivel
-      document.body.style.backgroundImage= 'url(img/fondoN4.jpg)'
+      document.body.style.backgroundImage= 'url(img/fondoN6.jpg)'
       document.getElementById('divPrincipal').style.borderColor = 'yellow'
       document.getElementById('papeleras').style.borderColor = 'yellow'
    }
@@ -256,7 +263,7 @@ function masPunto(){
       MUSICAFONDO.playbackRate=2.25;
       divPuntos.innerHTML = puntos
       divNivel.innerHTML = nivel
-      document.body.style.backgroundImage= 'url(img/fondoN4.jpg)'
+      document.body.style.backgroundImage= 'url(img/fondoN7.jpg)'
       document.getElementById('divPrincipal').style.borderColor = 'brown'
       document.getElementById('papeleras').style.borderColor = 'brown'
    }
@@ -268,7 +275,7 @@ function masPunto(){
       MUSICAFONDO.playbackRate=2.5;
       divPuntos.innerHTML = puntos
       divNivel.innerHTML = nivel
-      document.body.style.backgroundImage= 'url(img/fondoN4.jpg)'
+      document.body.style.backgroundImage= 'url(img/fondoN8.jpg)'
       document.getElementById('divPrincipal').style.borderColor = 'cyan'
       document.getElementById('papeleras').style.borderColor = 'cyan'
    }
@@ -280,7 +287,7 @@ function masPunto(){
       MUSICAFONDO.playbackRate=2.75;
       divPuntos.innerHTML = puntos
       divNivel.innerHTML = nivel
-      document.body.style.backgroundImage= 'url(img/fondoN4.jpg)'
+      document.body.style.backgroundImage= 'url(img/fondoN9.jpg)'
       document.getElementById('divPrincipal').style.borderColor = 'pink'
       document.getElementById('papeleras').style.borderColor = 'pink'
    }
@@ -292,7 +299,7 @@ function masPunto(){
       MUSICAFONDO.playbackRate=3;
       divPuntos.innerHTML = puntos
       divNivel.innerHTML = nivel
-      document.body.style.backgroundImage= 'url(img/fondoN4.jpg)'
+      document.body.style.backgroundImage= 'url(img/fondoN10.jpg)'
       document.getElementById('divPrincipal').style.borderColor = 'black'
       document.getElementById('papeleras').style.borderColor = 'black'
    }
@@ -315,7 +322,9 @@ class Juego{
 
 
    /**
-    * Pone en marcha el juego
+    * @function iniciar
+    * @description Pone en marcha el juego.
+    * @memberof Juego
     */
    iniciar(){
       console.log('Iniciando...');
@@ -325,15 +334,18 @@ class Juego{
       //console.log(this);
 
    }
-
+   /**
+    * @function intervaloItem
+    * @description Establece la velocidad a la que aparecerán los objetos.
+    * @memberof Juego
+    */
    intervaloItem(){
       generadorItems= window.setInterval(this.generarItem.bind(this), velocidad)
      
    }
-
    /**
-    *Crea un nuevo objeto basura
-    *
+    * @function generarItem
+    * @description Crea un nuevo objeto basura.
     * @memberof Juego
     */
    generarItem(){
@@ -357,6 +369,11 @@ class Juego{
          pausa=2
       }
    }
+   /**
+    * @function comprobarPerder
+    * @description Cuenta cuánta basura hay para ver si debe mostrar o no la pantalla de Game Over.
+    * @memberof Juego
+    */
    comprobarPerder(){
       if(contadorPerder>=10 && nivel==1) {
          this.perder()
@@ -391,7 +408,9 @@ class Juego{
    }
 
    /**
-    * Aquie nos meuestra cuando hemos perdido la partida
+    * @function perder
+    * @description Muestra la pantalla de Game Over.
+    * @memberof Juego
     */
    perder(){
       window.clearInterval(generadorItems)
@@ -421,7 +440,7 @@ class Juego{
   
 }
 /**
- *Clase vista que muestra el juego
+ *Clase vista que muestra el juego.
  *
  * @class Vista
  */
@@ -435,11 +454,11 @@ class Vista{
    }
 
    /**
-    *Dibuja los elementos del juego
-    *
-    * @param {*} divPrincipal Contenedor donde aperecerá la basura
-    * @param {*} nuevoItem Objeto basura que se introducirá en el contenedor
-    * @param {*} contadorItems Variable que llevará la cuenta de toda la basura que hay
+    * @function dibujar
+    * @description Dibuja los elementos del juego.
+    * @param {HTMLDivElement} divPrincipal Contenedor donde aperecerá la basura.
+    * @param {String} nuevoItem Objeto basura que se introducirá en el contenedor.
+    * @param {BigInteger} contadorItems Variable que llevará la cuenta de toda la basura que hay.
     * @memberof Vista
     */
    dibujar(divPrincipal, nuevoItem, contadorItems){
@@ -479,10 +498,10 @@ class Vista{
       
    }
    /**
-    *Valida a qué contenedor debe ir cada objeto basura
-    *
-    * @param {*} nuevoItem Objeto basura creado
-    * @return {*} Contenedor al que debe ir
+    * @function preguntaTipo
+    * @description Valida a qué contenedor debe ir cada objeto basura.
+    * @param {String} nuevoItem Objeto basura creado.
+    * @return {String} Contenedor al que debe ir.
     * @memberof Vista
     */
    preguntaTipo(nuevoItem){
@@ -509,7 +528,7 @@ class Vista{
    }
 }
 /**
- *Clase Modelo encargada de la parte lógica del programa
+ *Clase Modelo encargada de la parte lógica del programa.
  *
  * @class Modelo
  */
@@ -520,9 +539,9 @@ class Modelo{
       this.itemsVerde = [ 'manzana.png','platano.png','naranja.png','melocoton.png','kiwi.png']
    }
    /**
-    *Crea un nuevo objeto basura
-    *
-    * @return {*} Objeto basura
+    * @function crearItem
+    * @description Crea un nuevo objeto basura.
+    * @return {*} Objeto basura.
     * @memberof Modelo
     */
    crearItem(){
@@ -575,6 +594,10 @@ draggable3.setAttribute("ondragstart","drag(event)")
 let boton = document.getElementById('bIniciar')
 boton.setAttribute("onclick", "clickIniciar()")
 
+/**
+ * @function clickIniciar
+ * @description Inicia el juego al hacer click.
+ */
 function clickIniciar() {
    MUSICAFONDO.play();
    let boton = document.getElementById('bIniciar')

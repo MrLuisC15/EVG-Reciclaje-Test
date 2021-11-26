@@ -99,6 +99,7 @@ function dropAmarillo(ev) {
       else {
          fallo.play()
          papelera.style.backgroundColor = "red"
+         puntos=puntos-nivel
          
       }
 
@@ -135,7 +136,7 @@ function dropAzul(ev) {
       else {
          fallo.play()
          papelera.style.backgroundColor = "red"
-         
+         puntos=puntos-nivel
       }
 
       setTimeout(() => {
@@ -172,7 +173,7 @@ function dropAzul(ev) {
       else {
          fallo.play()
          papelera.style.backgroundColor = "red"
-         
+         puntos=puntos-nivel
       }
 
       setTimeout(() => {

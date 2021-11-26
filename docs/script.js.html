@@ -27,7 +27,7 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>/** 
- * @file Script para el minijuego de reciclaje
+ * @file Script para el minijuego de reciclaje.
  * @author Luis Carlos Marzal de la Concepción
  * @author Diego Carrión Rodríguez
  * @author Kilian Benavente Ortega
@@ -37,123 +37,290 @@
 'use strict'
 
 /**
- * Instanciamos la puntación, el nivel y la velocidad de juego
+ * Instanciamos la puntación ,velocidad, nivel de juego y los sonidos.
  */
 let puntos = 0
 let nivel = 1
-let velocidad = 1000
-
+let velocidad = 2000
+let pausa = 0
+let generadorItems = null
+let contadorPerder= 0
+let acierto = document.createElement("AUDIO");
+acierto.setAttribute("src","sonidos/acierto.mp3");
+let fallo = document.createElement("AUDIO");
+fallo.setAttribute("src","sonidos/perder.mp3");
+let pasarNivel = document.createElement("AUDIO");
+pasarNivel.setAttribute("src","sonidos/pasarNivel.mp3");
+let perder = document.createElement("AUDIO");
+perder.setAttribute("src","sonidos/lose.mp3");
+const MUSICAFONDO=document.querySelector("#musica-fondo");
+MUSICAFONDO.loop=true;
+/*
+let acierto = new Audio('../sonidos/acierto.wav')
+let fallo = new Audio('../sonidos/fallo.wav')
+let pasarNivel = new Audio('../sonidos/pasarNivel.wav')
+let perder = new Audio('../sonidos/perder.wav')
+*/
 /**
- *Función que permitirá arrastar un objeto
+ * @function allowDrop
+ * @description Función que permitirá arrastar un objeto.
  *
- * @param {*} ev Evento de la función
+ * @param {Event} ev Evento de la función.
  */
 function allowDrop(ev) {
    ev.preventDefault();
 }
 /**
- *Función que gestionará el objeto mientras lo arrastremos
+ * @function drag
+ * @description Función que gestionará el objeto mientras lo arrastremos.
  *
- * @param {*} ev Evento de la función
+ * @param {Event} ev Evento de la función.
  */
 function drag(ev) {
    ev.dataTransfer.setData("text", ev.target.id);
+   while(document.getElementsByClassName('marcado')[0]){
+      document.getElementsByClassName('marcado')[0].classList.remove('marcado')
+   }
 }
+
 /**
- *Función que gestiona cuando soltamos un objeto en el contenedor amarillo
+ * @function clickItem
+ * @description Función que gestionará el objeto mientras lo cliquemos.
  *
- * @param {*} ev Basura que introducimos en el contenedor. Si está en el contendor correcto será borrada, si no, expulsada
+ * @param {Event} ev Evento de la función.
+ */
+ function clickItem(ev) {
+   //ev.dataTransfer.setData("text", ev.target.id);
+   while(document.getElementsByClassName('marcado')[0]){
+      document.getElementsByClassName('marcado')[0].classList.remove('marcado')
+   }
+   ev.target.classList.add('marcado')
+
+}
+
+/**
+ * @function dropAmarillo
+ * @description Función que gestiona cuando soltamos un objeto en el contenedor amarillo.
+ *
+ * @param {Event} ev Basura que introducimos en el contenedor. Si está en el contendor correcto será borrada, si no, expulsada.
  */
 function dropAmarillo(ev) {
    ev.preventDefault();
-   var data = ev.dataTransfer.getData("text");
-   let papelera = document.getElementById('imgamarilla')
-   if(document.getElementById(data).classList.value=='items itemAmarillo'){
-      ev.target.appendChild(document.getElementById(data));
-      ev.target.removeChild(document.getElementById(data));
-      masPunto()
-      papelera.style.backgroundColor = "greenyellow"
-      
-   }
-   else {
-      papelera.style.backgroundColor = "red"
-   }
+   if(ev.dataTransfer || document.getElementsByClassName('marcado')[0]) {
+      if(document.getElementsByClassName('marcado')[0]) {
+         var data = document.getElementsByClassName('marcado')[0].id
+      }
+      else {
+         var data = ev.dataTransfer.getData("text");
+      }
 
-   setTimeout(() => {
-      papelera.style.background = "#ffffff"
-   }, 750);
+      let papelera = document.getElementById('imgamarilla')
+      if(document.getElementById(data).classList.value=='items itemAmarillo' || document.getElementById(data).classList.value=='items itemAmarillo marcado'){
+         ev.target.appendChild(document.getElementById(data));
+         ev.target.removeChild(document.getElementById(data));
+         acierto.play()
+         masPunto()
+         contadorPerder--
+         papelera.style.backgroundColor = "greenyellow"
+         
+      }
+      else {
+         fallo.play()
+         papelera.style.backgroundColor = "red"
+         
+      }
 
+      setTimeout(() => {
+         papelera.style.background = "#ffffff"
+      }, 750);
+   }
 }
 /**
- *Función que gestiona cuando soltamos un objeto en el contenedor azul
+ * @function dropAzul
+ * @description Función que gestiona cuando soltamos un objeto en el contenedor azul.
  *
- * @param {*} ev Basura que introducimos en el contenedor. Si está en el contendor correcto será borrada, si no, expulsada
+ * @param {Event} ev Basura que introducimos en el contenedor. Si está en el contendor correcto será borrada, si no, expulsada.
  */
 function dropAzul(ev) {
    ev.preventDefault();
-   var data = ev.dataTransfer.getData("text");
-   let papelera = document.getElementById('imgazul')
-   if(document.getElementById(data).classList.value=='items itemAzul'){
-      ev.target.appendChild(document.getElementById(data));
-      ev.target.removeChild(document.getElementById(data));
-      masPunto()
-      papelera.style.backgroundColor = "greenyellow"
-      
-   }
-   else {
-      papelera.style.backgroundColor = "red"
-   }
+   if(ev.dataTransfer || document.getElementsByClassName('marcado')[0]) {
+      if(document.getElementsByClassName('marcado')[0]) {
+         var data = document.getElementsByClassName('marcado')[0].id
+      }
+      else {
+         var data = ev.dataTransfer.getData("text");
+      }
+      let papelera = document.getElementById('imgazul')
+      if(document.getElementById(data).classList.value=='items itemAzul' || document.getElementById(data).classList.value=='items itemAzul marcado'){
+         ev.target.appendChild(document.getElementById(data));
+         ev.target.removeChild(document.getElementById(data));
+         acierto.play()
+         masPunto()
+         contadorPerder--
+         papelera.style.backgroundColor = "greenyellow"
+         
+      }
+      else {
+         fallo.play()
+         papelera.style.backgroundColor = "red"
+         
+      }
 
-   setTimeout(() => {
-      papelera.style.background = "#ffffff"
-   }, 750);
-
+      setTimeout(() => {
+         papelera.style.background = "#ffffff"
+      }, 750);
+   }
  }
 /**
- *Función que gestiona cuando soltamos un objeto en el contenedor verde
+ * @function dropVerde
+ * @description Función que gestiona cuando soltamos un objeto en el contenedor verde.
  *
- * @param {*} ev Basura que introducimos en el contenedor. Si está en el contendor correcto será borrada, si no, expulsada
+ * @param {Event} ev Basura que introducimos en el contenedor. Si está en el contendor correcto será borrada, si no, expulsada.
  */
  function dropVerde(ev) {
    ev.preventDefault();
-   var data = ev.dataTransfer.getData("text");
-   let papelera = document.getElementById('imgverde')
-   if(document.getElementById(data).classList.value=='items itemVerde'){
-      ev.target.appendChild(document.getElementById(data));
-      ev.target.removeChild(document.getElementById(data));
-      masPunto()
-      papelera.style.backgroundColor = "greenyellow"
+   if(ev.dataTransfer || document.getElementsByClassName('marcado')[0]) {
+      if(document.getElementsByClassName('marcado')[0]) {
+         var data = document.getElementsByClassName('marcado')[0].id
+      }
+      else {
+         var data = ev.dataTransfer.getData("text");
+      }
       
-   }
-   else {
-      papelera.style.backgroundColor = "red"
-   }
+      let papelera = document.getElementById('imgverde')
+      if(document.getElementById(data).classList.value=='items itemVerde' || document.getElementById(data).classList.value=='items itemVerde marcado'){
+         ev.target.appendChild(document.getElementById(data));
+         ev.target.removeChild(document.getElementById(data));
+         acierto.play()
+         masPunto()
+         contadorPerder--
+         papelera.style.backgroundColor = "greenyellow"
+         
+      }
+      else {
+         fallo.play()
+         papelera.style.backgroundColor = "red"
+         
+      }
 
-   setTimeout(() => {
-      papelera.style.background = "#ffffff"
-   }, 750);
-
+      setTimeout(() => {
+         papelera.style.background = "#ffffff"
+      }, 750);
+   }
  }
 
    
 
 /**
- *Suma un punto extra a la puntuación total
+ * @function masPunto
+ * @description Suma puntos extra a la puntuación total y comprueba si hay que subir de nivel.
  */
 function masPunto(){
-   puntos=puntos+1
+   puntos=puntos+1*nivel
    let divPuntos=document.getElementById('puntos')
    divPuntos.innerHTML = puntos
 
    let divNivel=document.getElementById('nivel')
    divNivel.innerHTML = nivel
    //console.log(puntos);
-   if(puntos==5 &amp;&amp; nivel==1) {
-      puntos=1
+   if(puntos>=15 &amp;&amp; nivel==1) {
+      pasarNivel.play()
       nivel=2
-      velocidad=150
+      velocidad=1250 //1000
+      MUSICAFONDO.playbackRate=1.1;
+      divPuntos.innerHTML = puntos
+      divNivel.innerHTML = nivel
+      document.body.style.backgroundImage= 'url(img/fondoN2.jpg)'
       document.getElementById('divPrincipal').style.borderColor = 'red'
       document.getElementById('papeleras').style.borderColor = 'red'
+   }
+   if(puntos>=75 &amp;&amp; nivel==2) {
+      pasarNivel.play()
+      nivel=3
+      velocidad=1000
+      MUSICAFONDO.playbackRate=1.25;
+      divPuntos.innerHTML = puntos
+      divNivel.innerHTML = nivel
+      document.body.style.backgroundImage= 'url(img/fondoN3.jpg)'
+      document.getElementById('divPrincipal').style.borderColor = 'blue'
+      document.getElementById('papeleras').style.borderColor = 'blue'
+   }
+   if(puntos>=150 &amp;&amp; nivel==3) {
+      pasarNivel.play()
+      nivel=4
+      velocidad=850
+      MUSICAFONDO.playbackRate=1.5;
+      divPuntos.innerHTML = puntos
+      divNivel.innerHTML = nivel
+      document.body.style.backgroundImage= 'url(img/fondoN4.jpg)'
+      document.getElementById('divPrincipal').style.borderColor = 'purple'
+      document.getElementById('papeleras').style.borderColor = 'purple'
+   }
+   if(puntos>=250 &amp;&amp; nivel==4) {
+      pasarNivel.play()
+      nivel=5
+      velocidad=700
+      MUSICAFONDO.playbackRate=1.75;
+      divPuntos.innerHTML = puntos
+      divNivel.innerHTML = nivel
+      document.body.style.backgroundImage= 'url(img/fondoN5.jpg)'
+      document.getElementById('divPrincipal').style.borderColor = 'magenta'
+      document.getElementById('papeleras').style.borderColor = 'magenta'
+   }
+   if(puntos>=500 &amp;&amp; nivel==5) {
+      pasarNivel.play()
+      nivel=6
+      velocidad=550
+      MUSICAFONDO.playbackRate=2;
+      divPuntos.innerHTML = puntos
+      divNivel.innerHTML = nivel
+      document.body.style.backgroundImage= 'url(img/fondoN6.jpg)'
+      document.getElementById('divPrincipal').style.borderColor = 'yellow'
+      document.getElementById('papeleras').style.borderColor = 'yellow'
+   }
+   if(puntos>=1000 &amp;&amp; nivel==6) {
+      pasarNivel.play()
+      nivel=7
+      velocidad=450
+      MUSICAFONDO.playbackRate=2.25;
+      divPuntos.innerHTML = puntos
+      divNivel.innerHTML = nivel
+      document.body.style.backgroundImage= 'url(img/fondoN7.jpg)'
+      document.getElementById('divPrincipal').style.borderColor = 'brown'
+      document.getElementById('papeleras').style.borderColor = 'brown'
+   }
+   if(puntos>=1500 &amp;&amp; nivel==7) {
+      pasarNivel.play()
+      nivel=8
+      velocidad=350
+      MUSICAFONDO.playbackRate=2.5;
+      divPuntos.innerHTML = puntos
+      divNivel.innerHTML = nivel
+      document.body.style.backgroundImage= 'url(img/fondoN8.jpg)'
+      document.getElementById('divPrincipal').style.borderColor = 'cyan'
+      document.getElementById('papeleras').style.borderColor = 'cyan'
+   }
+   if(puntos>=2000 &amp;&amp; nivel==8) {
+      pasarNivel.play()
+      nivel=9
+      velocidad=250
+      MUSICAFONDO.playbackRate=2.75;
+      divPuntos.innerHTML = puntos
+      divNivel.innerHTML = nivel
+      document.body.style.backgroundImage= 'url(img/fondoN9.jpg)'
+      document.getElementById('divPrincipal').style.borderColor = 'pink'
+      document.getElementById('papeleras').style.borderColor = 'pink'
+   }
+   if(puntos>=5000 &amp;&amp; nivel==9) {
+      pasarNivel.play()
+      nivel=10
+      velocidad=150
+      MUSICAFONDO.playbackRate=3;
+      divPuntos.innerHTML = puntos
+      divNivel.innerHTML = nivel
+      document.body.style.backgroundImage= 'url(img/fondoN10.jpg)'
+      document.getElementById('divPrincipal').style.borderColor = 'black'
+      document.getElementById('papeleras').style.borderColor = 'black'
    }
 }
 
@@ -174,37 +341,99 @@ class Juego{
 
 
    /**
-    * Pone en marcha el juego
+    * @function iniciar
+    * @description Pone en marcha el juego.
+    * @memberof Juego
     */
    iniciar(){
       console.log('Iniciando...');
       this.divPrincipal = document.getElementById('divPrincipal')
-      if(nivel==1){
-         this.generadorItems= window.setInterval(this.generarItem.bind(this), 1000)
-         //this.generadorItems= window.setTimeout(this.generarItem.bind(this), 1000)
-      }
-      if(nivel==2){
-         this.generadorItems= window.setInterval(this.generarItem.bind(this), 50)
-         //this.generadorItems= window.setTimeout(this.generarItem.bind(this), 50)
-      }
-      this.animador = window.setInterval
+      this.intervaloItem()
+
+      //console.log(this);
+
    }
    /**
-    *Crea un nuevo objeto basura
-    *
+    * @function intervaloItem
+    * @description Establece la velocidad a la que aparecerán los objetos.
+    * @memberof Juego
+    */
+   intervaloItem(){
+      generadorItems= window.setInterval(this.generarItem.bind(this), velocidad)
+     
+   }
+   /**
+    * @function generarItem
+    * @description Crea un nuevo objeto basura.
     * @memberof Juego
     */
    generarItem(){
       let nuevoItem = this.modelo.crearItem()
       let contadorItems = 0
-      this.vista.dibujar(divPrincipal, nuevoItem, contadorItems)
-      contadorItems++
+
+      if(pausa==2) {
+         contadorPerder++
+         
+         this.vista.dibujar(divPrincipal, nuevoItem, contadorItems)
+         contadorItems++
+         this.comprobarPerder()
+         
+      }
+      if(((puntos>=15 &amp;&amp; nivel==1) || (puntos>=75 &amp;&amp; nivel==2) ||(puntos>=150 &amp;&amp; nivel==3) || (puntos>=250 &amp;&amp; nivel==4) || (puntos>=500 &amp;&amp; nivel==5) || (puntos>=1000 &amp;&amp; nivel==6) || (puntos>=1500 &amp;&amp; nivel==7) || (puntos>=2000 &amp;&amp; nivel==8) || (puntos>=5000 &amp;&amp; nivel==9)) || pausa==1){
+         window.clearInterval(generadorItems)
+         this.intervaloItem()
+         pausa=2
+      }
+   }
+   /**
+    * @function comprobarPerder
+    * @description Cuenta cuánta basura hay para ver si debe mostrar o no la pantalla de Game Over.
+    * @memberof Juego
+    */
+   comprobarPerder(){
+      if(contadorPerder>=20 &amp;&amp; nivel==1) {
+         this.perder()
+      }
+      if(contadorPerder>=40 &amp;&amp; nivel==2) {
+         this.perder()
+      }
+      if(contadorPerder>=60 &amp;&amp; nivel==3) {
+         this.perder()
+      }
+      if(contadorPerder>=100 &amp;&amp; nivel==4) {
+         this.perder()
+      }
    }
 
+   /**
+    * @function perder
+    * @description Muestra la pantalla de Game Over.
+    * @memberof Juego
+    */
+   perder(){
+      window.clearInterval(generadorItems)
+      perder.play()
+      while(this.divPrincipal.childElementCount>0) {
+         this.divPrincipal.removeChild(this.divPrincipal.children[0])
+      }
+      this.divPrincipal
+      let divPerder= document.createElement('div')
+      let img = document.createElement('img')
+      img.setAttribute('src', 'img/GameOver.png');
+      document.body.appendChild(divPerder);
+      divPerder.classList.add('gameOver');
+      divPerder.appendChild(img);
+
+
+
+
+      //divPerder.textContent=`Has perdido en el nivel ${nivel}`
+      pausa=0
+   }
   
 }
 /**
- *Clase vista que muestra el juego
+ *Clase vista que muestra el juego.
  *
  * @class Vista
  */
@@ -212,17 +441,17 @@ class Vista{
    constructor(contador){
       //this.contadorTop = 10
       this.contadorItems=contador
-      this.itemsAmarillo = ['lata.png']
-      this.itemsAzul = ['carton.png','pelota.png']
-      this.itemsVerde = [ 'mansana.png']
+      this.itemsAmarillo = ['lata.png','actimel.png','plasticoPajita.png','bebidoMora.png','bollicao.png','zumito.png','zumotropical.png']
+      this.itemsAzul = ['carton.png','pelota.png','pajita.png','bolaPapel.png']
+      this.itemsVerde = [ 'manzana.png','platano.png','naranja.png','melocoton.png','kiwi.png']
    }
 
    /**
-    *Dibuja los elementos del juego
-    *
-    * @param {*} divPrincipal Contenedor donde aperecerá la basura
-    * @param {*} nuevoItem Objeto basura que se introducirá en el contenedor
-    * @param {*} contadorItems Variable que llevará la cuenta de toda la basura que hay
+    * @function dibujar
+    * @description Dibuja los elementos del juego.
+    * @param {HTMLDivElement} divPrincipal Contenedor donde aperecerá la basura.
+    * @param {String} nuevoItem Objeto basura que se introducirá en el contenedor.
+    * @param {BigInteger} contadorItems Variable que llevará la cuenta de toda la basura que hay.
     * @memberof Vista
     */
    dibujar(divPrincipal, nuevoItem, contadorItems){
@@ -236,20 +465,36 @@ class Vista{
       let clase = this.preguntaTipo(nuevoItem);
       img.classList.add(clase)
 
-      img.style.top = Math.floor(Math.random() *290)+'px'
-      img.style.left = Math.floor(Math.random() *94)+'%'
+      //img.style.top = Math.floor(Math.random() *290)+'px'
+      if(Math.floor(Math.random() *2)==1) { //
+         img.style.top = Math.floor(Math.random() *50)+'%'
+      }
+      else{
+         img.style.bottom = Math.floor(Math.random() *50)+'%'
+      }
+
+      if(Math.floor(Math.random() *2)==1) { //
+         img.style.left = Math.floor(Math.random() *50)+'%'
+      }
+      else{
+         img.style.right = Math.floor(Math.random() *50)+'%'
+      }
+
+      //img.style.marginRight = '100px'
       img.setAttribute("id", this.contadorItems)
       img.setAttribute("draggable","true")
       img.setAttribute("ondragstart","drag(event)")
+      img.setAttribute("onclick","clickItem(event)")
+
       //this.contadorTop=this.contadorTop+20
       this.contadorItems=+this.contadorItems+1
       
    }
    /**
-    *Valida a qué contenedor debe ir cada objeto basura
-    *
-    * @param {*} nuevoItem Objeto basura creado
-    * @return {*} Contenedor al que debe ir
+    * @function preguntaTipo
+    * @description Valida a qué contenedor debe ir cada objeto basura.
+    * @param {String} nuevoItem Objeto basura creado.
+    * @return {String} Contenedor al que debe ir.
     * @memberof Vista
     */
    preguntaTipo(nuevoItem){
@@ -276,20 +521,20 @@ class Vista{
    }
 }
 /**
- *Clase Modelo encargada de la parte lógica del programa
+ *Clase Modelo encargada de la parte lógica del programa.
  *
  * @class Modelo
  */
 class Modelo{
    constructor(){
-      this.itemsAmarillo = ['lata.png']
-      this.itemsAzul = ['carton.png','pelota.png']
-      this.itemsVerde = [ 'mansana.png']
+      this.itemsAmarillo = ['lata.png','actimel.png','plasticoPajita.png','bebidoMora.png','bollicao.png','zumito.png','zumotropical.png']
+      this.itemsAzul = ['carton.png','pelota.png','pajita.png','bolaPapel.png']
+      this.itemsVerde = [ 'manzana.png','platano.png','naranja.png','melocoton.png','kiwi.png']
    }
    /**
-    *Crea un nuevo objeto basura
-    *
-    * @return {*} Objeto basura
+    * @function crearItem
+    * @description Crea un nuevo objeto basura.
+    * @return {*} Objeto basura.
     * @memberof Modelo
     */
    crearItem(){
@@ -321,6 +566,10 @@ verde.setAttribute("ondrop", "dropVerde(event)")
 azul.setAttribute("ondrop", "dropAzul(event)")
 amarillo.setAttribute("ondrop", "dropAmarillo(event)")
 
+verde.setAttribute("onclick", "dropVerde(event)")
+azul.setAttribute("onclick", "dropAzul(event)")
+amarillo.setAttribute("onclick", "dropAmarillo(event)")
+
 
 verde.setAttribute("ondragover", "allowDrop(event)")
 azul.setAttribute("ondragover", "allowDrop(event)")
@@ -334,9 +583,23 @@ draggable.setAttribute("ondragstart","drag(event)")
 draggable2.setAttribute("ondragstart","drag(event)")
 draggable3.setAttribute("ondragstart","drag(event)")
 */
-  
+
+let boton = document.getElementById('bIniciar')
+boton.setAttribute("onclick", "clickIniciar()")
+
+/**
+ * @function clickIniciar
+ * @description Inicia el juego al hacer click.
+ */
+function clickIniciar() {
+   MUSICAFONDO.play();
+   let boton = document.getElementById('bIniciar')
+   boton.style.display = 'none'
+   pausa=1
+}
 
 var app = new Juego()
+
 
 </code></pre>
         </article>
@@ -348,13 +611,13 @@ var app = new Juego()
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Juego.html">Juego</a></li><li><a href="Modelo.html">Modelo</a></li><li><a href="Vista.html">Vista</a></li></ul><h3>Global</h3><ul><li><a href="global.html#allowDrop">allowDrop</a></li><li><a href="global.html#drag">drag</a></li><li><a href="global.html#dropAmarillo">dropAmarillo</a></li><li><a href="global.html#dropAzul">dropAzul</a></li><li><a href="global.html#dropVerde">dropVerde</a></li><li><a href="global.html#masPunto">masPunto</a></li><li><a href="global.html#puntos">puntos</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Juego.html">Juego</a></li><li><a href="Modelo.html">Modelo</a></li><li><a href="Vista.html">Vista</a></li></ul><h3>Global</h3><ul><li><a href="global.html#allowDrop">allowDrop</a></li><li><a href="global.html#clickIniciar">clickIniciar</a></li><li><a href="global.html#clickItem">clickItem</a></li><li><a href="global.html#drag">drag</a></li><li><a href="global.html#dropAmarillo">dropAmarillo</a></li><li><a href="global.html#dropAzul">dropAzul</a></li><li><a href="global.html#dropVerde">dropVerde</a></li><li><a href="global.html#masPunto">masPunto</a></li><li><a href="global.html#puntos">puntos</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.7</a> on Tue Nov 16 2021 17:28:40 GMT+0100 (hora estándar de Europa central)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.7</a> on Fri Nov 26 2021 12:09:23 GMT+0100 (hora estándar de Europa central)
 </footer>
 
 <script> prettyPrint(); </script>

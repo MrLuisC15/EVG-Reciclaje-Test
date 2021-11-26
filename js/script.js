@@ -364,6 +364,7 @@ class Juego{
       if(((puntos==15 && nivel==2) || (puntos==50 && nivel==3) ||(puntos==100 && nivel==4) || (puntos==200 && nivel==5) || (puntos==350 && nivel==6) || (puntos==500 && nivel==7) || (puntos==1000 && nivel==8) || (puntos==2000 && nivel==9) || (puntos==5000 && nivel==10) )|| pausa==1){
          window.clearInterval(generadorItems)
          this.intervaloItem()
+         this.limpiarPantalla()
          puntos=puntos+nivel
          divPuntos.innerHTML = puntos
          pausa=2

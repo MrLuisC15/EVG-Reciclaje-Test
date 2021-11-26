@@ -334,10 +334,9 @@ class Juego{
       generadorItems= window.setInterval(this.generarItem.bind(this), velocidad)
      
    }
-/////////////////////////////////////////////////////////////Comentario pa borrar luego
    /**
-    *Crea un nuevo objeto basura
-    *
+    * @function generarItem
+    * @description Crea un nuevo objeto basura.
     * @memberof Juego
     */
    generarItem(){
@@ -358,6 +357,11 @@ class Juego{
          pausa=2
       }
    }
+   /**
+    * @function comprobarPerder
+    * @description Cuenta cuánta basura hay para ver si debe mostrar o no la pantalla de Game Over.
+    * @memberof Juego
+    */
    comprobarPerder(){
       if(contadorPerder>=20 && nivel==1) {
          this.perder()
@@ -374,7 +378,9 @@ class Juego{
    }
 
    /**
-    * Aquie nos meuestra cuando hemos perdido la partida
+    * @function perder
+    * @description Muestra la pantalla de Game Over.
+    * @memberof Juego
     */
    perder(){
       window.clearInterval(generadorItems)
@@ -399,7 +405,7 @@ class Juego{
   
 }
 /**
- *Clase vista que muestra el juego
+ *Clase vista que muestra el juego.
  *
  * @class Vista
  */
@@ -413,11 +419,11 @@ class Vista{
    }
 
    /**
-    *Dibuja los elementos del juego
-    *
-    * @param {*} divPrincipal Contenedor donde aperecerá la basura
-    * @param {*} nuevoItem Objeto basura que se introducirá en el contenedor
-    * @param {*} contadorItems Variable que llevará la cuenta de toda la basura que hay
+    * @function dibujar
+    * @description Dibuja los elementos del juego.
+    * @param {HTMLDivElement} divPrincipal Contenedor donde aperecerá la basura.
+    * @param {String} nuevoItem Objeto basura que se introducirá en el contenedor.
+    * @param {BigInteger} contadorItems Variable que llevará la cuenta de toda la basura que hay.
     * @memberof Vista
     */
    dibujar(divPrincipal, nuevoItem, contadorItems){
@@ -457,10 +463,10 @@ class Vista{
       
    }
    /**
-    *Valida a qué contenedor debe ir cada objeto basura
-    *
-    * @param {*} nuevoItem Objeto basura creado
-    * @return {*} Contenedor al que debe ir
+    * @function preguntaTipo
+    * @description Valida a qué contenedor debe ir cada objeto basura.
+    * @param {String} nuevoItem Objeto basura creado.
+    * @return {String} Contenedor al que debe ir.
     * @memberof Vista
     */
    preguntaTipo(nuevoItem){
@@ -487,7 +493,7 @@ class Vista{
    }
 }
 /**
- *Clase Modelo encargada de la parte lógica del programa
+ *Clase Modelo encargada de la parte lógica del programa.
  *
  * @class Modelo
  */
@@ -498,9 +504,9 @@ class Modelo{
       this.itemsVerde = [ 'manzana.png','platano.png','naranja.png','melocoton.png','kiwi.png']
    }
    /**
-    *Crea un nuevo objeto basura
-    *
-    * @return {*} Objeto basura
+    * @function crearItem
+    * @description Crea un nuevo objeto basura.
+    * @return {*} Objeto basura.
     * @memberof Modelo
     */
    crearItem(){
@@ -553,6 +559,10 @@ draggable3.setAttribute("ondragstart","drag(event)")
 let boton = document.getElementById('bIniciar')
 boton.setAttribute("onclick", "clickIniciar()")
 
+/**
+ * @function clickIniciar
+ * @description Inicia el juego al hacer click.
+ */
 function clickIniciar() {
    MUSICAFONDO.play();
    let boton = document.getElementById('bIniciar')

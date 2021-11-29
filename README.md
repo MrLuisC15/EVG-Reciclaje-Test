@@ -12,7 +12,7 @@ El juego consistirá en arrastrar distintos tipos de basura a su cubo de recicla
 o hacer clic en la basura y luego en su correspondiente contendor.
 
 El objetivo es ir reciclando toda la basura que puedas antes de que se acumule demasiada.
-Conforme se consigan más puntos, irá aumentando el nivel del juego (hay 4 niveles). La puntuación más alta del usuario
+Conforme se consigan más puntos, irá aumentando el nivel del juego (hay 10 niveles). La puntuación más alta del usuario
 irá siendo registrada.
 
 Puedes jugarlo [aquí](https://mrluisc15.github.io/EVG-Reciclaje-Test/).
@@ -20,4 +20,3 @@ Puedes jugarlo [aquí](https://mrluisc15.github.io/EVG-Reciclaje-Test/).
 ## Descargas
 
 - [Android APK](ReciclajeEVG.apk)
-- [PC (Windows, Mac, Linux)](https://appmaker.xyz/web2desk/download/xp7r8etUQXxO3Q2KvyWi)

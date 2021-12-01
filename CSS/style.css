@@ -140,7 +140,7 @@ div{
     margin: auto;
     z-index: 10;
     position: absolute;
-    top: 200px;
+    top: 10vh;
     left: 0;
     width: 100%;
     text-align: center;
@@ -162,6 +162,29 @@ div{
     min-width: 80vw;
     min-height: 80vh;
     transition: 1s;
+    font-size: 3vw;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+#mostrarFin div{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+#mostrarFin a{
+    padding: 10px;
+    text-decoration: none;
+    color: green;
+    background-color: white;
+    border: 5px solid green;
+    cursor: pointer;
+    border-radius: 20px;
 }
 
 #contenedor-creditos{

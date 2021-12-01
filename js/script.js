@@ -27,12 +27,39 @@ let perder = document.createElement("AUDIO");
 perder.setAttribute("src","sonidos/lose.mp3");
 const MUSICAFONDO=document.querySelector("#musica-fondo");
 MUSICAFONDO.loop=true;
-/*
-let acierto = new Audio('../sonidos/acierto.wav')
-let fallo = new Audio('../sonidos/fallo.wav')
-let pasarNivel = new Audio('../sonidos/pasarNivel.wav')
-let perder = new Audio('../sonidos/perder.wav')
-*/
+let puntosCookie
+let divMax=document.getElementById('puntosMaximos')
+let subeNivel = false
+
+if(!document.cookie) {
+   document.cookie = 'puntosMax = 0';
+   puntosCookie = getCookie('puntosMax')
+   divMax.innerHTML = puntosCookie
+}
+else {
+   puntosCookie = getCookie('puntosMax')
+   divMax.innerHTML = puntosCookie
+}
+
+
+function getCookie(cname) {
+   let name = cname + "=";
+   let ca = document.cookie.split(';');
+   for(let i = 0; i < ca.length; i++) {
+     let c = ca[i];
+     while (c.charAt(0) == ' ') {
+       c = c.substring(1);
+     }
+     if (c.indexOf(name) == 0) {
+       return c.substring(name.length, c.length);
+     }
+   }
+   return "";
+ }
+
+
+
+
 /**
  * @function allowDrop
  * @description Función que permitirá arrastar un objeto.
@@ -187,7 +214,11 @@ function dropAzul(ev) {
    }
  }
 
-   
+
+/*if(!document.cookie ) {
+   document.cookie = newCookie
+   document.cookie = "puntos = 1"
+}*/
 
 /**
  * @function masPunto
@@ -200,8 +231,18 @@ function masPunto(){
 
    let divNivel=document.getElementById('nivel')
    divNivel.innerHTML = nivel
+
+   
+
+   if(puntosCookie<puntos){
+      document.cookie = 'puntosMax = '+puntos
+      divMax.innerHTML = puntos
+   }
+
+
    //console.log(puntos);
    if(puntos>=15 && nivel==1) {
+      subeNivel=true
       pasarNivel.play()
       nivel=2
       velocidad=1500
@@ -214,6 +255,7 @@ function masPunto(){
       document.getElementById('papeleras').style.borderColor = 'red'
    }
    if(puntos>=50 && nivel==2) {
+      subeNivel=true
       pasarNivel.play()
       nivel=3
       velocidad=1250
@@ -226,6 +268,7 @@ function masPunto(){
       document.getElementById('papeleras').style.borderColor = 'blue'
    }
    if(puntos>=100 && nivel==3) {
+      subeNivel=true
       pasarNivel.play()
       nivel=4
       velocidad=1100
@@ -238,6 +281,7 @@ function masPunto(){
       document.getElementById('papeleras').style.borderColor = 'purple'
    }
    if(puntos>=200 && nivel==4) {
+      subeNivel=true
       pasarNivel.play()
       nivel=5
       velocidad=1000
@@ -250,6 +294,7 @@ function masPunto(){
       document.getElementById('papeleras').style.borderColor = 'magenta'
    }
    if(puntos>=350 && nivel==5) {
+      subeNivel=true
       pasarNivel.play()
       nivel=6
       velocidad=850
@@ -262,6 +307,7 @@ function masPunto(){
       document.getElementById('papeleras').style.borderColor = 'yellow'
    }
    if(puntos>=500 && nivel==6) {
+      subeNivel=true
       pasarNivel.play()
       nivel=7
       velocidad=700
@@ -274,6 +320,7 @@ function masPunto(){
       document.getElementById('papeleras').style.borderColor = 'brown'
    }
    if(puntos>=1000 && nivel==7) {
+      subeNivel=true
       pasarNivel.play()
       nivel=8
       velocidad=550
@@ -286,6 +333,7 @@ function masPunto(){
       document.getElementById('papeleras').style.borderColor = 'cyan'
    }
    if(puntos>=2000 && nivel==8) {
+      subeNivel=true
       pasarNivel.play()
       nivel=9
       velocidad=400
@@ -298,6 +346,7 @@ function masPunto(){
       document.getElementById('papeleras').style.borderColor = 'pink'
    }
    if(puntos>=5000 && nivel==9) {
+      subeNivel=true
       pasarNivel.play()
       nivel=10
       velocidad=250
@@ -323,6 +372,7 @@ class Juego{
       this.animador = null
       this.divPrincipal = null
       this.puntos = 0
+
       window.onload = this.iniciar.bind(this)
    }
 
@@ -367,11 +417,13 @@ class Juego{
          this.comprobarPerder()
          
       }
-      if(((puntos==15 && nivel==2) || (puntos==50 && nivel==3) ||(puntos==100 && nivel==4) || (puntos==200 && nivel==5) || (puntos==350 && nivel==6) || (puntos==500 && nivel==7) || (puntos==1000 && nivel==8) || (puntos==2000 && nivel==9) || (puntos==5000 && nivel==10) )|| pausa==1){
+      if(subeNivel|| pausa==1){
          window.clearInterval(generadorItems)
          this.intervaloItem()
-         this.limpiarPantalla()
-         puntos=puntos+nivel
+         if(subeNivel) {
+            this.limpiarPantalla()
+            subeNivel=false
+         }
          divPuntos.innerHTML = puntos
          pausa=2
       }

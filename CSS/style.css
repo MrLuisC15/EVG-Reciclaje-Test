@@ -144,9 +144,24 @@ div{
     left: 0;
     width: 100%;
     text-align: center;
+    border-radius: 10px;
+    min-height: 400px;
 }
 .gameOver img{
     width: 50%;
+}
+
+#mostrarFin{
+    border: 15px solid rgb(60, 189, 0);
+    background-color: rgb(215, 255, 205);
+    top: -1000px;
+    border-radius: 20px;
+    margin: auto;
+    z-index: 10;
+    position: absolute;
+    min-width: 80vw;
+    min-height: 80vh;
+    transition: 1s;
 }
 
 #contenedor-creditos{

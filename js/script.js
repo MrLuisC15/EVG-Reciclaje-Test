@@ -59,13 +59,10 @@ let subeNivel = false
 
 if(!document.cookie) {
    document.cookie = 'puntosMax = 0';
-   puntosCookie = getCookie('puntosMax')
-   divMax.innerHTML = puntosCookie
+   
 }
-else {
-   puntosCookie = getCookie('puntosMax')
-   divMax.innerHTML = puntosCookie
-}
+puntosCookie = getCookie('puntosMax')
+divMax.innerHTML = puntosCookie
 
 
 function getCookie(cname) {
@@ -510,9 +507,13 @@ class Juego{
       divPerder.classList.add('gameOver');
       divPerder.appendChild(img);
       MUSICAFONDO.playbackRate=0
-
-
-
+      let divMostrarFin = document.getElementById('mostrarFin')
+      setTimeout(() => {
+         divPerder.removeChild(img)
+         divMostrarFin.style.top = '15vh'
+         document.getElementById('maincontainer').style.display = 'none'
+         
+      }, 5000);
 
       //divPerder.textContent=`Has perdido en el nivel ${nivel}`
       pausa=0

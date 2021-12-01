@@ -140,7 +140,7 @@ div{
     margin: auto;
     z-index: 10;
     position: absolute;
-    top: 200px;
+    top: 15vh;
     left: 0;
     width: 100%;
     text-align: center;

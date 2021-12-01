@@ -444,12 +444,13 @@ class Juego{
          
       }
       if(subeNivel|| pausa==1){
-         window.clearInterval(generadorItems)
-         this.intervaloItem()
          if(subeNivel) {
             this.limpiarPantalla()
             subeNivel=false
          }
+         window.clearInterval(generadorItems)
+         this.intervaloItem()
+         
          divPuntos.innerHTML = puntos
          pausa=2
       }

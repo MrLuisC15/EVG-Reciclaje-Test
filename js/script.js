@@ -483,6 +483,7 @@ class Juego{
       document.body.appendChild(divPerder);
       divPerder.classList.add('gameOver');
       divPerder.appendChild(img);
+      MUSICAFONDO.playbackRate=0
 
 
 

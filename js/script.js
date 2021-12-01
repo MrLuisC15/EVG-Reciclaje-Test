@@ -27,12 +27,32 @@ let perder = document.createElement("AUDIO");
 perder.setAttribute("src","sonidos/lose.mp3");
 const MUSICAFONDO=document.querySelector("#musica-fondo");
 MUSICAFONDO.loop=true;
+const F11=document.querySelector("#f11");
+F11.onclick=pantallaCompleta;
 /*
 let acierto = new Audio('../sonidos/acierto.wav')
 let fallo = new Audio('../sonidos/fallo.wav')
 let pasarNivel = new Audio('../sonidos/pasarNivel.wav')
 let perder = new Audio('../sonidos/perder.wav')
 */
+window.addEventListener("keydown", (e)=>{
+   if(e.key=="F11"){
+      e.preventDefault();
+   }
+   if(e.key=="f"){
+      pantallaCompleta();
+   }
+})
+
+function pantallaCompleta(){
+   if(document.fullscreenElement){
+      document.exitFullscreen();
+      F11.innerHTML='<i class="bi bi-fullscreen"></i>';
+   }else{
+      document.documentElement.requestFullscreen();
+      F11.innerHTML='<i class="bi bi-fullscreen-exit"></i>';
+   }
+}
 /**
  * @function allowDrop
  * @description Función que permitirá arrastar un objeto.

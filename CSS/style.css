@@ -30,11 +30,25 @@ h1{
     text-align: center;
 }
 #puntosniveles{
+    position: relative;
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-around;
     flex-wrap: wrap;
+}
+#f11{
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 1.1em;
+    border: none;
+    background: none;
+    cursor: pointer;
+    transition: 0.3s;
+}
+#f11:hover{
+    transform: scale(1.2);
 }
 div{
     float: left;

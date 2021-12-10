@@ -27,6 +27,10 @@
  perder.setAttribute("src", "sonidos/lose.mp3");
  const MUSICAFONDO = document.querySelector("#musica-fondo");
  MUSICAFONDO.loop = true;
+
+ /**
+  * Funcionamiento botón pantalla completa
+  */
  const F11 = document.querySelector("#f11");
  F11.onclick = pantallaCompleta;
 
@@ -48,6 +52,11 @@
          F11.innerHTML = '<i class="bi bi-fullscreen-exit"></i>';
      }
  }
+
+/**
+ * Cookies, si no existe la crea, si la puntuacion es 
+ * mayor a la que está en la cookie la modifica
+ */
  let puntosCookie
  let divMax = document.getElementById('puntosMaximos')
  let subeNivel = false

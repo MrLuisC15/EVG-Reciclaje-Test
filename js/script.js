@@ -494,10 +494,12 @@
          divPerder.appendChild(img);
          MUSICAFONDO.playbackRate = 0
          let divMostrarFin = document.getElementById('mostrarFin')
+         let puntosFin = document.getElementById('puntosFin')
          setTimeout(() => {
              divPerder.removeChild(img)
              divMostrarFin.style.top = '15vh'
              document.getElementById('maincontainer').style.display = 'none'
+             puntosFin.innerHTML = puntos
  
          }, 5000);
  
